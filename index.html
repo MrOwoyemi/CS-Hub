@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GCSE CS Hub | Student Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="loadContent('home')">
+
+  <header class="navbar">
+    <div class="menu-btn" id="menu-btn" onclick="toggleNav()">
+      <div class="bar" id="bar1"></div>
+      <div class="bar" id="bar2"></div>
+      <div class="bar" id="bar3"></div>
+    </div>
+    <div class="logo-container">
+      <a href="#" class="logo" onclick="loadContent('home')">GCSE CS Hub</a>
+    </div>
+  </header>
+
+  <nav id="sidebar" class="sidebar">
+    <ul>
+      <li>
+        <a href="javascript:void(0)" onclick="toggleSubMenu('p1-submenu')" class="dropdown-link">Paper 1: Computational Thinking</a>
+        <ul id="p1-submenu" class="submenu">
+          <li><a href="#" onclick="loadContent('p1_hub')">Overview</a></li>
+          <li><a href="#" onclick="loadContent('p1_algo')">3.1 Fundamentals of algorithms</a></li>
+          <li><a href="#" onclick="loadContent('p1_prog')">3.2 Programming</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="javascript:void(0)" onclick="toggleSubMenu('p2-submenu')" class="dropdown-link">Paper 2: Computing Concepts</a>
+        <ul id="p2-submenu" class="submenu">
+          <li><a href="#" onclick="loadContent('p2_hub')">Overview</a></li>
+          <li><a href="#" onclick="loadContent('p2_data')">3.3 Data representation</a></li>
+          <li><a href="#" onclick="loadContent('p2_sys')">3.4 Computer systems</a></li>
+          <li><a href="#" onclick="loadContent('p2_net')">3.5 Computer networks</a></li>
+          <li><a href="#" onclick="loadContent('p2_cyber')">3.6 Cyber security</a></li>
+          <li><a href="#" onclick="loadContent('p2_sql')">3.7 Relational databases (SQL)</a></li>
+          <li><a href="#" onclick="loadContent('p2_impact')">3.8 Ethical, legal & environmental</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="javascript:void(0)" onclick="toggleSubMenu('prac-submenu')" class="dropdown-link">Practical Programming</a>
+        <ul id="prac-submenu" class="submenu">
+          <li><a href="#" onclick="loadContent('prac_hub')">Python Basics</a></li>
+          <li><a href="#" onclick="loadContent('prac_challenges')">Coding Challenges</a></li>
+        </ul>
+      </li>
+      
+      <li><a href="#" onclick="loadContent('resources')">Revision Resources</a></li>
+    </ul>
+  </nav>
+
+  <main id="main-content">
+    <div id="display-area">
+      </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
