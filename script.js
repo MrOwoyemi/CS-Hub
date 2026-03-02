@@ -21,33 +21,90 @@ const contentData = {
       </div>
     </div>
 
-    <h2 style="margin-top: 40px;">Homework Reminders</h2>
+    <h2 style="margin-top: 40px; color: var(--accent-red);">⚠️ Final GCSE Exam Dates</h2>
     
-    <div class="homework-card">
+    <div class="homework-card" style="border-left: 6px solid var(--accent-red); background: #fff5f5;">
       <div class="homework-info">
-        <h4>3.5 Computer networks</h4>
-        <p><strong>Due:</strong> 27/02/2026</p>
-        <p>Create a mind map explaining the pros and cons of LANs vs. WANs...</p>
+        <h4>Paper 1: Computational Thinking and Programming Skills</h4>
+        <p style="font-size: 1.4rem; color: var(--accent-red); margin: 10px 0;">
+            <strong>Exam Date: 13/05/2026 (Wednesday AM)</strong>
+        </p>
+        <p>Focus: Algorithms, Programming, and Logic.</p>
+        <p id="p1-breakdown" style="font-size: 0.85rem; color: #555; font-style: italic;"></p>
       </div>
-      <div class="countdown-tag" data-due="2026-02-27">Calculating...</div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+        <div class="countdown-tag urgent" data-due="2026-05-13">Calculating...</div>
+        <div class="weeks-tag" data-due="2026-05-13" style="font-size: 1rem; color: #333; font-weight: bold;"></div>
+      </div>
     </div>
 
-    <div class="homework-card">
+    <div class="homework-card" style="border-left: 6px solid var(--accent-red); background: #fff5f5; margin-bottom: 40px;">
       <div class="homework-info">
-        <h4>3.5 Computer networks</h4>
+        <h4>Paper 2: Computing Concepts</h4>
+        <p style="font-size: 1.4rem; color: var(--accent-red); margin: 10px 0;">
+            <strong>Exam Date: 19/05/2026 (Tuesday PM)</strong>
+        </p>
+        <p>Focus: Data, Systems, Networks, and Cyber Security.</p>
+        <p id="p2-breakdown" style="font-size: 0.85rem; color: #555; font-style: italic;"></p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+        <div class="countdown-tag urgent" data-due="2026-05-19">Calculating...</div>
+        <div class="weeks-tag" data-due="2026-05-19" style="font-size: 1rem; color: #333; font-weight: bold;"></div>
+      </div>
+    </div>
+
+    <h2 style="margin-top: 40px;">Year 11 Homework Reminders</h2>
+    
+    <div class="homework-card" style="border-left: 6px solid var(--dark-purple);">
+      <div class="homework-info">
+        <h4>3.5 Computer networks (Hardware & Protocols)</h4>
         <p><strong>Due:</strong> 06/03/2026</p>
         <p>Make revision cards for key network hardware and explain the concept of protocol layering using the 4-layer TCP/IP model.</p>
+        <p class="hw-breakdown" data-due="2026-03-06" style="font-size: 0.85rem; color: #555; font-style: italic;"></p>
       </div>
-      <div class="countdown-tag" data-due="2026-03-06">Calculating...</div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+        <div class="countdown-tag" data-due="2026-03-06">Calculating...</div>
+        <div class="weeks-tag" data-due="2026-03-06" style="font-size: 0.9rem; color: #666; font-weight: bold;"></div>
+      </div>
     </div>
 
-    <div class="homework-card" style="margin-bottom: 40px;">
+    <div class="homework-card" style="border-left: 6px solid var(--dark-purple);">
       <div class="homework-info">
-        <h4>3.5 Computer networks</h4>
+        <h4>3.5 Computer networks (Web Services)</h4>
         <p><strong>Due:</strong> 13/03/2026</p>
-        <p>Draw a diagram illustrating the roles of DNS, hosting, and the cloud in the process of a user accessing a website. </p>
+        <p>Draw a diagram illustrating the roles of DNS, hosting, and the cloud in the process of a user accessing a website.</p>
+        <p class="hw-breakdown" data-due="2026-03-13" style="font-size: 0.85rem; color: #555; font-style: italic;"></p>
       </div>
-      <div class="countdown-tag" data-due="2026-03-13">Calculating...</div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+        <div class="countdown-tag" data-due="2026-03-13">Calculating...</div>
+        <div class="weeks-tag" data-due="2026-03-13" style="font-size: 0.9rem; color: #666; font-weight: bold;"></div>
+      </div>
+    </div>
+
+    <div class="homework-card" style="border-left: 6px solid var(--dark-purple);">
+      <div class="homework-info">
+        <h4>Topic 3.5 Revision</h4>
+        <p><strong>Due:</strong> 20/03/2026</p>
+        <p>Answer a selection of past exam questions on Topic 3.5: Network types, topologies, hardware, and protocols.</p>
+        <p class="hw-breakdown" data-due="2026-03-20" style="font-size: 0.85rem; color: #555; font-style: italic;"></p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+        <div class="countdown-tag" data-due="2026-03-20">Calculating...</div>
+        <div class="weeks-tag" data-due="2026-03-20" style="font-size: 0.9rem; color: #666; font-weight: bold;"></div>
+      </div>
+    </div>
+
+    <div class="homework-card" style="margin-bottom: 40px; border-left: 6px solid var(--dark-purple);">
+      <div class="homework-info">
+        <h4>Topic Consolidation (Units 3.3, 3.4, 3.5)</h4>
+        <p><strong>Due:</strong> 27/03/2026</p>
+        <p>Complete Seneca Learning quizzes or similar online revision activities covering Data, Systems, and Networks.</p>
+        <p class="hw-breakdown" data-due="2026-03-27" style="font-size: 0.85rem; color: #555; font-style: italic;"></p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+        <div class="countdown-tag" data-due="2026-03-27">Calculating...</div>
+        <div class="weeks-tag" data-due="2026-03-27" style="font-size: 0.9rem; color: #666; font-weight: bold;"></div>
+      </div>
     </div>
 
     <h2>Revision Hub</h2>
@@ -406,7 +463,7 @@ const contentData = {
   <div class="homework-box">
     <h3>Algorithm Efficiency</h3>
     <ul>
-      <li><strong>Time Complexity:</strong> $O(n)$ — In the worst case, you must check all $n$ items.</li>
+      <li><strong>Time Complexity:</strong> O(n) — In the worst case, you must check all n items.</li>
       <li><strong>Prerequisite:</strong> None. Unlike Binary Search, the list does <strong>not</strong> need to be sorted.</li>
     </ul>
   </div>
@@ -871,7 +928,125 @@ const contentData = {
       </div>
     </div>
 
-    <h2 class="section-title">2. Characters and Text</h2>
+    <h2 class="section-title">2. Conversion Guide</h2>
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid var(--dark-purple);">
+        <h3>Denary to Binary</h3>
+        <p>Subtract the largest possible power of two from your number, placing a '1' in that column and a '0' if the value is too large.</p>
+        <div style="font-family: monospace; font-size: 0.9rem; margin-bottom: 10px;">Example: Convert 105</div>
+        <table style="width:100%; border-collapse: collapse; text-align: center; font-family: monospace; margin-bottom: 15px; background: #f8f9fa; border: 1px solid #dee2e6;">
+          <tr style="background: #e9ecef; color: var(--dark-purple); font-weight: bold;">
+            <td style="padding: 5px; border: 1px solid #dee2e6;">128</td>
+            <td style="padding: 5px; border: 1px solid #dee2e6;">64</td>
+            <td style="padding: 5px; border: 1px solid #dee2e6;">32</td>
+            <td style="padding: 5px; border: 1px solid #dee2e6;">16</td>
+            <td style="padding: 5px; border: 1px solid #dee2e6;">8</td>
+            <td style="padding: 5px; border: 1px solid #dee2e6;">4</td>
+            <td style="padding: 5px; border: 1px solid #dee2e6;">2</td>
+            <td style="padding: 5px; border: 1px solid #dee2e6;">1</td>
+          </tr>
+          <tr style="font-size: 1.2rem;">
+            <td style="padding: 8px; border: 1px solid #dee2e6;">0</td>
+            <td style="padding: 8px; border: 1px solid #dee2e6;">1</td>
+            <td style="padding: 8px; border: 1px solid #dee2e6;">1</td>
+            <td style="padding: 8px; border: 1px solid #dee2e6;">0</td>
+            <td style="padding: 8px; border: 1px solid #dee2e6;">1</td>
+            <td style="padding: 8px; border: 1px solid #dee2e6;">0</td>
+            <td style="padding: 8px; border: 1px solid #dee2e6;">0</td>
+            <td style="padding: 8px; border: 1px solid #dee2e6;">1</td>
+          </tr>
+        </table>
+        <p style="font-size: 0.85rem; background: #fff3cd; padding: 10px; border-radius: 5px;">
+          105 - 64 = 41<br>
+          41 - 32 = 9<br>
+          9 - 8 = 1<br>
+          1 - 1 = 0
+        </p>
+      </div>
+
+      <div class="card" style="border-top: 5px solid var(--dark-purple);">
+        <h3>Binary to Denary</h3>
+        <p>Place your binary digits into a power-of-two table and add the values where a '1' appears.</p>
+        <table style="width:100%; border-collapse: collapse; text-align: center; font-family: monospace; margin: 15px 0; background: #f8f9fa; border: 1px solid #dee2e6;">
+          <tr style="background: #e9ecef; color: var(--dark-purple); font-weight: bold;">
+            <td style="padding: 8px; border: 1px solid #dee2e6;">128</td>
+            <td style="padding: 8px; border: 1px solid #dee2e6;">64</td>
+            <td style="padding: 8px; border: 1px solid #dee2e6;">32</td>
+            <td style="padding: 8px; border: 1px solid #dee2e6;">16</td>
+            <td style="padding: 8px; border: 1px solid #dee2e6;">8</td>
+            <td style="padding: 8px; border: 1px solid #dee2e6;">4</td>
+            <td style="padding: 8px; border: 1px solid #dee2e6;">2</td>
+            <td style="padding: 8px; border: 1px solid #dee2e6;">1</td>
+          </tr>
+          <tr style="font-size: 1.4rem; color: #333;">
+            <td style="padding: 12px; border: 1px solid #dee2e6;">1</td>
+            <td style="padding: 12px; border: 1px solid #dee2e6;">0</td>
+            <td style="padding: 12px; border: 1px solid #dee2e6;">1</td>
+            <td style="padding: 12px; border: 1px solid #dee2e6;">0</td>
+            <td style="padding: 12px; border: 1px solid #dee2e6;">1</td>
+            <td style="padding: 12px; border: 1px solid #dee2e6;">0</td>
+            <td style="padding: 12px; border: 1px solid #dee2e6;">0</td>
+            <td style="padding: 12px; border: 1px solid #dee2e6;">0</td>
+          </tr>
+        </table>
+        <div style="background: #e7f3ff; padding: 15px; border-radius: 8px; border-left: 4px solid #007bff; font-family: 'Courier New', monospace;">
+          <strong>Calculation:</strong><br>
+          128 + 32 + 8 = 168
+        </div>
+      </div>
+
+      <div class="card" style="border-top: 5px solid var(--dark-purple);">
+        <h3>Binary to Hex</h3>
+        <p>Split the byte into two nibbles (4 bits each).</p>
+        <div style="background: #f4f4f4; padding: 10px; border-radius: 5px; font-family: monospace; font-size: 0.9rem;">
+          Example: 10110101<br><br>
+          1. Split: [1011] [0101]<br>
+          2. Convert Nibbles to Denary:<br>
+          8+2+1 = 11 | 4+1 = 5<br>
+          3. Convert to Hex:<br>
+          11 is 'B' | 5 is '5'<br><br>
+          Result: <strong>B5</strong>
+        </div>
+      </div>
+
+      <div class="card" style="border-top: 5px solid var(--dark-purple);">
+        <h3>Hex to Binary</h3>
+        <p>Convert each Hex digit into its own 4-bit nibble, then join them together.</p>
+        <div style="background: #f4f4f4; padding: 15px; border-radius: 8px; font-family: monospace;">
+          Example: <strong>3A</strong><br><br>
+          1. Split: [3] [A]<br>
+          2. Convert 3: 0011<br>
+          3. Convert A (10): 1010<br><br>
+          Result: <strong>00111010</strong>
+        </div>
+      </div>
+
+      <div class="card" style="border-top: 5px solid var(--dark-purple);">
+        <h3>Denary to Hex</h3>
+        <p>Divide the denary number by 16.</p>
+        <div style="background: #f4f4f4; padding: 10px; border-radius: 5px; font-family: monospace; font-size: 0.9rem;">
+          Example: 157<br><br>
+          1. 157 / 16 = 9 (Remainder 13)<br>
+          2. First digit is 9.<br>
+          3. Remainder 13 is 'D'.<br><br>
+          Result: <strong>9D</strong>
+        </div>
+      </div>
+
+      <div class="card" style="border-top: 5px solid var(--dark-purple);">
+        <h3>Hex to Denary</h3>
+        <p>Multiply the left digit by 16 and add the right digit.</p>
+        <div style="background: #e7f3ff; padding: 15px; border-radius: 8px; border-left: 4px solid #007bff; font-family: 'Courier New', monospace;">
+          Example: <strong>2C</strong><br><br>
+          1. Left (2): 2 x 16 = 32<br>
+          2. Right (C): 12<br>
+          3. 32 + 12 = 44<br><br>
+          Result: <strong>44</strong>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">3. Characters and Text</h2>
     <div class="card-grid">
       <div class="card" style="border-top: 5px solid var(--dark-purple);">
         <h3>ASCII</h3>
@@ -892,7 +1067,7 @@ const contentData = {
       </div>
     </div>
 
-    <h2 class="section-title">3. Images and Sound</h2>
+    <h2 class="section-title">4. Images and Sound</h2>
     <div class="card-grid">
       <div class="card">
         <h3>Bitmap Images</h3>
@@ -912,10 +1087,38 @@ const contentData = {
       </div>
     </div>
 
-    <h2 class="section-title">4. Compression File Types</h2>
+    <h2 class="section-title">5. Data Representation Calculations</h2>
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid #007bff;">
+        <h3>Image File Size Calculation</h3>
+        <p>The total number of bits in an image is calculated by multiplying dimensions by the colour depth.</p>
+        
+        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #dee2e6; font-family: monospace;">
+          <strong>Example:</strong> A 100 x 100 pixel image with a 8-bit colour depth.<br><br>
+          1. <strong>Total Pixels:</strong> 100 x 100 = 10,000 pixels<br>
+          2. <strong>Total Bits:</strong> 10,000 x 8 = 80,000 bits<br>
+          3. <strong>In Bytes:</strong> 80,000 / 8 = 10,000 bytes<br><br>
+          <strong>Formula:</strong> Width x Height x Colour Depth
+        </div>
+      </div>
+
+      <div class="card" style="border-top: 5px solid #28a745;">
+        <h3>Sound File Size Calculation</h3>
+        <p>Calculated by multiplying the sample rate, bit depth, and duration in seconds.</p>
+        
+        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #dee2e6; font-family: monospace;">
+          <strong>Example:</strong> 10s of audio, 44,100Hz sample rate, 16-bit depth.<br><br>
+          1. <strong>Calculation:</strong> 44,100 x 16 x 10<br>
+          2. <strong>Total Bits:</strong> 7,056,000 bits<br>
+          3. <strong>In MB:</strong> approx 0.88 MB<br><br>
+          <strong>Formula:</strong> Rate x Depth x Time
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">6. Compression File Types</h2>
     <div class="homework-box">
       <p>Different file formats are designed for specific tasks. Lossy is best for streaming and web use, while Lossless is essential for documents where every bit must be preserved.</p>
-      
       <table style="width:100%; border-collapse: collapse; margin-top: 20px; color: white; background: #222; border-radius: 8px; overflow: hidden;">
         <thead>
           <tr style="background: var(--dark-purple); text-align: left;">
@@ -955,7 +1158,6 @@ const contentData = {
         <p>A form of lossless compression that replaces consecutive identical data elements with a single data value and a count.</p>
         <button onclick="loadContent('p2_rle_act')" style="margin-top: 10px; padding: 8px 15px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Try RLE Activity</button>
       </div>
-
       <div class="card" style="border-top: 5px solid var(--accent-green);">
         <h3>Huffman Encoding</h3>
         <p>Uses a frequency-based tree to assign shorter binary codes to more frequent characters, reducing the overall file size.</p>
@@ -1078,8 +1280,6 @@ const contentData = {
       </div>
     </div>
 
-    
-
     <div class="homework-box" style="margin-top: 50px;">
       <h2 class="section-title">The Fetch-Decode-Execute Cycle</h2>
       <p>The continuous process a CPU follows to process instructions:</p>
@@ -1088,6 +1288,126 @@ const contentData = {
         <li><strong>Decode:</strong> The Control Unit (CU) works out what the instruction is.</li>
         <li><strong>Execute:</strong> The instruction is carried out by the ALU or other components.</li>
       </ol>
+    </div>
+
+    <h2 class="section-title">2. Programming Languages</h2>
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid #007bff;">
+        <h3>High-Level Languages</h3>
+        <p>Languages designed to be easily understood by humans, such as Python, Java, or C++.</p>
+        <ul>
+          <li><strong>Definition:</strong> Uses English-like keywords and structure.</li>
+          <li><strong>Advantages:</strong> Faster to write, easier to debug, and portable (can run on different CPU architectures).</li>
+          <li><strong>Disadvantages:</strong> Must be translated before execution; slower to run and less memory efficient than low-level code.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="border-top: 5px solid #dc3545;">
+        <h3>Low-Level Languages</h3>
+        <p>Languages that sit close to the computer's hardware, such as Assembly or Machine Code.</p>
+        <ul>
+          <li><strong>Definition:</strong> Refers directly to the specific architecture and hardware of a particular CPU.</li>
+          <li><strong>Advantages:</strong> Can be executed faster and allows for direct manipulation of hardware and memory.</li>
+          <li><strong>Disadvantages:</strong> Very difficult for humans to read/write, hard to debug, and specific to one type of machine (not portable).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="homework-box" style="margin-top: 30px;">
+      <h3>Comparison: High vs. Low Level</h3>
+      <table style="width:100%; border-collapse: collapse; margin-top: 10px; background: white; border: 1px solid #ddd;">
+        <tr style="background: #f8f9fa; font-weight: bold;">
+          <td style="padding: 10px; border: 1px solid #ddd;">Feature</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">High-Level</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Low-Level</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;"><strong>Ease of Use</strong></td>
+          <td style="padding: 10px; border: 1px solid #ddd;">High (English-like)</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Low (Cryptic/Binary)</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;"><strong>Translation</strong></td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Required (Compiler/Interpreter)</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Minimal (Assembler/None)</td>
+        </tr>
+        <tr>
+          <td style="padding: 10px; border: 1px solid #ddd;"><strong>Portability</strong></td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Portable across machines</td>
+          <td style="padding: 10px; border: 1px solid #ddd;">Machine-specific</td>
+        </tr>
+      </table>
+    </div>
+
+    <h2 class="section-title">3. Translators</h2>
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid var(--accent-green); flex: 1 1 100%;">
+        <h3>How Code is Converted</h3>
+        <p>Computers can only execute **Machine Code** (binary). Translators convert source code into this executable format.</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 15px;">
+          <div style="background: #f1f1f1; padding: 15px; border-radius: 8px;">
+            <h4>Compiler</h4>
+            <p>Translates the <strong>entire</strong> source code at once into an executable file.</p>
+            <ul>
+              <li><strong>Execution:</strong> Very fast as translation is already done.</li>
+              <li><strong>Security:</strong> Source code is hidden from the user.</li>
+              <li><strong>Error Handling:</strong> Reports all errors only after trying to compile the whole program.</li>
+            </ul>
+          </div>
+          
+          <div style="background: #f1f1f1; padding: 15px; border-radius: 8px;">
+            <h4>Interpreter</h4>
+            <p>Translates and executes code <strong>line-by-line</strong>.</p>
+            <ul>
+              <li><strong>Execution:</strong> Slower because translation happens while the program runs.</li>
+              <li><strong>Debugging:</strong> Program stops at the first error, making it easy to find.</li>
+              <li><strong>Environment:</strong> Requires the interpreter software to be installed on the target machine.</li>
+            </ul>
+          </div>
+
+          <div style="background: #f1f1f1; padding: 15px; border-radius: 8px;">
+            <h4>Assembler</h4>
+            <p>Converts <strong>Assembly Language</strong> into machine code.</p>
+            <ul>
+              <li><strong>Mapping:</strong> Direct 1-to-1 translation between mnemonics and binary.</li>
+              <li><strong>Efficiency:</strong> Produces very optimized code for specific hardware.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top: 40px;">Translator Matching Game</h2>
+    <p>Drag the language or feature to the correct translator.</p>
+    
+    <div class="homework-box">
+      <div id="role-bank" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; padding: 15px; background: #eee; border-radius: 8px; min-height: 50px;">
+        <div class="draggable-role" draggable="true" ondragstart="drag(event)" id="match-python" data-phase="interp">Python</div>
+        <div class="draggable-role" draggable="true" ondragstart="drag(event)" id="match-assembly" data-phase="assembler">Assembly</div>
+        <div class="draggable-role" draggable="true" ondragstart="drag(event)" id="match-cpp" data-phase="comp">C++</div>
+        <div class="draggable-role" draggable="true" ondragstart="drag(event)" id="match-lbl" data-phase="interp">Line-by-Line</div>
+        <div class="draggable-role" draggable="true" ondragstart="drag(event)" id="match-exec" data-phase="comp">Creates .exe file</div>
+        <div class="draggable-role" draggable="true" ondragstart="drag(event)" id="match-mnem" data-phase="assembler">Mnemonics</div>
+      </div>
+
+      <div class="card-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" id="comp">
+          <h3>Compiler</h3>
+        </div>
+        <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" id="interp">
+          <h3>Interpreter</h3>
+        </div>
+        <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" id="assembler">
+          <h3>Assembler</h3>
+        </div>
+      </div>
+      
+      <div id="game-feedback" style="margin-top: 20px; font-weight: bold; min-height: 24px; text-align: center;"></div>
+      
+      <div style="display:flex; justify-content: center; gap: 10px; margin-top: 20px;">
+        <button onclick="loadContent('p2_sys')" style="padding: 10px 20px; background: var(--pastel-violet); color: var(--dark-purple); font-weight: bold; border: none; border-radius: 5px; cursor: pointer;">Reset Game</button>
+      </div>
     </div>
 
     <button onclick="goBack()" style="margin-top: 20px; padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
@@ -1127,18 +1447,32 @@ const contentData = {
         <h3>Addressing</h3>
         <ul style="flex-grow: 1;">
           <li><strong>MAC Address:</strong> A permanent, 12-digit hexadecimal physical address hard-coded into every network card.</li>
-          <li><strong>IP Address:</strong> A 32-bit number (e.g. 192.168.1.1) used for routing data packets across a network.</li>
+          <li><strong>IP Address:</strong> A 32-bit (IPv4) or 128-bit (IPv6) number used for routing data packets across a network.</li>
         </ul>
       </div>
 
       <div class="card" style="flex: 1 1 300px; display: flex; flex-direction: column;">
         <h3>Core Protocols</h3>
         <p>Protocols are sets of rules that allow devices to speak the same language.</p>
-        <ul style="flex-grow: 1;">
-          <li><strong>TCP:</strong> Breaks data into packets and reassembles them.</li>
-          <li><strong>IP:</strong> Responsible for routing the packets to the correct destination.</li>
-          <li><strong>HTTP/HTTPS:</strong> Rules for web browsers to access websites (HTTPS is secure).</li>
+        
+        <h4 style="margin: 10px 0 5px 0; color: var(--dark-purple);">Transmission & Routing</h4>
+        <ul style="margin-bottom: 10px;">
+          <li><strong>TCP:</strong> Breaks data into packets, reassembles them, and checks for errors.</li>
+          <li><strong>IP:</strong> Responsible for routing packets to the correct destination using IP addresses.</li>
+          <li><strong>UDP:</strong> A faster, "connectionless" alternative to TCP used for live streaming/gaming where speed is prioritized over reliability.</li>
+        </ul>
+
+        <h4 style="margin: 10px 0 5px 0; color: var(--dark-purple);">Web & File Transfer</h4>
+        <ul style="margin-bottom: 10px;">
+          <li><strong>HTTP/HTTPS:</strong> Rules for web browsers to access websites; HTTPS uses encryption for security.</li>
           <li><strong>FTP:</strong> Used specifically for transferring files over a network.</li>
+        </ul>
+
+        <h4 style="margin: 10px 0 5px 0; color: var(--dark-purple);">Email Protocols</h4>
+        <ul style="flex-grow: 1;">
+          <li><strong>SMTP:</strong> Used to <strong>send</strong> emails to a server.</li>
+          <li><strong>IMAP:</strong> Used to <strong>retrieve</strong> and manage emails on a server (syncs across devices).</li>
+          <li><strong>POP:</strong> Used to <strong>download</strong> emails from a server to a single device (deletes them from server).</li>
         </ul>
       </div>
     </div>
@@ -1828,10 +2162,10 @@ async function startLinearSearch() {
     const box = document.createElement('div');
     box.innerText = val;
     box.style.cssText = `
-      width: ${boxWidth}px; height: ${boxWidth}px;
-      background: #888; color: white; line-height: ${boxWidth}px;
+      width: {boxWidth}px; height: {boxWidth}px;
+      background: #888; color: white; line-height: {boxWidth}px;
       font-weight: bold; position: absolute; border-radius: 4px;
-      left: ${i * (boxWidth + gap)}px; top: 10px;
+      left: {i * (boxWidth + gap)}px; top: 10px;
       transition: all 0.4s ease;
     `;
     container.appendChild(box);
@@ -1839,7 +2173,7 @@ async function startLinearSearch() {
   });
 
   for (let i = 0; i < boxes.length; i++) {
-    status.innerText = `Checking index ${i}: Is ${values[i]} === ${target}?`;
+    status.innerText = `Checking index {i}: Is {values[i]} === {target}?`;
 
     // Highlight current box (Orange/Yellow)
     boxes[i].style.background = '#ffc107';
@@ -1850,7 +2184,7 @@ async function startLinearSearch() {
     if (values[i] === target) {
       boxes[i].style.background = 'var(--accent-green)';
       boxes[i].style.transform = 'scale(1.2)';
-      status.innerText = `Match Found! ${target} is at index ${i}.`;
+      status.innerText = `Match Found! {target} is at index {i}.`;
       return;
     }
 
@@ -1901,7 +2235,7 @@ async function startBubbleSort() {
       // Highlight comparing bars in Red
       bars[j].style.background = '#dc3545';
       bars[j + 1].style.background = '#dc3545';
-      status.innerText = `Comparing ${values[j]} and ${values[j + 1]}`;
+      status.innerText = `Comparing {values[j]} and {values[j + 1]}`;
 
       // Wait for user to see the comparison (800ms)
       await new Promise(resolve => setTimeout(resolve, 800));
@@ -1978,22 +2312,22 @@ async function startBinarySearch() {
     // Highlight current middle in Red
     bars[mid].style.background = '#dc3545';
     bars[mid].style.transform = 'scale(1.1)';
-    status.innerText = `Checking middle index ${mid} (Value: ${values[mid]})`;
+    status.innerText = `Checking middle index {mid} (Value: {values[mid]})`;
 
     await new Promise(r => setTimeout(r, 1200));
 
     if (values[mid] === target) {
       bars[mid].style.background = 'var(--accent-green)';
       bars[mid].style.transform = 'scale(1.2)';
-      status.innerText = `Found ${target} at index ${mid}!`;
+      status.innerText = `Found {target} at index {mid}!`;
       return;
     }
 
     if (values[mid] < target) {
-      status.innerText = `${values[mid]} is too low. Discarding left half.`;
+      status.innerText = `{values[mid]} is too low. Discarding left half.`;
       low = mid + 1;
     } else {
-      status.innerText = `${values[mid]} is too high. Discarding right half.`;
+      status.innerText = `{values[mid]} is too high. Discarding right half.`;
       high = mid - 1;
     }
 
@@ -2020,10 +2354,10 @@ async function startMergeSort() {
     const box = document.createElement('div');
     box.innerText = val;
     box.style.cssText = `
-      width: ${boxWidth}px; height: ${boxWidth}px;
-      background: #888; color: white; line-height: ${boxWidth}px;
+      width: {boxWidth}px; height: {boxWidth}px;
+      background: #888; color: white; line-height: {boxWidth}px;
       font-weight: bold; position: absolute; border-radius: 4px;
-      left: ${i * (boxWidth + gap)}px; top: 10px; 
+      left: {i * (boxWidth + gap)}px; top: 10px; 
       transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     `;
     container.appendChild(box);
@@ -2112,7 +2446,7 @@ function runRLE() {
       count = 1;
     }
   }
-  resultDiv.innerText = `Result: ${compressed}`;
+  resultDiv.innerText = `Result: {compressed}`;
 }
 
 function revealHuffman() {
@@ -2229,7 +2563,7 @@ function revealPhish(element, message) {
   phishCount++;
 
   const feedback = document.getElementById('phish-feedback');
-  feedback.innerHTML = `✅ Found: ${message}<br>Progress: ${phishCount} / ${totalPhish}`;
+  feedback.innerHTML = `✅ Found: {message}<br>Progress: {phishCount} / {totalPhish}`;
 
   if (phishCount === totalPhish) {
     feedback.innerHTML = "🎉 Excellent! You spotted all the red flags. Always check the sender, the link, and look out for generic greetings or threats of urgency.";
@@ -2251,7 +2585,7 @@ async function runAttackLogic(type) {
   if (type === 'brute') {
     consoleOut.innerHTML = "> Initialising Systematic Brute Force...";
     const targetPassword = "C0mput3r Sc13nc3 R0cks!";
-    const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789!@#$%^&*";
+    const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789!@#%^&*";
     let currentAttempt = "";
 
     // Video-style visualization: Cracking character by character
@@ -2262,7 +2596,7 @@ async function runAttackLogic(type) {
       for (let j = 0; j < charset.length; j++) {
         const char = charset[j];
         // Display current progress + random cycling char
-        consoleOut.innerHTML = `> Attacking... <br><span style="font-size: 2rem; color: #0f0; letter-spacing: 5px;">${currentAttempt}${char}</span>`;
+        consoleOut.innerHTML = `> Attacking... <br><span style="font-size: 2rem; color: #0f0; letter-spacing: 5px;">{currentAttempt}{char}</span>`;
 
         // Artificial delay for visual effect
         await new Promise(r => setTimeout(r, 40));
@@ -2276,7 +2610,7 @@ async function runAttackLogic(type) {
     }
 
     // Final Success State
-    consoleOut.innerHTML = `> Success! Password found: <br><span style="font-size: 2rem; color: var(--accent-green); letter-spacing: 5px;">${currentAttempt}</span>`;
+    consoleOut.innerHTML = `> Success! Password found: <br><span style="font-size: 2rem; color: var(--accent-green); letter-spacing: 5px;">{currentAttempt}</span>`;
     status.innerText = "SERVER STATUS: UNAUTHORISED ACCESS";
     status.style.color = "#fd7e14";
   }
@@ -2318,35 +2652,35 @@ if (topic === 'p2_revision') {
 
 function updateCountdowns() {
   const tags = document.querySelectorAll('.countdown-tag');
-  // Simulated 'today' date from your workbook context
-  const today = new Date("2026-02-18");
+  const weekTags = document.querySelectorAll('.weeks-tag');
+  const today = new Date("2026-03-02"); // Your static dashboard date
 
-  tags.forEach(tag => {
+  tags.forEach((tag, index) => {
     const dateStr = tag.getAttribute('data-due');
     if (!dateStr) return;
-
     const dueDate = new Date(dateStr);
-    // Calculate difference in milliseconds and convert to days
     const timeDiff = dueDate.getTime() - today.getTime();
     const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
 
-    if (daysLeft < 0) {
-      tag.innerText = "Overdue!";
-      tag.style.background = "var(--accent-red)";
-      tag.style.color = "white";
-    } else if (daysLeft === 0) {
-      tag.innerText = "Due Today";
-      tag.style.background = "var(--accent-red)";
-      tag.style.color = "white";
-    } else {
-      tag.innerText = daysLeft + " Days Left";
-      // Visual urgency for tasks due within 3 days
-      if (daysLeft <= 3) {
-        tag.style.background = "var(--accent-red)";
-        tag.style.color = "white";
-      } else {
-        tag.style.background = "#fff5f5";
-        tag.style.color = "var(--accent-red)";
+    tag.innerText = daysLeft + " Days Left";
+
+    if (daysLeft > 0) {
+      const totalWeeks = Math.floor(daysLeft / 7);
+
+      // FIX: Calculate school weeks dynamically for EACH card
+      const easterWeeks = 2;
+      const schoolWeeks = totalWeeks - easterWeeks;
+
+      if (weekTags[index]) {
+        weekTags[index].innerText = totalWeeks + " Total Weeks Left";
+      }
+
+      // Dynamically target the breakdown paragraph for each specific paper
+      const breakdownId = index === 0 ? 'p1-breakdown' : 'p2-breakdown';
+      const breakdownEl = document.getElementById(breakdownId);
+
+      if (breakdownEl) {
+        breakdownEl.innerHTML = `Includes <strong>${schoolWeeks} School Weeks</strong> and <strong>2 Weeks of Easter Break</strong>.`;
       }
     }
   });
