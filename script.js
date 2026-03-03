@@ -555,26 +555,28 @@ const contentData = {
   <button onclick="loadContent('p1_algo')" style="padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
 `,
 
-  // --- 3.2 PROGRAMMING FUNDAMENTALS (Updated with Activity Buttons) ---
+  // --- 3.2 PROGRAMMING FUNDAMENTALS (Updated with Logic, Pros, and Cons) ---
   p1_prog: `
     <h1>3.2 Programming Fundamentals</h1>
-    <p>Programming involves using specific constructs to create instructions that a computer can process. Professional programmers aim to write code that is modular, easy to debug, and robust against errors[cite: 9].</p>
+    <p>Programming involves using specific constructs to create instructions that a computer can process. Professional programmers aim to write code that is modular, easy to debug, and robust against errors.</p>
 
     <h2 class="section-title">1. Variables and Data Types</h2>
     <div class="card-grid">
       <div class="card">
-        <h3>Inputs, Variables & Outputs</h3>
-        <p>A <strong>variable</strong> is a named memory location used to store an input that can change while the program runs[cite: 1]. In Python, we use <code>input()</code> to collect data and <code>print()</code> to display it[cite: 1].</p>
+        <h3>Inputs, Variables & Constants</h3>
+        <p><strong>Variables</strong> store data that can change, while <strong>Constants</strong> store data that remains fixed. Using constants prevents accidental changes to important values like PI or tax rates.</p>
+        <ul>
+          <li><strong>Pros:</strong> Variables make code dynamic and adaptable; constants improve security and readability.</li>
+          <li><strong>Cons:</strong> Overusing variables can lead to high memory usage; failing to use constants makes code harder to maintain.</li>
+        </ul>
         <button onclick="loadContent('act_io')" style="margin-top: 10px; padding: 8px 15px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Try I/O Activity</button>
       </div>
       <div class="card">
-        <h3>Common Data Types</h3>
+        <h3>Data Types & Casting</h3>
+        <p>Data types (Integer, Real, Boolean, String) tell the computer how much memory to allocate. <strong>Casting</strong> is essential for converting user input (always a string) into numbers for calculations.</p>
         <ul>
-          <li><strong>String:</strong> Combinations of keyboard characters (e.g. "Hello")[cite: 2].</li>
-          <li><strong>Integer:</strong> Whole numbers (e.g. 5)[cite: 2].</li>
-          <li><strong>Real (Float):</strong> Decimal numbers (e.g. 5.5)[cite: 2].</li>
-          <li><strong>Boolean:</strong> True or False values[cite: 2].</li>
-          <li><strong>Casting:</strong> Converting one data type to another, such as using <code>int()</code> to turn a string into a number[cite: 2].</li>
+          <li><strong>Pros:</strong> Casting allows mathematical operations on text-based inputs.</li>
+          <li><strong>Cons:</strong> Incorrect casting (e.g., trying to turn "Hello" into an Int) will crash the program with a Type Error.</li>
         </ul>
         <button onclick="loadContent('act_casting')" style="margin-top: 10px; padding: 8px 15px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Try Casting Activity</button>
       </div>
@@ -584,56 +586,63 @@ const contentData = {
     <div class="card-grid">
       <div class="card">
         <h3>Selection (If-Else)</h3>
-        <p>Selection allows programs to make decisions and take different pathways based on whether a condition is <strong>True</strong> or <strong>False</strong>[cite: 3].</p>
+        <p>Selection allows a program to take different paths based on conditions. This is used to create logic, such as checking if a password is correct or a player has enough health.</p>
         <ul>
-          <li><strong>IF:</strong> The primary condition check[cite: 3].</li>
-          <li><strong>ELIF:</strong> Short for 'else if', used for multiple alternative conditions[cite: 3].</li>
-          <li><strong>ELSE:</strong> The final pathway if no previous conditions are met[cite: 3].</li>
+          <li><strong>Pros:</strong> Essential for making code "smart" and reactive to user choices.</li>
+          <li><strong>Cons:</strong> Deeply nested "If" statements (Spaghetti Code) become extremely difficult to read and debug.</li>
         </ul>
         <button onclick="loadContent('act_selection')" style="margin-top: 10px; padding: 8px 15px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Try Selection Activity</button>
       </div>
       <div class="card">
         <h3>Iteration (Loops)</h3>
-        <p>Iteration enables the repeated execution of lines of code to make programs more efficient[cite: 4, 5].</p>
+        <p>Iteration repeats code. <strong>FOR loops</strong> are used when you know the number of repeats; <strong>WHILE loops</strong> are used when the repeats depend on a condition (like waiting for a correct password).</p>
         <ul>
-          <li><strong>Count-Controlled (FOR):</strong> Loops for a set number of iterations using a 'stepper' variable[cite: 4].</li>
-          <li><strong>Condition-Controlled (WHILE):</strong> Loops as long as a specific condition remains True[cite: 5].</li>
+          <li><strong>Pros:</strong> Dramatically reduces the number of lines of code; makes code more efficient.</li>
+          <li><strong>Cons:</strong> Infinite loops (where the exit condition is never met) will cause the program to hang or crash.</li>
         </ul>
         <button onclick="loadContent('act_loops')" style="margin-top: 10px; padding: 8px 15px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Try Loops Activity</button>
       </div>
     </div>
 
-    <h2 class="section-title">3. Advanced Data Handling</h2>
+    <h2 class="section-title">3. Data Handling</h2>
     <div class="card-grid">
       <div class="card">
         <h3>Lists (Arrays)</h3>
-        <p>A list stores a collection of data items together under a single identifier[cite: 8]. Items are <strong>indexed</strong> starting at <strong>zero</strong>[cite: 8].</p>
+        <p>Lists allow you to store multiple pieces of related data (e.g., a high-score list) under one name. This is much more efficient than creating 100 separate variables.</p>
         <ul>
-          <li><strong>append():</strong> Adds a new item to the end of a list[cite: 8].</li>
-          <li><strong>2D Lists:</strong> A list that contains other lists[cite: 8].</li>
+          <li><strong>Pros:</strong> Makes managing large datasets easier using loops and indexing.</li>
+          <li><strong>Cons:</strong> In many languages, arrays are fixed in size; accessing an index that doesn't exist causes an "Out of Bounds" error.</li>
         </ul>
         <button onclick="loadContent('act_lists')" style="margin-top: 10px; padding: 8px 15px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Try Lists Activity</button>
       </div>
       <div class="card">
         <h3>String Manipulation</h3>
-        <p>String manipulation involves breaking down and examining strings using methods like <code>len()</code>, <code>upper()</code>, <code>lower()</code>, and <strong>Concatenation</strong>[cite: 6].</p>
+        <p>Used to format data for the user. Methods like <code>.upper()</code> or <code>.lower()</code> are vital for making user inputs case-insensitive during login checks.</p>
+        <ul>
+          <li><strong>Pros:</strong> Allows for powerful data cleaning and user-friendly display.</li>
+          <li><strong>Cons:</strong> Strings are often immutable (cannot be changed), meaning every manipulation creates a new copy in memory.</li>
+        </ul>
         <button onclick="loadContent('act_strings')" style="margin-top: 10px; padding: 8px 15px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Try Strings Activity</button>
       </div>
     </div>
 
-    <h2 class="section-title">4. Robustness and Subroutines</h2>
+    <h2 class="section-title">4. Modularity and Robustness</h2>
     <div class="card-grid">
       <div class="card">
         <h3>Defensive Design</h3>
-        <p>To ensure programs are robust, programmers use strategies like <strong>Validation</strong> (checking criteria), <strong>Authentication</strong> (verifying identity), and <strong>Error Handling</strong> (using try...except)[cite: 7].</p>
+        <p>Involves <strong>Validation</strong> (checking if data follows rules) and <strong>Authentication</strong>. It is used to protect programs from malicious users and accidental typos.</p>
+        <ul>
+          <li><strong>Pros:</strong> Prevents program crashes and ensures only "clean" data enters the system.</li>
+          <li><strong>Cons:</strong> Over-validating can make the user experience feel slow or frustrating.</li>
+        </ul>
         <button onclick="loadContent('act_robust')" style="margin-top: 10px; padding: 8px 15px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Try Robustness Activity</button>
       </div>
       <div class="card">
-        <h3>Subroutines</h3>
-        <p>A named block of code that only runs when called, providing a modularised approach for easier debugging[cite: 9].</p>
+        <h3>Subroutines (Functions)</h3>
+        <p>Subroutines are blocks of code that perform a specific task. They are used to make code <strong>modular</strong> and <strong>reusable</strong> across different projects.</p>
         <ul>
-          <li><strong>Procedures:</strong> Do <strong>not</strong> return a value[cite: 9].</li>
-          <li><strong>Functions:</strong> Do <strong>return</strong> a value[cite: 9].</li>
+          <li><strong>Pros:</strong> Code only needs to be written once; makes debugging easier as errors are isolated to specific functions.</li>
+          <li><strong>Cons:</strong> Passing too many parameters between functions can make the program logic confusing to follow.</li>
         </ul>
         <button onclick="loadContent('act_subroutines')" style="margin-top: 10px; padding: 8px 15px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Try Subroutines Activity</button>
       </div>
