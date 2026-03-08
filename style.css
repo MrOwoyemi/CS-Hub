@@ -25,6 +25,7 @@ body {
 
 /* --- Navbar & Logo --- */
 .navbar {
+  justify-content: space-between; /* Spreads logo and controls */
   background-color: var(--dark-purple);
   color: white;
   padding: 0 20px;
@@ -51,6 +52,71 @@ body {
   color: white;
   text-decoration: none;
   white-space: nowrap;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-container {
+  position: relative;
+}
+
+#global-search {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  width: 200px;
+  font-size: 0.9rem;
+  transition: width 0.3s;
+}
+
+#global-search:focus {
+  width: 250px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: none;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 2000;
+  margin-top: 10px;
+}
+
+.search-dropdown div {
+  padding: 12px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  transition: background 0.2s;
+}
+
+.search-dropdown div:last-child {
+  border-bottom: none;
+}
+
+.search-dropdown div:hover {
+  background: var(--light-bg);
+}
+
+#theme-toggle {
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: white;
+  padding: 5px;
 }
 
 /* --- Hamburger Menu --- */
@@ -356,8 +422,83 @@ button:hover {
   }
 }
 
+body.dark-mode {
+  --light-bg: #121212;
+  --dark-purple: #bb86fc; /* Lighter accent for readability */
+  --pastel-violet: #3700b3;
+  background-color: var(--light-bg);
+  color: #e0e0e0;
+}
+
+body.dark-mode .navbar {
+  background-color: #1f1f1f;
+  border-bottom: 1px solid #333;
+}
+
+body.dark-mode .sidebar,
+body.dark-mode .submenu {
+  background-color: #1e1e1e;
+  border-right-color: #333;
+}
+
+body.dark-mode .sidebar a {
+  color: #e0e0e0;
+  border-bottom-color: #333;
+}
+
+body.dark-mode .sidebar a:hover {
+  background-color: #333;
+  color: var(--dark-purple);
+}
+
+body.dark-mode .card,
+body.dark-mode .homework-box,
+body.dark-mode .homework-card {
+  background-color: #1e1e1e;
+  border-color: #333;
+  color: #e0e0e0;
+}
+
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode .card-info h3,
+body.dark-mode .homework-info h4 {
+  color: var(--dark-purple);
+}
+
+body.dark-mode .card p, 
+body.dark-mode .homework-info p {
+  color: #bbb;
+}
+
+body.dark-mode .search-dropdown {
+  background: #2c2c2c;
+  color: white;
+  border: 1px solid #444;
+}
+
+body.dark-mode .search-dropdown div {
+  border-bottom: 1px solid #444;
+}
+
+body.dark-mode .search-dropdown div:hover {
+  background: #3a3a3a;
+}
+
+body.dark-mode .floating-btn.smart-back .tooltip {
+  background: #e0e0e0;
+  color: #121212;
+}
+
 /* Responsiveness */
 @media (max-width: 768px) {
+  #global-search {
+    width: 140px;
+  }
+  #global-search:focus {
+    width: 180px;
+  }
+  
   .card-grid {
     grid-template-columns: 1fr;
     gap: 15px;
@@ -446,4 +587,49 @@ button:hover {
   100% {
     transform: scale(1);
   }
+}
+
+.floating-btn.smart-back {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  background: var(--dark-purple);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  z-index: 1000;
+  display: none; /* Hidden by default */
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.floating-btn.smart-back:hover {
+  transform: scale(1.1);
+}
+
+.floating-btn.smart-back .tooltip {
+  position: absolute;
+  left: 70px;
+  background: #333;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  transform: translateX(-10px);
+}
+
+.floating-btn.smart-back:hover .tooltip {
+  opacity: 1;
+  transform: translateX(0);
 }
