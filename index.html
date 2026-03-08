@@ -11,13 +11,23 @@
 <body onload="loadContent('home')">
 
   <header class="navbar">
-    <div class="menu-btn" id="menu-btn" onclick="toggleNav()">
-      <div class="bar" id="bar1"></div>
-      <div class="bar" id="bar2"></div>
-      <div class="bar" id="bar3"></div>
+    <div style="display: flex; align-items: center;">
+      <div class="menu-btn" id="menu-btn" onclick="toggleNav()">
+        <div class="bar" id="bar1"></div>
+        <div class="bar" id="bar2"></div>
+        <div class="bar" id="bar3"></div>
+      </div>
+      <div class="logo-container">
+        <a href="#" class="logo" onclick="loadContent('home')">GCSE CS Hub</a>
+      </div>
     </div>
-    <div class="logo-container">
-      <a href="#" class="logo" onclick="loadContent('home')">GCSE CS Hub</a>
+    
+    <div class="header-controls">
+      <div class="search-container">
+        <input type="text" id="global-search" placeholder="Search topics & terms..." oninput="handleSearch()">
+        <div id="search-results" class="search-dropdown"></div>
+      </div>
+      <button id="theme-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">🌙</button>
     </div>
   </header>
 
@@ -42,6 +52,7 @@
           <li><a href="#" onclick="loadContent('p2_cyber')">3.6 Cyber security</a></li>
           <li><a href="#" onclick="loadContent('p2_sql')">3.7 Relational databases (SQL)</a></li>
           <li><a href="#" onclick="loadContent('p2_impact')">3.8 Ethical, legal & environmental</a></li>
+          <li><a href="#" onclick="loadContent('prac_challenges')">Coding Challenges</a></li>
         </ul>
       </li>
 
@@ -56,6 +67,11 @@
       <li><a href="#" onclick="loadContent('resources')">Revision Resources</a></li>
     </ul>
   </nav>
+
+  <button id="smart-back-btn" class="smart-back floating-btn" onclick="goBack()">
+    <span class="icon">⬅️</span>
+    <span class="tooltip" id="back-tooltip">Go Back</span>
+  </button>
 
   <main id="main-content">
     <div id="display-area">
