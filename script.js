@@ -161,7 +161,6 @@ const contentData = {
       </div>
     </div>
     
-    <button onclick="goBack()" style="margin-top: 20px; padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
   `,
 
   // --- NEW: REVISION CARDS ACTIVITY (UPDATED SIZE) ---
@@ -265,7 +264,6 @@ const contentData = {
       </div>
     </div>
 
-    <button onclick="goBack()" style="margin-top: 20px; padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
   `,
 
   p2_revision: `
@@ -324,7 +322,6 @@ const contentData = {
       <p><strong>Hard:</strong> Implement the Bubble Sort algorithm from scratch.</p>
     </div>
 
-    <button onclick="goBack()" style="margin-top: 20px; padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
   `,
 
   // --- 3.1 ALGORITHMS ---
@@ -439,7 +436,6 @@ const contentData = {
       </div>
     </div>
     
-    <button onclick="goBack()" style="margin-top: 20px; padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
   `,
 
   p1_linear_viz: `
@@ -468,7 +464,6 @@ const contentData = {
     </ul>
   </div>
 
-  <button onclick="loadContent('p1_algo')" style="padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
 `,
 
   p1_binary_viz: `
@@ -497,7 +492,6 @@ const contentData = {
     </ul>
   </div>
 
-  <button onclick="loadContent('p1_algo')" style="padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
 `,
 
   p1_bubble_viz: `
@@ -523,7 +517,6 @@ const contentData = {
     </ul>
   </div>
 
-  <button onclick="loadContent('p1_algo')" style="padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
 `,
 
   p1_merge_viz: `
@@ -552,7 +545,6 @@ const contentData = {
     </ul>
   </div>
 
-  <button onclick="loadContent('p1_algo')" style="padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
 `,
 
   // --- 3.2 PROGRAMMING FUNDAMENTALS (Updated with Logic, Pros, and Cons) ---
@@ -648,7 +640,6 @@ const contentData = {
       </div>
     </div>
 
-    <button onclick="goBack()" style="margin-top: 20px; padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
   `,
 
   act_io: `
@@ -685,7 +676,6 @@ const contentData = {
   print("Science: " + science)
         </div>
       </div>
-      <button onclick="goBack()" style="padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
   `,
 
   act_casting: `
@@ -714,7 +704,6 @@ const contentData = {
   print("Weight in kilograms: " + str(kilos))
         </div>
       </div>
-      <button onclick="goBack()" style="padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
   `,
 
   act_selection: `
@@ -753,7 +742,6 @@ const contentData = {
       print("Invalid choice")
         </div>
       </div>
-      <button onclick="goBack()" style="padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
   `,
 
   act_robust: `
@@ -786,7 +774,6 @@ const contentData = {
   print("Password accepted.")
         </div>
       </div>
-      <button onclick="goBack()" style="padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
   `,
 
   act_loops: `
@@ -817,7 +804,6 @@ const contentData = {
       print(str(x) + "\\t" + str(square))
         </div>
       </div>
-      <button onclick="goBack()" style="padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
   `,
 
   act_lists: `
@@ -846,7 +832,6 @@ const contentData = {
       print(film[0])
         </div>
       </div>
-      <button onclick="goBack()" style="padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
 `,
 
   act_subroutines: `
@@ -880,7 +865,6 @@ const contentData = {
   print("In 50 years you will be: " + str(result))
         </div>
       </div>
-      <button onclick="goBack()" style="padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
   `,
 
   act_strings: `
@@ -908,7 +892,6 @@ const contentData = {
   print(text.lower())
         </div>
       </div>
-      <button onclick="goBack()" style="padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
   `,
 
   // --- 3.3 DATA REPRESENTATION (Updated) ---
@@ -1174,7 +1157,6 @@ const contentData = {
       </div>
     </div>
 
-    <button onclick="goBack()" style="margin-top: 20px; padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
   `,
 
   p2_rle_act: `
@@ -1191,7 +1173,6 @@ const contentData = {
       <h3>Exam Tip</h3>
       <p>RLE works best on data with long runs of repeated values, like simple icons or indented code.</p>
     </div>
-    <button onclick="loadContent('p2_data')" style="padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
   `,
 
   p2_huffman_act: `
@@ -1245,7 +1226,6 @@ const contentData = {
     </div>
   </div>
   
-  <button onclick="loadContent('p2_data')" style="padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
 `,
 
   // --- 3.4 SYSTEMS (Updated Dynamic Layout) ---
@@ -1419,7 +1399,6 @@ const contentData = {
       </div>
     </div>
 
-    <button onclick="goBack()" style="margin-top: 20px; padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
   `,
 
   // --- 3.5 COMPUTER NETWORKS (Updated with Workbook Data) ---
@@ -1537,7 +1516,6 @@ const contentData = {
         <button onclick="loadContent('p2_net')" style="padding: 10px 20px; background: var(--pastel-violet); color: var(--dark-purple); font-weight: bold; border: none; border-radius: 5px; cursor: pointer;">Reset Game</button>
       </div>
     </div>
-    <button onclick="goBack()" style="margin-top: 20px; padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
   `,
 
   // --- 3.6 CYBER SECURITY (Updated with Workbook Data) ---
@@ -1604,7 +1582,6 @@ const contentData = {
       </div>
     </div>
 
-    <button onclick="goBack()" style="margin-top: 20px; padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
   `,
 
   p2_threat_viz: `
@@ -1750,7 +1727,6 @@ const contentData = {
       <p>A Database Management System (DBMS) is the software used to manage data. It must be able to: <strong>Create, Add, Delete, Edit,</strong> and <strong>Search</strong> for data.</p>
     </div>
 
-    <button onclick="goBack()" style="margin-top: 20px; padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
   `,
 
   // --- 3.8 IMPACTS OF TECH (Updated with Workbook Data) ---
@@ -1813,7 +1789,6 @@ const contentData = {
       </div>
     </div>
 
-    <button onclick="goBack()" style="margin-top: 20px; padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
   `,
 
   // --- UPDATED RESOURCES PAGE ---
@@ -1842,6 +1817,10 @@ const contentData = {
         <h3>RLE Compression</h3>
         <p>Practise Run-Length Encoding logic.</p>
       </div>
+      <div class="card" onclick="loadContent('prac_challenges')" style="cursor: pointer; border-left: 5px solid #28a745;">
+        <h3>Python Challenges</h3>
+        <p>Graded challenges and debugging activities.</p>
+      </div>
     </div>
 
     <h2 class="resource-section-header">External Learning Tools</h2>
@@ -1850,7 +1829,7 @@ const contentData = {
         <h3>Mini Quiz Trainer</h3>
         <p>Rapid-fire questions for all AQA topics.</p>
       </div>
-      <div class="card" onclick="window.open('https://crookhorncollege.itslearning.com/Resources?FolderID=1168750&PlayPlanDialogView=False', '_blank')" style="cursor: pointer; border-top: 5px solid #6f42c1;">
+      <div class="card" onclick="window.open('https://crookhorncollege.itslearning.com/', '_blank')" style="cursor: pointer; border-top: 5px solid #6f42c1;">
         <h3>itslearning Resources</h3>
         <p>Access school-specific revision materials and folders.</p>
       </div>
@@ -1864,13 +1843,498 @@ const contentData = {
       </div>
     </div>
     
+    
+  `,
+
+  // --- IDEA 1: GRADED CHALLENGE BANK ---
+  prac_challenges: `
+    <h1>Python Challenge Bank</h1>
+    <p>Work through these graded challenges to build your programming confidence. These are adapted from Nicola Lacey's excellent workbook.</p>
+    
+    <div style="background: var(--pastel-violet); padding: 20px; border-radius: 8px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; border-left: 5px solid var(--dark-purple);">
+      <div>
+        <h3 style="margin:0 0 5px 0; color: var(--dark-purple);">Ready for a harder test?</h3>
+        <p style="margin:0; color: #333; font-size: 0.95rem;">Try reading and fixing broken code in our side-by-side workspace.</p>
+      </div>
+      <button onclick="loadContent('prac_debugging')" style="padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; white-space: nowrap;">Try Debugging 🐛</button>
+    </div>
+
+    <h2 class="section-title">Level 1: The Basics (Sequence & Variables)</h2>
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid #28a745;">
+        <h3>Challenge 001</h3>
+        <p>Ask for the user's first name and display the output message Hello [First Name].</p>
+        <button onclick="let sol=document.getElementById('sol-001'); if(sol.style.display==='none'){sol.style.display='block'; this.innerText='Hide Solution';}else{sol.style.display='none'; this.innerText='Show Solution';}" style="margin-top:auto; padding:8px; background:#6c757d; color:white; border:none; border-radius:4px; cursor:pointer;">Show Solution</button>
+        <div id="sol-001" style="display:none; margin-top:10px; background:#f4f4f4; padding:10px; border-radius:4px; font-family:monospace; font-size:0.85rem; white-space:pre-wrap;">firstname = input("Please enter your first name: ")
+print("Hello", firstname)</div>
+      </div>
+
+      <div class="card" style="border-top: 5px solid #28a745;">
+        <h3>Challenge 002</h3>
+        <p>Ask for the user’s first name and then ask for their surname and display the output message: Hello [First Name] [Surname].</p>
+        <button onclick="let sol=document.getElementById('sol-002'); if(sol.style.display==='none'){sol.style.display='block'; this.innerText='Hide Solution';}else{sol.style.display='none'; this.innerText='Show Solution';}" style="margin-top:auto; padding:8px; background:#6c757d; color:white; border:none; border-radius:4px; cursor:pointer;">Show Solution</button>
+        <div id="sol-002" style="display:none; margin-top:10px; background:#f4f4f4; padding:10px; border-radius:4px; font-family:monospace; font-size:0.85rem; white-space:pre-wrap;">firstname = input("Please enter your first name: ")
+surname = input("Please enter your surname: ")
+print("Hello", firstname, surname)</div>
+      </div>
+
+      <div class="card" style="border-top: 5px solid #28a745;">
+        <h3>Challenge 003</h3>
+        <p>Write code that will display the joke "What do you call a bear with no teeth?" and on the next line display the answer "A gummy bear!" Try to create it using only one line of code.</p>
+        <button onclick="let sol=document.getElementById('sol-003'); if(sol.style.display==='none'){sol.style.display='block'; this.innerText='Hide Solution';}else{sol.style.display='none'; this.innerText='Show Solution';}" style="margin-top:auto; padding:8px; background:#6c757d; color:white; border:none; border-radius:4px; cursor:pointer;">Show Solution</button>
+        <div id="sol-003" style="display:none; margin-top:10px; background:#f4f4f4; padding:10px; border-radius:4px; font-family:monospace; font-size:0.85rem; white-space:pre-wrap;">print("What do you call a bear with no teeth?\\nA gummy bear!")</div>
+      </div>
+
+      <div class="card" style="border-top: 5px solid #28a745;">
+        <h3>Challenge 004</h3>
+        <p>Ask the user to enter two numbers. Add them together and display the answer as The total is [answer].</p>
+        <button onclick="let sol=document.getElementById('sol-004'); if(sol.style.display==='none'){sol.style.display='block'; this.innerText='Hide Solution';}else{sol.style.display='none'; this.innerText='Show Solution';}" style="margin-top:auto; padding:8px; background:#6c757d; color:white; border:none; border-radius:4px; cursor:pointer;">Show Solution</button>
+        <div id="sol-004" style="display:none; margin-top:10px; background:#f4f4f4; padding:10px; border-radius:4px; font-family:monospace; font-size:0.85rem; white-space:pre-wrap;">num1 = int(input("Please enter your first number: "))
+num2 = int(input("Please enter your second number: "))
+answer = num1 + num2
+print("The total is", answer)</div>
+      </div>
+
+      <div class="card" style="border-top: 5px solid #28a745;">
+        <h3>Challenge 005</h3>
+        <p>Ask the user to enter three numbers. Add together the first two numbers and then multiply this total by the third. Display the answer as The answer is [answer].</p>
+        <button onclick="let sol=document.getElementById('sol-005'); if(sol.style.display==='none'){sol.style.display='block'; this.innerText='Hide Solution';}else{sol.style.display='none'; this.innerText='Show Solution';}" style="margin-top:auto; padding:8px; background:#6c757d; color:white; border:none; border-radius:4px; cursor:pointer;">Show Solution</button>
+        <div id="sol-005" style="display:none; margin-top:10px; background:#f4f4f4; padding:10px; border-radius:4px; font-family:monospace; font-size:0.85rem; white-space:pre-wrap;">num1 = int(input("Please enter your first number: "))
+num2 = int(input("Please enter your second number: "))
+num3 = int(input("Please enter your third number: "))
+answer = (num1 + num2) * num3
+print("The answer is", answer)</div>
+      </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top:40px;">Level 2: Selection (If Statements)</h2>
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid #ffc107;">
+        <h3>Challenge 012</h3>
+        <p>Ask for two numbers. If the first one is larger than the second, display the second number first and then the first number, otherwise show the first number first and then the second.</p>
+        <button onclick="let sol=document.getElementById('sol-012'); if(sol.style.display==='none'){sol.style.display='block'; this.innerText='Hide Solution';}else{sol.style.display='none'; this.innerText='Show Solution';}" style="margin-top:auto; padding:8px; background:#6c757d; color:white; border:none; border-radius:4px; cursor:pointer;">Show Solution</button>
+        <div id="sol-012" style="display:none; margin-top:10px; background:#f4f4f4; padding:10px; border-radius:4px; font-family:monospace; font-size:0.85rem; white-space:pre-wrap;">num1 = int(input("Enter first number: "))
+num2 = int(input("Enter second number: "))
+if num1 > num2:
+    print(num2, num1)
+else:
+    print(num1, num2)</div>
+      </div>
+
+      <div class="card" style="border-top: 5px solid #ffc107;">
+        <h3>Challenge 013</h3>
+        <p>Ask the user to enter a number that is under 20. If they enter a number that is 20 or more, display the message "Too high", otherwise display "Thank you".</p>
+        <button onclick="let sol=document.getElementById('sol-013'); if(sol.style.display==='none'){sol.style.display='block'; this.innerText='Hide Solution';}else{sol.style.display='none'; this.innerText='Show Solution';}" style="margin-top:auto; padding:8px; background:#6c757d; color:white; border:none; border-radius:4px; cursor:pointer;">Show Solution</button>
+        <div id="sol-013" style="display:none; margin-top:10px; background:#f4f4f4; padding:10px; border-radius:4px; font-family:monospace; font-size:0.85rem; white-space:pre-wrap;">num = int(input("Enter a value less than 20: "))
+if num >= 20:
+    print("Too high")
+else:
+    print("Thank you")</div>
+      </div>
+
+      <div class="card" style="border-top: 5px solid #ffc107;">
+        <h3>Challenge 014</h3>
+        <p>Ask the user to enter a number between 10 and 20 (inclusive). If they enter a number within this range, display the message "Thank you", otherwise display the message "Incorrect answer".</p>
+        <button onclick="let sol=document.getElementById('sol-014'); if(sol.style.display==='none'){sol.style.display='block'; this.innerText='Hide Solution';}else{sol.style.display='none'; this.innerText='Show Solution';}" style="margin-top:auto; padding:8px; background:#6c757d; color:white; border:none; border-radius:4px; cursor:pointer;">Show Solution</button>
+        <div id="sol-014" style="display:none; margin-top:10px; background:#f4f4f4; padding:10px; border-radius:4px; font-family:monospace; font-size:0.85rem; white-space:pre-wrap;">num = int(input("Enter a value between 10 and 20: "))
+if num >= 10 and num <= 20:
+    print("Thank you")
+else:
+    print("Incorrect answer")</div>
+      </div>
+
+      <div class="card" style="border-top: 5px solid #ffc107;">
+        <h3>Challenge 015</h3>
+        <p>Ask the user to enter their favourite colour. If they enter "red", "RED" or "Red" display the message "I like red too", otherwise display the message "I don't like [colour], I prefer red".</p>
+        <button onclick="let sol=document.getElementById('sol-015'); if(sol.style.display==='none'){sol.style.display='block'; this.innerText='Hide Solution';}else{sol.style.display='none'; this.innerText='Show Solution';}" style="margin-top:auto; padding:8px; background:#6c757d; color:white; border:none; border-radius:4px; cursor:pointer;">Show Solution</button>
+        <div id="sol-015" style="display:none; margin-top:10px; background:#f4f4f4; padding:10px; border-radius:4px; font-family:monospace; font-size:0.85rem; white-space:pre-wrap;">colour = input("Type in your favourite colour: ")
+if colour == "red" or colour == "RED" or colour == "Red":
+    print("I like red too")
+else:
+    print("I don't like", colour, ", I prefer red")</div>
+      </div>
+
+      <div class="card" style="border-top: 5px solid #ffc107;">
+        <h3>Challenge 016</h3>
+        <p>Ask the user if it is raining and convert their answer to lower case. If they answer "yes", ask if it is windy. If they answer "yes" to this second question, display "It is too windy for an umbrella", otherwise display "Take an umbrella". If they did not answer yes to the first question, display "Enjoy your day".</p>
+        <button onclick="let sol=document.getElementById('sol-016'); if(sol.style.display==='none'){sol.style.display='block'; this.innerText='Hide Solution';}else{sol.style.display='none'; this.innerText='Show Solution';}" style="margin-top:auto; padding:8px; background:#6c757d; color:white; border:none; border-radius:4px; cursor:pointer;">Show Solution</button>
+        <div id="sol-016" style="display:none; margin-top:10px; background:#f4f4f4; padding:10px; border-radius:4px; font-family:monospace; font-size:0.85rem; white-space:pre-wrap;">raining = input("Is it raining? ")
+raining = raining.lower()
+if raining == "yes":
+    windy = input("Is it windy? ")
+    windy = windy.lower()
+    if windy == "yes":
+        print("It is too windy for an umbrella")
+    else:
+        print("Take an umbrella")
+else:
+    print("Enjoy your day")</div>
+      </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top:40px;">Level 3: Iteration (For Loops)</h2>
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid #fd7e14;">
+        <h3>Challenge 035</h3>
+        <p>Ask the user to enter their name and then display their name three times.</p>
+        <button onclick="let sol=document.getElementById('sol-035'); if(sol.style.display==='none'){sol.style.display='block'; this.innerText='Hide Solution';}else{sol.style.display='none'; this.innerText='Show Solution';}" style="margin-top:auto; padding:8px; background:#6c757d; color:white; border:none; border-radius:4px; cursor:pointer;">Show Solution</button>
+        <div id="sol-035" style="display:none; margin-top:10px; background:#f4f4f4; padding:10px; border-radius:4px; font-family:monospace; font-size:0.85rem; white-space:pre-wrap;">name = input("Type in your name: ")
+for i in range(0,3):
+    print(name)</div>
+      </div>
+
+      <div class="card" style="border-top: 5px solid #fd7e14;">
+        <h3>Challenge 036</h3>
+        <p>Alter program 035 so that it will ask the user to enter their name and a number and then display their name that number of times.</p>
+        <button onclick="let sol=document.getElementById('sol-036'); if(sol.style.display==='none'){sol.style.display='block'; this.innerText='Hide Solution';}else{sol.style.display='none'; this.innerText='Show Solution';}" style="margin-top:auto; padding:8px; background:#6c757d; color:white; border:none; border-radius:4px; cursor:pointer;">Show Solution</button>
+        <div id="sol-036" style="display:none; margin-top:10px; background:#f4f4f4; padding:10px; border-radius:4px; font-family:monospace; font-size:0.85rem; white-space:pre-wrap;">name = input("Type in your name: ")
+num = int(input("Enter a number: "))
+for i in range(0,num):
+    print(name)</div>
+      </div>
+
+      <div class="card" style="border-top: 5px solid #fd7e14;">
+        <h3>Challenge 037</h3>
+        <p>Ask the user to enter their name and display each letter in their name on a separate line.</p>
+        <button onclick="let sol=document.getElementById('sol-037'); if(sol.style.display==='none'){sol.style.display='block'; this.innerText='Hide Solution';}else{sol.style.display='none'; this.innerText='Show Solution';}" style="margin-top:auto; padding:8px; background:#6c757d; color:white; border:none; border-radius:4px; cursor:pointer;">Show Solution</button>
+        <div id="sol-037" style="display:none; margin-top:10px; background:#f4f4f4; padding:10px; border-radius:4px; font-family:monospace; font-size:0.85rem; white-space:pre-wrap;">name = input("Enter your name: ")
+for i in name:
+    print(i)</div>
+      </div>
+
+      <div class="card" style="border-top: 5px solid #fd7e14;">
+        <h3>Challenge 038</h3>
+        <p>Change program 037 to also ask for a number. Display their name (one letter at a time on each line) and repeat this for the number of times they entered.</p>
+        <button onclick="let sol=document.getElementById('sol-038'); if(sol.style.display==='none'){sol.style.display='block'; this.innerText='Hide Solution';}else{sol.style.display='none'; this.innerText='Show Solution';}" style="margin-top:auto; padding:8px; background:#6c757d; color:white; border:none; border-radius:4px; cursor:pointer;">Show Solution</button>
+        <div id="sol-038" style="display:none; margin-top:10px; background:#f4f4f4; padding:10px; border-radius:4px; font-family:monospace; font-size:0.85rem; white-space:pre-wrap;">num = int(input("Enter a number: "))
+name = input("Enter your name: ")
+for x in range(0,num):
+    for i in name:
+        print(i)</div>
+      </div>
+
+      <div class="card" style="border-top: 5px solid #fd7e14;">
+        <h3>Challenge 039</h3>
+        <p>Ask the user to enter a number between 1 and 12 and then display the times table for that number.</p>
+        <button onclick="let sol=document.getElementById('sol-039'); if(sol.style.display==='none'){sol.style.display='block'; this.innerText='Hide Solution';}else{sol.style.display='none'; this.innerText='Show Solution';}" style="margin-top:auto; padding:8px; background:#6c757d; color:white; border:none; border-radius:4px; cursor:pointer;">Show Solution</button>
+        <div id="sol-039" style="display:none; margin-top:10px; background:#f4f4f4; padding:10px; border-radius:4px; font-family:monospace; font-size:0.85rem; white-space:pre-wrap;">num = int(input("Enter a number between 1 and 12: "))
+for i in range(1, 13):
+    answer = i * num
+    print(i, "x", num, "=", answer)</div>
+      </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top:40px;">Level 4: Iteration (While Loops)</h2>
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid #dc3545;">
+        <h3>Challenge 045</h3>
+        <p>Set the total to 0 to start with. While the total is 50 or less, ask the user to input a number. Add that number to the total and print the message "The total is... [total]". Stop the loop when the total is over 50.</p>
+        <button onclick="let sol=document.getElementById('sol-045'); if(sol.style.display==='none'){sol.style.display='block'; this.innerText='Hide Solution';}else{sol.style.display='none'; this.innerText='Show Solution';}" style="margin-top:auto; padding:8px; background:#6c757d; color:white; border:none; border-radius:4px; cursor:pointer;">Show Solution</button>
+        <div id="sol-045" style="display:none; margin-top:10px; background:#f4f4f4; padding:10px; border-radius:4px; font-family:monospace; font-size:0.85rem; white-space:pre-wrap;">total = 0
+while total <= 50:
+    num = int(input("Enter a number: "))
+    total = total + num
+    print("The total is...", total)</div>
+      </div>
+
+      <div class="card" style="border-top: 5px solid #dc3545;">
+        <h3>Challenge 046</h3>
+        <p>Ask the user to enter a number. Keep asking until they enter a value over 5 and then display the message "The last number you entered was a [number]" and stop the program.</p>
+        <button onclick="let sol=document.getElementById('sol-046'); if(sol.style.display==='none'){sol.style.display='block'; this.innerText='Hide Solution';}else{sol.style.display='none'; this.innerText='Show Solution';}" style="margin-top:auto; padding:8px; background:#6c757d; color:white; border:none; border-radius:4px; cursor:pointer;">Show Solution</button>
+        <div id="sol-046" style="display:none; margin-top:10px; background:#f4f4f4; padding:10px; border-radius:4px; font-family:monospace; font-size:0.85rem; white-space:pre-wrap;">num = 0
+while num <= 5:
+    num = int(input("Enter a number: "))
+print("The last number you entered was a", num)</div>
+      </div>
+
+      <div class="card" style="border-top: 5px solid #dc3545;">
+        <h3>Challenge 047</h3>
+        <p>Ask the user to enter a number and then enter another number. Add these two numbers together and then ask if they want to add another number. If they enter "y", ask them to enter another number and keep adding numbers until they do not answer "y". Once the loop has stopped, display the total.</p>
+        <button onclick="let sol=document.getElementById('sol-047'); if(sol.style.display==='none'){sol.style.display='block'; this.innerText='Hide Solution';}else{sol.style.display='none'; this.innerText='Show Solution';}" style="margin-top:auto; padding:8px; background:#6c757d; color:white; border:none; border-radius:4px; cursor:pointer;">Show Solution</button>
+        <div id="sol-047" style="display:none; margin-top:10px; background:#f4f4f4; padding:10px; border-radius:4px; font-family:monospace; font-size:0.85rem; white-space:pre-wrap;">num1 = int(input("Enter a number: "))
+total = num1
+again = "y"
+while again == "y":
+    num2 = int(input("Enter another number: "))
+    total = total + num2
+    again = input("Do you want to add another number? (y/n) ")
+print("The total is", total)</div>
+      </div>
+
+      <div class="card" style="border-top: 5px solid #dc3545;">
+        <h3>Challenge 048</h3>
+        <p>Ask for the name of somebody the user wants to invite to a party. After this, display the message "[name] has now been invited" and add 1 to the count. Then ask if they want to invite somebody else. Keep repeating this until they no longer want to invite anyone else and then display how many people they have coming.</p>
+        <button onclick="let sol=document.getElementById('sol-048'); if(sol.style.display==='none'){sol.style.display='block'; this.innerText='Hide Solution';}else{sol.style.display='none'; this.innerText='Show Solution';}" style="margin-top:auto; padding:8px; background:#6c757d; color:white; border:none; border-radius:4px; cursor:pointer;">Show Solution</button>
+        <div id="sol-048" style="display:none; margin-top:10px; background:#f4f4f4; padding:10px; border-radius:4px; font-family:monospace; font-size:0.85rem; white-space:pre-wrap;">again = "y"
+count = 0
+while again == "y":
+    name = input("Enter a name of somebody you want to invite to your party: ")
+    print(name, "has now been invited")
+    count = count + 1
+    again = input("Do you want to invite somebody else? (y/n) ")
+print("You have", count, "people coming to your party")</div>
+      </div>
+
+      <div class="card" style="border-top: 5px solid #dc3545;">
+        <h3>Challenge 049</h3>
+        <p>Create a variable called compnum and set the value to 50. Ask the user to enter a number. While their guess is not the same as the compnum value, tell them if their guess is too low or too high and ask them to have another guess. If they enter the same value as compnum, display the message "Well done, you took [count] attempts".</p>
+        <button onclick="let sol=document.getElementById('sol-049'); if(sol.style.display==='none'){sol.style.display='block'; this.innerText='Hide Solution';}else{sol.style.display='none'; this.innerText='Show Solution';}" style="margin-top:auto; padding:8px; background:#6c757d; color:white; border:none; border-radius:4px; cursor:pointer;">Show Solution</button>
+        <div id="sol-049" style="display:none; margin-top:10px; background:#f4f4f4; padding:10px; border-radius:4px; font-family:monospace; font-size:0.85rem; white-space:pre-wrap;">compnum = 50
+guess = int(input("Can you guess the number I am thinking of? "))
+count = 1
+while guess != compnum:
+    if guess < compnum:
+        print("Too low")
+    else:
+        print("Too high")
+    count = count + 1
+    guess = int(input("Have another guess: "))
+print("Well done, you took", count, "attempts")</div>
+      </div>
+    </div>
+
+  `,
+
+  // --- IDEA 3: SIDE-BY-SIDE DEBUGGING ---
+  prac_debugging: `
+    <h1>Fix the Bug: Code Tracing</h1>
+    <p>Finding logic and syntax errors is a massive part of Paper 1. Read the broken code on the left, identify why it won't work, and type the working solution into the live console on the right.</p>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #ddd;">
+      <button onclick="showBugScenario(1)" style="padding: 8px 12px; background: var(--dark-purple); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9rem;">1. Infinite Loop</button>
+      <button onclick="showBugScenario(2)" style="padding: 8px 12px; background: var(--dark-purple); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9rem;">2. Array Crash</button>
+      <button onclick="showBugScenario(3)" style="padding: 8px 12px; background: var(--dark-purple); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9rem;">3. Syntax Error</button>
+      <button onclick="showBugScenario(4)" style="padding: 8px 12px; background: var(--dark-purple); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9rem;">4. Out of Bounds</button>
+      <button onclick="showBugScenario(5)" style="padding: 8px 12px; background: var(--dark-purple); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9rem;">5. Method Error</button>
+      <button onclick="showBugScenario(6)" style="padding: 8px 12px; background: var(--dark-purple); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9rem;">6. Scope Logic</button>
+      <button onclick="showBugScenario(7)" style="padding: 8px 12px; background: var(--dark-purple); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9rem;">7. Type Error</button>
+      <button onclick="showBugScenario(8)" style="padding: 8px 12px; background: var(--dark-purple); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9rem;">8. Missing Return</button>
+      <button onclick="showBugScenario(9)" style="padding: 8px 12px; background: var(--dark-purple); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9rem;">9. Range Logic</button>
+      <button onclick="showBugScenario(10)" style="padding: 8px 12px; background: var(--dark-purple); color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9rem;">10. Boolean Logic</button>
+    </div>
+
+    <div class="split-screen-container" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch;">
+      
+      <div style="flex: 1 1 400px; background: #1e1e1e; color: #d4d4d4; padding: 20px; border-radius: 8px; border-left: 5px solid #dc3545; display: flex; flex-direction: column;">
+        <h3 style="color: #dc3545; margin-top: 0; border-bottom: 1px solid #333; padding-bottom: 10px;" id="bug-title">Scenario 1: Challenge 047</h3>
+        <p style="font-size: 0.9rem; color: #aaa;" id="bug-context"><strong>Context:</strong> The program should keep asking for numbers and adding them to a total as long as the user types "y".</p>
+        
+        <div style="background: #000; padding: 15px; border-radius: 5px; font-family: 'Courier New', monospace; font-size: 0.95rem; overflow-x: auto; flex-grow: 1;">
+          <code id="bug-code" style="color: #569cd6; line-height: 1.4;">
+num1 = <span style="color:#4ec9b0;">int</span>(<span style="color:#dcdcaa;">input</span>(<span style="color:#ce9178;">"Enter a number: "</span>))<br>
+total = num1<br>
+answer = <span style="color:#ce9178;">"y"</span><br>
+<br>
+<span style="color:#c586c0;">while</span> answer == <span style="color:#ce9178;">"y"</span>:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;num2 = <span style="color:#4ec9b0;">int</span>(<span style="color:#dcdcaa;">input</span>(<span style="color:#ce9178;">"Enter another number: "</span>))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;total = total + num2<br>
+<br>
+<span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"The total is"</span>, total)
+          </code>
+        </div>
+        
+        <button onclick="document.getElementById('bug-hint').style.display='block'" style="margin-top: 15px; padding: 10px; background: #ffc107; color: #333; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Give me a hint</button>
+        <div id="bug-hint" style="display: none; margin-top: 10px; background: #fff3cd; padding: 10px; border-radius: 5px; color: #856404; font-size: 0.9rem;">
+          <strong>Hint:</strong> Look closely at the while loop. Does the variable 'answer' ever change once the loop starts? What happens if a loop condition is always true?
+        </div>
+      </div>
+
+      <div style="flex: 1 1 400px; border: 2px solid var(--pastel-violet); border-radius: 8px; overflow: hidden; background: #f9f9f9; display: flex; flex-direction: column;">
+        <div style="background: var(--pastel-violet); color: var(--dark-purple); padding: 10px; font-size: 0.9rem; font-weight: bold; text-align: center;">
+          Fix it here & run your code!
+        </div>
+        <iframe src="https://trinket.io/embed/python/3d8d7ce66b" width="100%" height="450" frameborder="0" allowfullscreen style="flex-grow: 1;"></iframe>
+      </div>
+
+    </div>
+
     <button onclick="goBack()" style="margin-top: 30px; padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Go Back</button>
   `,
+
 };
+
+// --- NEW: Page Dictionary for Search & Smart Back ---
+const pageTitles = {
+  'home': 'Dashboard', 'p1_hub': 'Paper 1 Hub', 'p2_hub': 'Paper 2 Hub', 'prac_hub': 'Practical Hub', 'resources': 'Revision Resources',
+  'p1_algo': '3.1 Algorithms', 'p1_prog': '3.2 Programming', 'p2_data': '3.3 Data Representation', 'p2_sys': '3.4 Systems', 
+  'p2_net': '3.5 Networks', 'p2_cyber': '3.6 Cyber Security', 'p2_sql': '3.7 Databases', 'p2_impact': '3.8 Impacts',
+  'p1_revision': 'P1 Flashcards', 'p2_revision': 'P2 Flashcards', 'prac_challenges': 'Coding Challenges',
+  'act_io': 'I/O Activity', 'act_casting': 'Casting Activity', 'act_selection': 'Selection Activity', 'act_robust': 'Robustness Activity',
+  'act_loops': 'Loops Activity', 'act_lists': 'Lists Activity', 'act_subroutines': 'Subroutines Activity', 'act_strings': 'Strings Activity',
+  'p1_linear_viz': 'Linear Search Viz', 'p1_binary_viz': 'Binary Search Viz', 'p1_bubble_viz': 'Bubble Sort Viz', 'p1_merge_viz': 'Merge Sort Viz',
+  'p2_rle_act': 'RLE Compression', 'p2_huffman_act': 'Huffman Tree Activity', 'p2_threat_viz': 'Cyber Threats Viz', 'p2_phish_game': 'Spot the Phish', 'p2_attack_viz': 'Technical Attacks Viz',
+  'prac_challenges': 'Coding Challenges', 
+  'prac_debugging': 'Bug Fixer Activity',
+};
+
+// --- NEW: Debugging Scenario Logic ---
+function showBugScenario(num) {
+  document.getElementById('bug-hint').style.display = 'none';
+  
+  const title = document.getElementById('bug-title');
+  const context = document.getElementById('bug-context');
+  const code = document.getElementById('bug-code');
+  const hint = document.getElementById('bug-hint');
+
+  switch(num) {
+    case 1:
+      title.innerText = "Scenario 1: Infinite Loop";
+      context.innerHTML = '<strong>Context:</strong> The program should keep asking for numbers and adding them to a total as long as the user types "y".';
+      code.innerHTML = 'num1 = <span style="color:#4ec9b0;">int</span>(<span style="color:#dcdcaa;">input</span>(<span style="color:#ce9178;">"Enter a number: "</span>))<br>total = num1<br>answer = <span style="color:#ce9178;">"y"</span><br><br><span style="color:#c586c0;">while</span> answer == <span style="color:#ce9178;">"y"</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;num2 = <span style="color:#4ec9b0;">int</span>(<span style="color:#dcdcaa;">input</span>(<span style="color:#ce9178;">"Enter another number: "</span>))<br>&nbsp;&nbsp;&nbsp;&nbsp;total = total + num2<br><br><span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"The total is"</span>, total)';
+      hint.innerHTML = "<strong>Hint:</strong> Look closely at the while loop. Does the variable 'answer' ever change once the loop starts? What happens if a loop condition is always true?";
+      break;
+    case 2:
+      title.innerText = "Scenario 2: The Array Crash";
+      context.innerHTML = '<strong>Context:</strong> Create an array of five numbers. Ask the user for a number. Divide each number in the array by the user\'s number.';
+      code.innerHTML = 'nums = [10.50, 20.25, 30.00, 40.75, 50.10]<br><br>divisor = <span style="color:#dcdcaa;">input</span>(<span style="color:#ce9178;">"Enter a number: "</span>)<br><br><span style="color:#c586c0;">for</span> i <span style="color:#c586c0;">in</span> <span style="color:#4ec9b0;">range</span>(0, 5):<br>&nbsp;&nbsp;&nbsp;&nbsp;ans = nums[i] / divisor<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(<span style="color:#4ec9b0;">round</span>(ans, 2))';
+      hint.innerHTML = "<strong>Hint:</strong> There are two massive errors here. First, what data type does <code>input()</code> return by default? Second, you can't divide a float by a string!";
+      break;
+    case 3:
+      title.innerText = "Scenario 3: Selection Syntax Error";
+      context.innerHTML = '<strong>Context:</strong> Ask for a number. If it\'s over 100, say "High". If it\'s exactly 100, say "Spot on".';
+      code.innerHTML = 'num = <span style="color:#4ec9b0;">int</span>(<span style="color:#dcdcaa;">input</span>(<span style="color:#ce9178;">"Enter a number: "</span>))<br><span style="color:#c586c0;">if</span> num > 100:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"High"</span>)<br><span style="color:#c586c0;">elif</span> num = 100:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Spot on"</span>)';
+      hint.innerHTML = "<strong>Hint:</strong> Look at the <code>elif</code> line. Are you *comparing* the number to 100, or trying to *assign* the number to 100? Remember the difference between <code>=</code> and <code>==</code>.";
+      break;
+    case 4:
+      title.innerText = "Scenario 4: Array Index Out of Bounds";
+      context.innerHTML = '<strong>Context:</strong> Create an array of 5 names. Print them out one by one using a FOR loop.';
+      code.innerHTML = 'names = [<span style="color:#ce9178;">"Ali"</span>, <span style="color:#ce9178;">"Ben"</span>, <span style="color:#ce9178;">"Cyd"</span>, <span style="color:#ce9178;">"Dan"</span>, <span style="color:#ce9178;">"Eve"</span>]<br><br><span style="color:#c586c0;">for</span> i <span style="color:#c586c0;">in</span> <span style="color:#4ec9b0;">range</span>(1, 6):<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(names[i])';
+      hint.innerHTML = "<strong>Hint:</strong> Arrays are zero-indexed! The first item is at index 0. This loop starts at 1 and tries to reach index 5. Does index 5 exist?";
+      break;
+    case 5:
+      title.innerText = "Scenario 5: Method Error";
+      context.innerHTML = '<strong>Context:</strong> Ask the user to type "yes". Convert it to lowercase and check if it matches.';
+      code.innerHTML = 'ans = <span style="color:#dcdcaa;">input</span>(<span style="color:#ce9178;">"Type yes: "</span>)<br>ans = ans.lower<br><span style="color:#c586c0;">if</span> ans == <span style="color:#ce9178;">"yes"</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Agreed"</span>)';
+      hint.innerHTML = "<strong>Hint:</strong> <code>.lower</code> is a built-in method (like a function). What characters do you always need to put at the end of a method to actually run it?";
+      break;
+    case 6:
+      title.innerText = "Scenario 6: Scope Logic Error";
+      context.innerHTML = '<strong>Context:</strong> Ask for 3 numbers, add them up, and print the final running total.';
+      code.innerHTML = '<span style="color:#c586c0;">for</span> i <span style="color:#c586c0;">in</span> <span style="color:#4ec9b0;">range</span>(3):<br>&nbsp;&nbsp;&nbsp;&nbsp;total = 0<br>&nbsp;&nbsp;&nbsp;&nbsp;num = <span style="color:#4ec9b0;">int</span>(<span style="color:#dcdcaa;">input</span>(<span style="color:#ce9178;">"Num: "</span>))<br>&nbsp;&nbsp;&nbsp;&nbsp;total = total + num<br><br><span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Total is"</span>, total)';
+      hint.innerHTML = "<strong>Hint:</strong> Look at where <code>total = 0</code> is placed. What happens to your running total every single time the loop repeats?";
+      break;
+    case 7:
+      title.innerText = "Scenario 7: Type Concatenation Error";
+      context.innerHTML = '<strong>Context:</strong> Ask for two numbers, add them together, and display the answer.';
+      code.innerHTML = 'num1 = <span style="color:#dcdcaa;">input</span>(<span style="color:#ce9178;">"Enter number 1: "</span>)<br>num2 = <span style="color:#dcdcaa;">input</span>(<span style="color:#ce9178;">"Enter number 2: "</span>)<br>ans = num1 + num2<br><span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"The total is"</span>, ans)';
+      hint.innerHTML = "<strong>Hint:</strong> By default, <code>input()</code> brings in text (strings). What happens if you add the string '5' and the string '5'? You need to cast them first!";
+      break;
+    case 8:
+      title.innerText = "Scenario 8: Subroutine Missing Return";
+      context.innerHTML = '<strong>Context:</strong> A function that doubles a number and sends it back to the main program to be printed.';
+      code.innerHTML = '<span style="color:#c586c0;">def</span> <span style="color:#dcdcaa;">double_num</span>(x):<br>&nbsp;&nbsp;&nbsp;&nbsp;ans = x * 2<br><br>result = <span style="color:#dcdcaa;">double_num</span>(4)<br><span style="color:#dcdcaa;">print</span>(result)';
+      hint.innerHTML = "<strong>Hint:</strong> The function calculates the answer, but it never sends it back to the main program, which is why it prints 'None'. Look for a missing keyword at the end of the function.";
+      break;
+    case 9:
+      title.innerText = "Scenario 9: For Loop Range Logic";
+      context.innerHTML = '<strong>Context:</strong> Print the 5 times table from 1 x 5 all the way up to 12 x 5.';
+      code.innerHTML = '<span style="color:#c586c0;">for</span> i <span style="color:#c586c0;">in</span> <span style="color:#4ec9b0;">range</span>(1, 12):<br>&nbsp;&nbsp;&nbsp;&nbsp;ans = i * 5<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(i, <span style="color:#ce9178;">"x 5 ="</span>, ans)';
+      hint.innerHTML = "<strong>Hint:</strong> The <code>range(start, stop)</code> function stops *before* the stop number. If you want it to actually reach 12, what should the stop number be?";
+      break;
+    case 10:
+      title.innerText = "Scenario 10: Boolean Logic Error";
+      context.innerHTML = '<strong>Context:</strong> Check if a user\'s inputted colour is either red or blue.';
+      code.innerHTML = 'col = <span style="color:#dcdcaa;">input</span>(<span style="color:#ce9178;">"Enter colour: "</span>)<br><span style="color:#c586c0;">if</span> col == <span style="color:#ce9178;">"red"</span> <span style="color:#c586c0;">or</span> <span style="color:#ce9178;">"blue"</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Valid primary colour"</span>)';
+      hint.innerHTML = "<strong>Hint:</strong> A string like <code>\'blue\'</code> on its own is always evaluated as True by Python. You have to explicitly state the variable being compared on *both* sides of the <code>or</code>.";
+      break;
+  }
+}
 
 // --- History Management Variables ---
 let historyStack = ['home'];
 let isGoingBack = false;
+let searchIndex = [];
+
+function buildSearchIndex() {
+  searchIndex = [];
+  // 1. Add Topics
+  for (const [id, title] of Object.entries(pageTitles)) {
+    searchIndex.push({ title: title, desc: "Hub Page / Topic", id: id, type: "Topic" });
+  }
+  // 2. Add P1 Flashcards
+  p1_cards.forEach(c => searchIndex.push({ title: c.term, desc: c.def, id: "p1_revision", type: "P1 Keyword" }));
+  // 3. Add P2 Flashcards
+  p2_cards.forEach(c => searchIndex.push({ title: c.term, desc: c.def, id: "p2_revision", type: "P2 Keyword" }));
+}
+
+// Run on boot
+window.addEventListener('DOMContentLoaded', () => {
+  buildSearchIndex();
+  
+  // Initialize Dark Mode based on LocalStorage
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    document.getElementById('theme-toggle').innerText = '☀️';
+  }
+});
+
+// --- NEW: Global Search Function ---
+function handleSearch() {
+  const query = document.getElementById('global-search').value.toLowerCase();
+  const resultsDiv = document.getElementById('search-results');
+  
+  if (!query) { 
+    resultsDiv.style.display = 'none'; 
+    return; 
+  }
+
+  // Filter the index based on the query (search term or definition)
+  const matches = searchIndex.filter(item =>
+    item.title.toLowerCase().includes(query) ||
+    (item.desc && item.desc.toLowerCase().includes(query))
+  ).slice(0, 6); // Limit to top 6 results
+
+  if (matches.length > 0) {
+    resultsDiv.innerHTML = matches.map(m =>
+      `<div onclick="executeSearch('${m.id}')">
+          <strong style="color: var(--dark-purple);">${m.title}</strong> <span style="font-size: 0.8rem; color: #888; background: #eee; padding: 2px 5px; border-radius: 4px; margin-left: 5px;">${m.type}</span>
+          ${m.desc ? `<br><span style="font-size:0.85rem; color:#555;">${m.desc.substring(0,60)}${m.desc.length > 60 ? '...' : ''}</span>` : ''}
+        </div>`
+    ).join('');
+    resultsDiv.style.display = 'block';
+  } else {
+    resultsDiv.innerHTML = '<div style="padding:15px; color:#777; text-align: center;">No matching terms or topics found.</div>';
+    resultsDiv.style.display = 'block';
+  }
+}
+
+function executeSearch(pageId) {
+  loadContent(pageId);
+  document.getElementById('search-results').style.display = 'none';
+  document.getElementById('global-search').value = '';
+}
+
+// Close search dropdown if clicked outside
+document.addEventListener('click', (e) => {
+  if(!e.target.closest('.search-container')) {
+      document.getElementById('search-results').style.display = 'none';
+  }
+});
+
+// --- NEW: Dark Mode Toggle ---
+function toggleDarkMode() {
+  document.body.classList.toggle('dark-mode');
+  const isDark = document.body.classList.contains('dark-mode');
+  
+  // Save to LocalStorage
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  
+  // Update icon
+  document.getElementById('theme-toggle').innerText = isDark ? '☀️' : '🌙';
+}
+
+function updateSmartBackButton() {
+  const backBtn = document.getElementById('smart-back-btn');
+  const tooltip = document.getElementById('back-tooltip');
+  
+  if (historyStack.length > 1) {
+    backBtn.style.display = 'flex';
+    const prevPageId = historyStack[historyStack.length - 2];
+    tooltip.innerText = `Back to ${pageTitles[prevPageId] || 'Previous Page'}`;
+  } else {
+    backBtn.style.display = 'none';
+  }
+}
 
 function toggleNav() {
   document.getElementById("menu-btn").classList.toggle("change");
@@ -1897,11 +2361,18 @@ function loadContent(topic) {
   if (contentData[topic]) {
     display.innerHTML = contentData[topic];
 
-    // This part is crucial - it triggers the math after the HTML exists
+    // NEW: Properly push to history stack if we aren't using the back button
+    if (!isGoingBack) {
+      if (historyStack[historyStack.length - 1] !== topic) {
+        historyStack.push(topic);
+      }
+    }
+    isGoingBack = false; // Reset flag
+    updateSmartBackButton(); // Update floating button
+
     if (topic === 'home') {
       updateCountdowns();
     }
-    // Handle other activity initialisations
     else if (topic === 'p1_revision') {
       shuffledCards = [...p1_cards];
       shuffleArray(shuffledCards);
@@ -1916,13 +2387,14 @@ function loadContent(topic) {
   }
 
   if (window.innerWidth < 768) toggleNav();
+  window.scrollTo({ top: 0, behavior: 'smooth' }); // Quality of life improvement
 }
 
 function goBack() {
   if (historyStack.length > 1) {
     isGoingBack = true;
-    historyStack.pop();
-    const previousPage = historyStack[historyStack.length - 1];
+    historyStack.pop(); // Remove current page
+    const previousPage = historyStack[historyStack.length - 1]; // Get previous page
     loadContent(previousPage);
   } else {
     loadContent('home');
@@ -2170,11 +2642,12 @@ async function startLinearSearch() {
   let boxes = values.map((val, i) => {
     const box = document.createElement('div');
     box.innerText = val;
+    // FIX: Added $ for boxWidth and left position calculation
     box.style.cssText = `
-      width: {boxWidth}px; height: {boxWidth}px;
-      background: #888; color: white; line-height: {boxWidth}px;
+      width: ${boxWidth}px; height: ${boxWidth}px;
+      background: #888; color: white; line-height: ${boxWidth}px;
       font-weight: bold; position: absolute; border-radius: 4px;
-      left: {i * (boxWidth + gap)}px; top: 10px;
+      left: ${i * (boxWidth + gap)}px; top: 10px;
       transition: all 0.4s ease;
     `;
     container.appendChild(box);
@@ -2182,7 +2655,8 @@ async function startLinearSearch() {
   });
 
   for (let i = 0; i < boxes.length; i++) {
-    status.innerText = `Checking index {i}: Is {values[i]} === {target}?`;
+    // FIX: Added $ for index, current value, and target
+    status.innerText = `Checking index ${i}: Is ${values[i]} === ${target}?`;
 
     // Highlight current box (Orange/Yellow)
     boxes[i].style.background = '#ffc107';
@@ -2193,7 +2667,8 @@ async function startLinearSearch() {
     if (values[i] === target) {
       boxes[i].style.background = 'var(--accent-green)';
       boxes[i].style.transform = 'scale(1.2)';
-      status.innerText = `Match Found! {target} is at index {i}.`;
+      // FIX: Added $ for target and index
+      status.innerText = `Match Found! ${target} is at index ${i}.`;
       return;
     }
 
@@ -2244,7 +2719,9 @@ async function startBubbleSort() {
       // Highlight comparing bars in Red
       bars[j].style.background = '#dc3545';
       bars[j + 1].style.background = '#dc3545';
-      status.innerText = `Comparing {values[j]} and {values[j + 1]}`;
+      
+      // FIX: Added $ for values[j] and values[j + 1]
+      status.innerText = `Comparing ${values[j]} and ${values[j + 1]}`;
 
       // Wait for user to see the comparison (800ms)
       await new Promise(resolve => setTimeout(resolve, 800));
@@ -2321,22 +2798,26 @@ async function startBinarySearch() {
     // Highlight current middle in Red
     bars[mid].style.background = '#dc3545';
     bars[mid].style.transform = 'scale(1.1)';
-    status.innerText = `Checking middle index {mid} (Value: {values[mid]})`;
+    // FIX: Added $ before {mid} and {values[mid]}
+    status.innerText = `Checking middle index ${mid} (Value: ${values[mid]})`;
 
     await new Promise(r => setTimeout(r, 1200));
 
     if (values[mid] === target) {
       bars[mid].style.background = 'var(--accent-green)';
       bars[mid].style.transform = 'scale(1.2)';
-      status.innerText = `Found {target} at index {mid}!`;
+      // FIX: Added $ before {target} and {mid}
+      status.innerText = `Found ${target} at index ${mid}!`;
       return;
     }
 
     if (values[mid] < target) {
-      status.innerText = `{values[mid]} is too low. Discarding left half.`;
+      // FIX: Added $ before {values[mid]}
+      status.innerText = `${values[mid]} is too low. Discarding left half.`;
       low = mid + 1;
     } else {
-      status.innerText = `{values[mid]} is too high. Discarding right half.`;
+      // FIX: Added $ before {values[mid]}
+      status.innerText = `${values[mid]} is too high. Discarding right half.`;
       high = mid - 1;
     }
 
@@ -2362,11 +2843,12 @@ async function startMergeSort() {
   let boxes = values.map((val, i) => {
     const box = document.createElement('div');
     box.innerText = val;
+    // FIX: Added $ for boxWidth and left positioning calculations
     box.style.cssText = `
-      width: {boxWidth}px; height: {boxWidth}px;
-      background: #888; color: white; line-height: {boxWidth}px;
+      width: ${boxWidth}px; height: ${boxWidth}px;
+      background: #888; color: white; line-height: ${boxWidth}px;
       font-weight: bold; position: absolute; border-radius: 4px;
-      left: {i * (boxWidth + gap)}px; top: 10px; 
+      left: ${i * (boxWidth + gap)}px; top: 10px; 
       transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     `;
     container.appendChild(box);
@@ -2455,7 +2937,8 @@ function runRLE() {
       count = 1;
     }
   }
-  resultDiv.innerText = `Result: {compressed}`;
+  // FIX: Added $ before {compressed}
+  resultDiv.innerText = `Result: ${compressed}`;
 }
 
 function revealHuffman() {
@@ -2572,7 +3055,8 @@ function revealPhish(element, message) {
   phishCount++;
 
   const feedback = document.getElementById('phish-feedback');
-  feedback.innerHTML = `✅ Found: {message}<br>Progress: {phishCount} / {totalPhish}`;
+  // FIX: Added $ before {message}, {phishCount}, and {totalPhish}
+  feedback.innerHTML = `✅ Found: ${message}<br>Progress: ${phishCount} / ${totalPhish}`;
 
   if (phishCount === totalPhish) {
     feedback.innerHTML = "🎉 Excellent! You spotted all the red flags. Always check the sender, the link, and look out for generic greetings or threats of urgency.";
@@ -2604,8 +3088,8 @@ async function runAttackLogic(type) {
       // Cycle through charset to simulate searching
       for (let j = 0; j < charset.length; j++) {
         const char = charset[j];
-        // Display current progress + random cycling char
-        consoleOut.innerHTML = `> Attacking... <br><span style="font-size: 2rem; color: #0f0; letter-spacing: 5px;">{currentAttempt}{char}</span>`;
+        // FIX: Added $ before {currentAttempt} and {char}
+        consoleOut.innerHTML = `> Attacking... <br><span style="font-size: 2rem; color: #0f0; letter-spacing: 5px;">${currentAttempt}${char}</span>`;
 
         // Artificial delay for visual effect
         await new Promise(r => setTimeout(r, 40));
@@ -2619,7 +3103,8 @@ async function runAttackLogic(type) {
     }
 
     // Final Success State
-    consoleOut.innerHTML = `> Success! Password found: <br><span style="font-size: 2rem; color: var(--accent-green); letter-spacing: 5px;">{currentAttempt}</span>`;
+    // FIX: Added $ before {currentAttempt}
+    consoleOut.innerHTML = `> Success! Password found: <br><span style="font-size: 2rem; color: var(--accent-green); letter-spacing: 5px;">${currentAttempt}</span>`;
     status.innerText = "SERVER STATUS: UNAUTHORISED ACCESS";
     status.style.color = "#fd7e14";
   }
