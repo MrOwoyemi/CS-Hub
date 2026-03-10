@@ -140,6 +140,10 @@ const contentData = {
           <p>Variables, Selection (If), Iteration (Loops), Arrays, and Subroutines.</p>
         </div>
       </div>
+      <div class="card" onclick="loadContent('prac_hub')" style="cursor: pointer; border-left: 5px solid var(--accent-green);">
+        <h3>Practical Programming (Python Basics)</h3>
+        <p>Apply your Paper 1 knowledge with Python coding challenges, syntax guides, and debugging practice.</p>
+      </div>
     </div>
 
     <h2 class="section-title">Activities</h2>
@@ -301,17 +305,33 @@ const contentData = {
     <p>While there is no coursework, you must be able to read, write, and trace code in the exam.</p>
 
     <div class="card-grid">
-      <div class="card" onclick="loadContent('p1_prog')" style="cursor: pointer; border-left: 5px solid var(--accent-green);">
+      <div class="card" onclick="loadContent('prac_core_constructs')" style="cursor: pointer; border-left: 5px solid var(--accent-green);">
         <h3>Core Constructs</h3>
         <p>Sequence, Selection (If/Else), and Iteration (While/For loops).</p>
       </div>
-      <div class="card" style="cursor: pointer; border-left: 5px solid var(--accent-green);">
+      <div class="card" onclick="loadContent('prac_data_structs')" style="cursor: pointer; border-left: 5px solid var(--accent-green);">
         <h3>Data Structures</h3>
         <p>Lists (Arrays), 2D Lists, and Dictionaries.</p>
       </div>
-      <div class="card" style="cursor: pointer; border-left: 5px solid var(--accent-green);">
+      <div class="card" onclick="loadContent('prac_string_manip')" style="cursor: pointer; border-left: 5px solid var(--accent-green);">
         <h3>String Manipulation</h3>
         <p>Slicing, Casting, and ASCII conversion.</p>
+      </div>
+      <div class="card" onclick="loadContent('prac_subroutines')" style="cursor: pointer; border-left: 5px solid #17a2b8;">
+        <h3>Subroutines</h3>
+        <p>Functions, Procedures, Parameters, and Variable Scope.</p>
+      </div>
+      <div class="card" onclick="loadContent('prac_file_handling')" style="cursor: pointer; border-left: 5px solid #17a2b8;">
+        <h3>File Handling</h3>
+        <p>Opening, Reading, Writing, and Closing external text files.</p>
+      </div>
+      <div class="card" onclick="loadContent('prac_validation')" style="cursor: pointer; border-left: 5px solid #ffc107;">
+        <h3>Robust Programs</h3>
+        <p>Defensive design, Validation checks, and Error Handling.</p>
+      </div>
+      <div class="card" onclick="loadContent('prac_modules')" style="cursor: pointer; border-left: 5px solid #fd7e14;">
+        <h3>Built-in Modules</h3>
+        <p>A cheat sheet for using random and maths functions.</p>
       </div>
     </div>
 
@@ -320,6 +340,387 @@ const contentData = {
       <p><strong>Easy:</strong> Write a program that asks for a name and prints it 5 times.</p>
       <p><strong>Medium:</strong> Write a program to calculate the average of numbers in a list.</p>
       <p><strong>Hard:</strong> Implement the Bubble Sort algorithm from scratch.</p>
+    </div>
+  `,
+
+  // --- PRACTICAL CORE CONSTRUCTS ---
+  prac_core_constructs: `
+    <h1>Core Constructs in Python</h1>
+    <p>Every algorithm is built using three fundamental programming constructs: Sequence, Selection, and Iteration. Here is how they are defined and coded in Python.</p>
+    
+
+    <h2 class="section-title">1. Sequence</h2>
+    <p><strong>Definition:</strong> Sequence is the execution of statements or instructions one after the other, in the exact order they are written.</p>
+    
+    <div style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; font-family: monospace; margin-bottom: 20px;">
+      <span style="color:#6a9955;"># EASY: Basic top-to-bottom execution</span><br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Step 1"</span>)<br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Step 2"</span>)<br><br>
+
+      <span style="color:#6a9955;"># MEDIUM: Taking inputs and processing in order</span><br>
+      <span style="color:#569cd6;">num1</span> = <span style="color:#4ec9b0;">int</span>(<span style="color:#dcdcaa;">input</span>(<span style="color:#ce9178;">"Enter a number: "</span>))<br>
+      <span style="color:#569cd6;">num2</span> = <span style="color:#4ec9b0;">int</span>(<span style="color:#dcdcaa;">input</span>(<span style="color:#ce9178;">"Enter another: "</span>))<br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Total:"</span>, <span style="color:#569cd6;">num1</span> + <span style="color:#569cd6;">num2</span>)<br><br>
+
+      <span style="color:#6a9955;"># HARD: Sequence with Modulo and Integer Division</span><br>
+      <span style="color:#569cd6;">total_sweets</span> = <span style="color:#b5cea8;">25</span><br>
+      <span style="color:#569cd6;">students</span> = <span style="color:#b5cea8;">7</span><br>
+      <span style="color:#569cd6;">sweets_per_student</span> = <span style="color:#569cd6;">total_sweets</span> // <span style="color:#569cd6;">students</span> <span style="color:#6a9955;"># DIV (Outputs 3)</span><br>
+      <span style="color:#569cd6;">left_over</span> = <span style="color:#569cd6;">total_sweets</span> % <span style="color:#569cd6;">students</span> <span style="color:#6a9955;"># MOD (Outputs 4)</span><br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Each gets"</span>, <span style="color:#569cd6;">sweets_per_student</span>, <span style="color:#ce9178;">"with"</span>, <span style="color:#569cd6;">left_over</span>, <span style="color:#ce9178;">"left."</span>)
+    </div>
+
+    <h2 class="section-title">2. Selection</h2>
+    <p><strong>Definition:</strong> Selection allows a program to make decisions and choose different paths or branches of execution based on a condition evaluating to True or False.</p>
+
+    <div style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; font-family: monospace; margin-bottom: 20px;">
+      <span style="color:#6a9955;"># EASY: Simple If/Else</span><br>
+      <span style="color:#569cd6;">age</span> = <span style="color:#b5cea8;">15</span><br>
+      <span style="color:#c586c0;">if</span> <span style="color:#569cd6;">age</span> >= <span style="color:#b5cea8;">18</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Adult"</span>)<br>
+      <span style="color:#c586c0;">else</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Child"</span>)<br><br>
+
+      <span style="color:#6a9955;"># MEDIUM: Multiple conditions using Elif</span><br>
+      <span style="color:#569cd6;">score</span> = <span style="color:#b5cea8;">75</span><br>
+      <span style="color:#c586c0;">if</span> <span style="color:#569cd6;">score</span> >= <span style="color:#b5cea8;">80</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Distinction"</span>)<br>
+      <span style="color:#c586c0;">elif</span> <span style="color:#569cd6;">score</span> >= <span style="color:#b5cea8;">60</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Merit"</span>)<br>
+      <span style="color:#c586c0;">else</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Pass"</span>)<br><br>
+
+      <span style="color:#6a9955;"># HARD: Nested Ifs with Logical Operators (AND/OR/NOT)</span><br>
+      <span style="color:#569cd6;">day</span> = <span style="color:#ce9178;">"Saturday"</span><br>
+      <span style="color:#569cd6;">is_raining</span> = <span style="color:#569cd6;">True</span><br>
+      <span style="color:#c586c0;">if</span> <span style="color:#569cd6;">day</span> == <span style="color:#ce9178;">"Saturday"</span> <span style="color:#c586c0;">or</span> <span style="color:#569cd6;">day</span> == <span style="color:#ce9178;">"Sunday"</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#c586c0;">if</span> <span style="color:#c586c0;">not</span> <span style="color:#569cd6;">is_raining</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Go to the park!"</span>)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#c586c0;">else</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Stay inside and play games."</span>)
+    </div>
+
+    <h2 class="section-title">3. Iteration</h2>
+    <p><strong>Definition:</strong> Iteration (looping) is the process of repeating a block of code. This can be done a set number of times (Definite) or continuously until a condition changes (Indefinite).</p>
+
+    <div style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; font-family: monospace; margin-bottom: 20px;">
+      <span style="color:#6a9955;"># EASY: Definite Iteration (For Loop)</span><br>
+      <span style="color:#c586c0;">for</span> i <span style="color:#c586c0;">in</span> <span style="color:#4ec9b0;">range</span>(<span style="color:#b5cea8;">3</span>): <span style="color:#6a9955;"># Loops 0, 1, 2</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Loop iteration:"</span>, i)<br><br>
+
+      <span style="color:#6a9955;"># MEDIUM: Indefinite Iteration (While Loop)</span><br>
+      <span style="color:#569cd6;">guess</span> = <span style="color:#ce9178;">""</span><br>
+      <span style="color:#c586c0;">while</span> <span style="color:#569cd6;">guess</span> != <span style="color:#ce9178;">"secret"</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#569cd6;">guess</span> = <span style="color:#dcdcaa;">input</span>(<span style="color:#ce9178;">"Enter password: "</span>)<br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Access Granted!"</span>)<br><br>
+
+      <span style="color:#6a9955;"># HARD: While Loop with multiple conditions and counters</span><br>
+      <span style="color:#569cd6;">attempts</span> = <span style="color:#b5cea8;">0</span><br>
+      <span style="color:#569cd6;">pin</span> = <span style="color:#b5cea8;">0000</span><br>
+      <span style="color:#c586c0;">while</span> <span style="color:#569cd6;">pin</span> != <span style="color:#b5cea8;">1234</span> <span style="color:#c586c0;">and</span> <span style="color:#569cd6;">attempts</span> < <span style="color:#b5cea8;">3</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#569cd6;">pin</span> = <span style="color:#4ec9b0;">int</span>(<span style="color:#dcdcaa;">input</span>(<span style="color:#ce9178;">"Enter PIN: "</span>))<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#569cd6;">attempts</span> += <span style="color:#b5cea8;">1</span><br>
+      <span style="color:#c586c0;">if</span> <span style="color:#569cd6;">pin</span> == <span style="color:#b5cea8;">1234</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Phone Unlocked"</span>)<br>
+      <span style="color:#c586c0;">else</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Device Locked."</span>)
+    </div>
+
+  `,
+
+  // --- DATA STRUCTURES ---
+  prac_data_structs: `
+    <h1>Data Structures</h1>
+    <p>Data structures allow us to store a collection of data under a single variable name. The AQA spec requires you to understand 1D Arrays, 2D Arrays, and Records.</p>
+    
+
+    <h2 class="section-title">1. 1D Arrays (Lists)</h2>
+    <p>An array is a static data structure holding items of the same data type. Python uses "Lists" instead, which are dynamic, but you will treat them like arrays in the exam.</p>
+    
+    <div style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; font-family: monospace; margin-bottom: 20px;">
+      <span style="color:#6a9955;"># EASY: Creating and Accessing</span><br>
+      <span style="color:#569cd6;">names</span> = [<span style="color:#ce9178;">"Ali"</span>, <span style="color:#ce9178;">"Ben"</span>, <span style="color:#ce9178;">"Cyd"</span>]<br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#569cd6;">names</span>[<span style="color:#b5cea8;">0</span>]) <span style="color:#6a9955;"># Outputs "Ali"</span><br><br>
+
+      <span style="color:#6a9955;"># MEDIUM: Modifying and appending</span><br>
+      <span style="color:#569cd6;">names</span>.append(<span style="color:#ce9178;">"Dan"</span>) <span style="color:#6a9955;"># Adds Dan to the end</span><br>
+      <span style="color:#569cd6;">names</span>[<span style="color:#b5cea8;">1</span>] = <span style="color:#ce9178;">"Bob"</span> <span style="color:#6a9955;"># Overwrites "Ben" with "Bob"</span><br><br>
+
+      <span style="color:#6a9955;"># HARD: Iterating through an array to search</span><br>
+      <span style="color:#569cd6;">scores</span> = [<span style="color:#b5cea8;">45</span>, <span style="color:#b5cea8;">80</span>, <span style="color:#b5cea8;">32</span>, <span style="color:#b5cea8;">99</span>, <span style="color:#b5cea8;">50</span>]<br>
+      <span style="color:#569cd6;">highest</span> = <span style="color:#b5cea8;">0</span><br>
+      <span style="color:#c586c0;">for</span> i <span style="color:#c586c0;">in</span> <span style="color:#4ec9b0;">range</span>(<span style="color:#4ec9b0;">len</span>(<span style="color:#569cd6;">scores</span>)):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#c586c0;">if</span> <span style="color:#569cd6;">scores</span>[i] > <span style="color:#569cd6;">highest</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#569cd6;">highest</span> = <span style="color:#569cd6;">scores</span>[i]<br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Top score is:"</span>, <span style="color:#569cd6;">highest</span>)
+    </div>
+
+    <h2 class="section-title">2. 2D Arrays (2D Lists)</h2>
+    <p>A 2D array is a list of lists, often used to represent a table or grid. You access data using two indexes: <code>[row][column]</code>.</p>
+    
+    <div style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; font-family: monospace; margin-bottom: 20px;">
+      <span style="color:#6a9955;"># EASY: Creating a grid and accessing a cell</span><br>
+      <span style="color:#569cd6;">grid</span> = [ [<span style="color:#b5cea8;">1</span>,<span style="color:#b5cea8;">2</span>,<span style="color:#b5cea8;">3</span>], [<span style="color:#b5cea8;">4</span>,<span style="color:#b5cea8;">5</span>,<span style="color:#b5cea8;">6</span>] ]<br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#569cd6;">grid</span>[<span style="color:#b5cea8;">1</span>][<span style="color:#b5cea8;">0</span>]) <span style="color:#6a9955;"># Row 1, Column 0 (Outputs 4)</span><br><br>
+
+      <span style="color:#6a9955;"># MEDIUM: Modifying a specific cell</span><br>
+      <span style="color:#569cd6;">grid</span>[<span style="color:#b5cea8;">0</span>][<span style="color:#b5cea8;">2</span>] = <span style="color:#b5cea8;">99</span> <span style="color:#6a9955;"># Changes the '3' to '99'</span><br><br>
+
+      <span style="color:#6a9955;"># HARD: Nested loops to iterate through a 2D Array</span><br>
+      <span style="color:#c586c0;">for</span> row <span style="color:#c586c0;">in</span> <span style="color:#4ec9b0;">range</span>(<span style="color:#b5cea8;">2</span>):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#c586c0;">for</span> col <span style="color:#c586c0;">in</span> <span style="color:#4ec9b0;">range</span>(<span style="color:#b5cea8;">3</span>):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Processing:"</span>, <span style="color:#569cd6;">grid</span>[row][col])
+    </div>
+
+    <h2 class="section-title">3. Records (Dictionaries)</h2>
+    <p>A Record stores related items of different data types under one name. In Python, we use <strong>Dictionaries</strong> with <code>key: value</code> pairs.</p>
+    
+    <div style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; font-family: monospace; margin-bottom: 20px;">
+      <span style="color:#6a9955;"># EASY: Creating a dictionary and accessing a value</span><br>
+      <span style="color:#569cd6;">student</span> = {<span style="color:#ce9178;">"ID"</span>: <span style="color:#b5cea8;">101</span>, <span style="color:#ce9178;">"Name"</span>: <span style="color:#ce9178;">"Alice"</span>, <span style="color:#ce9178;">"Passed"</span>: <span style="color:#569cd6;">True</span>}<br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#569cd6;">student</span>[<span style="color:#ce9178;">"Name"</span>]) <span style="color:#6a9955;"># Outputs "Alice"</span><br><br>
+
+      <span style="color:#6a9955;"># MEDIUM: Adding new keys and modifying existing ones</span><br>
+      <span style="color:#569cd6;">student</span>[<span style="color:#ce9178;">"Age"</span>] = <span style="color:#b5cea8;">16</span> <span style="color:#6a9955;"># Adds a new key-value pair</span><br>
+      <span style="color:#569cd6;">student</span>[<span style="color:#ce9178;">"Passed"</span>] = <span style="color:#569cd6;">False</span> <span style="color:#6a9955;"># Updates a field</span><br><br>
+
+      <span style="color:#6a9955;"># HARD: Array of Records (List of Dictionaries)</span><br>
+      <span style="color:#569cd6;">class_list</span> = [<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;{<span style="color:#ce9178;">"Name"</span>: <span style="color:#ce9178;">"Ali"</span>, <span style="color:#ce9178;">"Grade"</span>: <span style="color:#b5cea8;">7</span>},<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;{<span style="color:#ce9178;">"Name"</span>: <span style="color:#ce9178;">"Bea"</span>, <span style="color:#ce9178;">"Grade"</span>: <span style="color:#b5cea8;">9</span>}<br>
+      ]<br>
+      <span style="color:#c586c0;">for</span> i <span style="color:#c586c0;">in</span> <span style="color:#4ec9b0;">range</span>(<span style="color:#4ec9b0;">len</span>(<span style="color:#569cd6;">class_list</span>)):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(<span style="color:#569cd6;">class_list</span>[i][<span style="color:#ce9178;">"Name"</span>], <span style="color:#ce9178;">"got a"</span>, <span style="color:#569cd6;">class_list</span>[i][<span style="color:#ce9178;">"Grade"</span>])
+    </div>
+
+  `,
+
+  // --- STRING MANIPULATION ---
+  prac_string_manip: `
+    <h1>String Manipulation</h1>
+    <p>Strings are collections of characters. For the AQA exam, you must be able to calculate length, extract substrings (slicing), concatenate, change case, and cast.</p>
+    
+
+    <h2 class="section-title">1. Length, Indexing & Concatenation</h2>
+    
+    <div style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; font-family: monospace; margin-bottom: 20px;">
+      <span style="color:#6a9955;"># EASY: Basic concatenation</span><br>
+      <span style="color:#569cd6;">word1</span> = <span style="color:#ce9178;">"Super"</span><br>
+      <span style="color:#569cd6;">word2</span> = <span style="color:#ce9178;">"man"</span><br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#569cd6;">word1</span> + <span style="color:#569cd6;">word2</span>) <span style="color:#6a9955;"># "Superman"</span><br><br>
+
+      <span style="color:#6a9955;"># MEDIUM: Finding length and indexing</span><br>
+      <span style="color:#569cd6;">word</span> = <span style="color:#ce9178;">"Computer"</span><br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#4ec9b0;">len</span>(<span style="color:#569cd6;">word</span>)) <span style="color:#6a9955;"># Length: 8</span><br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#569cd6;">word</span>[<span style="color:#b5cea8;">0</span>]) <span style="color:#6a9955;"># Index 0: "C"</span><br><br>
+
+      <span style="color:#6a9955;"># HARD: Iterating over every character in a string</span><br>
+      <span style="color:#569cd6;">vowels</span> = <span style="color:#b5cea8;">0</span><br>
+      <span style="color:#c586c0;">for</span> i <span style="color:#c586c0;">in</span> <span style="color:#4ec9b0;">range</span>(<span style="color:#4ec9b0;">len</span>(<span style="color:#569cd6;">word</span>)):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#c586c0;">if</span> <span style="color:#569cd6;">word</span>[i] <span style="color:#c586c0;">in</span> [<span style="color:#ce9178;">"a"</span>, <span style="color:#ce9178;">"e"</span>, <span style="color:#ce9178;">"i"</span>, <span style="color:#ce9178;">"o"</span>, <span style="color:#ce9178;">"u"</span>]:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#569cd6;">vowels</span> += <span style="color:#b5cea8;">1</span>
+    </div>
+
+    <h2 class="section-title">2. Substrings (Slicing)</h2>
+    <p>You can extract a portion of a string using slicing. The syntax is <code>[start:end]</code>, going <em>up to, but not including</em> the end index.</p>
+    
+    <div style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; font-family: monospace; margin-bottom: 20px;">
+      <span style="color:#569cd6;">word</span> = <span style="color:#ce9178;">"Algorithm"</span><br><br>
+      <span style="color:#6a9955;"># EASY: Extract the beginning of a string</span><br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#569cd6;">word</span>[<span style="color:#b5cea8;">0</span>:<span style="color:#b5cea8;">4</span>]) <span style="color:#6a9955;"># Outputs "Algo" (Indexes 0, 1, 2, 3)</span><br><br>
+
+      <span style="color:#6a9955;"># MEDIUM: Extracting from the middle to the end</span><br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#569cd6;">word</span>[<span style="color:#b5cea8;">4</span>:]) <span style="color:#6a9955;"># Outputs "rithm" (Starts at index 4, goes to end)</span><br><br>
+
+      <span style="color:#6a9955;"># HARD: Combining slicing to alter strings</span><br>
+      <span style="color:#569cd6;">new_word</span> = <span style="color:#569cd6;">word</span>[<span style="color:#b5cea8;">0</span>:<span style="color:#b5cea8;">4</span>] + <span style="color:#ce9178;">"phobia"</span><br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#569cd6;">new_word</span>) <span style="color:#6a9955;"># Outputs "Algophobia"</span>
+    </div>
+
+    <h2 class="section-title">3. Case Conversion & Casting</h2>
+    
+    <div style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; font-family: monospace; margin-bottom: 20px;">
+      <span style="color:#6a9955;"># EASY: Case conversion</span><br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"hello"</span>.upper()) <span style="color:#6a9955;"># "HELLO"</span><br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"WORLD"</span>.lower()) <span style="color:#6a9955;"># "world"</span><br><br>
+
+      <span style="color:#6a9955;"># MEDIUM: Casting between string and int</span><br>
+      <span style="color:#569cd6;">num_str</span> = <span style="color:#ce9178;">"25"</span><br>
+      <span style="color:#569cd6;">math_ready</span> = <span style="color:#4ec9b0;">int</span>(<span style="color:#569cd6;">num_str</span>) + <span style="color:#b5cea8;">5</span> <span style="color:#6a9955;"># Cast to integer, outputs 30</span><br>
+      <span style="color:#569cd6;">print_ready</span> = <span style="color:#4ec9b0;">str</span>(<span style="color:#b5cea8;">99</span>) + <span style="color:#ce9178;">" balloons"</span> <span style="color:#6a9955;"># Cast to string to concatenate</span><br><br>
+
+      <span style="color:#6a9955;"># HARD: String extraction and casting combined</span><br>
+      <span style="color:#569cd6;">data</span> = <span style="color:#ce9178;">"Age: 16"</span><br>
+      <span style="color:#569cd6;">age_num</span> = <span style="color:#4ec9b0;">int</span>(<span style="color:#569cd6;">data</span>[<span style="color:#b5cea8;">5</span>:]) <span style="color:#6a9955;"># Slices out the "16" and casts it</span><br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Next year you are"</span>, <span style="color:#569cd6;">age_num</span> + <span style="color:#b5cea8;">1</span>)
+    </div>
+
+    <h2 class="section-title">4. Character Codes (ASCII)</h2>
+    
+    <div style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; font-family: monospace; margin-bottom: 20px;">
+      <span style="color:#6a9955;"># EASY: Finding ASCII value of a character</span><br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#4ec9b0;">ord</span>(<span style="color:#ce9178;">"A"</span>)) <span style="color:#6a9955;"># ord() returns 65</span><br><br>
+
+      <span style="color:#6a9955;"># MEDIUM: Finding the character from an ASCII value</span><br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#4ec9b0;">chr</span>(<span style="color:#b5cea8;">66</span>)) <span style="color:#6a9955;"># chr() returns 'B'</span><br><br>
+
+      <span style="color:#6a9955;"># HARD: Basic cipher shifting using ASCII</span><br>
+      <span style="color:#569cd6;">letter</span> = <span style="color:#ce9178;">"A"</span><br>
+      <span style="color:#569cd6;">ascii_val</span> = <span style="color:#4ec9b0;">ord</span>(<span style="color:#569cd6;">letter</span>)<br>
+      <span style="color:#569cd6;">shifted_val</span> = <span style="color:#569cd6;">ascii_val</span> + <span style="color:#b5cea8;">3</span> <span style="color:#6a9955;"># Shift forward by 3 (Caesar Cipher)</span><br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#4ec9b0;">chr</span>(<span style="color:#569cd6;">shifted_val</span>)) <span style="color:#6a9955;"># Outputs 'D'</span>
+    </div>
+
+  `,
+
+  // --- SUBROUTINES ---
+  prac_subroutines: `
+    <h1>Subroutines: Functions & Procedures</h1>
+    <p>A subroutine is a named, self-contained block of code that performs a specific task. Using them makes your code modular, easier to read, and prevents you from writing the same code twice.</p>
+    
+
+    <h2 class="section-title">1. Procedures vs Functions</h2>
+    <p>The AQA specification requires you to know the difference: A <strong>Procedure</strong> just executes a set of instructions. A <strong>Function</strong> executes instructions AND returns a value back to the main program.</p>
+    
+    <div style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; font-family: monospace; margin-bottom: 20px;">
+      <span style="color:#6a9955;"># EASY: Procedure (No parameters, no return)</span><br>
+      <span style="color:#c586c0;">def</span> <span style="color:#dcdcaa;">greet_user</span>():<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Welcome to the system!"</span>)<br><br>
+      <span style="color:#dcdcaa;">greet_user</span>() <span style="color:#6a9955;"># Calling the procedure</span><br><br>
+
+      <span style="color:#6a9955;"># MEDIUM: Procedure with Parameters</span><br>
+      <span style="color:#c586c0;">def</span> <span style="color:#dcdcaa;">greet_by_name</span>(<span style="color:#9cdcfe;">name</span>):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Hello "</span> + <span style="color:#9cdcfe;">name</span>)<br><br>
+      <span style="color:#dcdcaa;">greet_by_name</span>(<span style="color:#ce9178;">"Alice"</span>) <span style="color:#6a9955;"># "Alice" is the argument passed in</span><br><br>
+
+      <span style="color:#6a9955;"># HARD: Function (Parameters AND a Return value)</span><br>
+      <span style="color:#c586c0;">def</span> <span style="color:#dcdcaa;">calculate_area</span>(<span style="color:#9cdcfe;">width</span>, <span style="color:#9cdcfe;">height</span>):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#569cd6;">area</span> = <span style="color:#9cdcfe;">width</span> * <span style="color:#9cdcfe;">height</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#c586c0;">return</span> <span style="color:#569cd6;">area</span> <span style="color:#6a9955;"># Sends the data back to the main program</span><br><br>
+      <span style="color:#569cd6;">total</span> = <span style="color:#dcdcaa;">calculate_area</span>(<span style="color:#b5cea8;">5</span>, <span style="color:#b5cea8;">10</span>)<br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"The area is:"</span>, <span style="color:#569cd6;">total</span>)
+    </div>
+
+    <h2 class="section-title">2. Variable Scope</h2>
+    <p>Variables declared inside a subroutine are <strong>Local</strong>—they only exist inside that subroutine. Variables declared outside are <strong>Global</strong> and can be accessed anywhere. You must know this distinction for Paper 1.</p>
+
+  `,
+
+  // --- FILE HANDLING ---
+  prac_file_handling: `
+    <h1>File Handling</h1>
+    <p>Data stored in standard variables is lost when the program closes. To save data permanently, we write it to external text files. You must know how to Open, Read, Write, and Close files.</p>
+
+    <h2 class="section-title">1. Writing and Appending</h2>
+    <p>To put data into a file, use mode <code>"w"</code> (Write - overwrites existing data) or <code>"a"</code> (Append - adds to the end without deleting).</p>
+    
+    <div style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; font-family: monospace; margin-bottom: 20px;">
+      <span style="color:#6a9955;"># WRITE MODE (Overwrites)</span><br>
+      <span style="color:#569cd6;">file</span> = <span style="color:#4ec9b0;">open</span>(<span style="color:#ce9178;">"scores.txt"</span>, <span style="color:#ce9178;">"w"</span>)<br>
+      <span style="color:#569cd6;">file</span>.write(<span style="color:#ce9178;">"Alice: 85\\n"</span>)<br>
+      <span style="color:#569cd6;">file</span>.close() <span style="color:#6a9955;"># ALWAYS close the file!</span><br><br>
+
+      <span style="color:#6a9955;"># APPEND MODE (Adds to the bottom)</span><br>
+      <span style="color:#569cd6;">file</span> = <span style="color:#4ec9b0;">open</span>(<span style="color:#ce9178;">"scores.txt"</span>, <span style="color:#ce9178;">"a"</span>)<br>
+      <span style="color:#569cd6;">file</span>.write(<span style="color:#ce9178;">"Bob: 92\\n"</span>)<br>
+      <span style="color:#569cd6;">file</span>.close()
+    </div>
+
+    <h2 class="section-title">2. Reading from Files</h2>
+    <p>To get data out of a file, open it in <code>"r"</code> mode. You can read the whole file at once, or iterate through it line by line.</p>
+
+    <div style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; font-family: monospace; margin-bottom: 20px;">
+      <span style="color:#6a9955;"># READING EVERYTHING</span><br>
+      <span style="color:#569cd6;">file</span> = <span style="color:#4ec9b0;">open</span>(<span style="color:#ce9178;">"scores.txt"</span>, <span style="color:#ce9178;">"r"</span>)<br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#569cd6;">file</span>.read())<br>
+      <span style="color:#569cd6;">file</span>.close()<br><br>
+
+      <span style="color:#6a9955;"># READING LINE BY LINE (Exam standard)</span><br>
+      <span style="color:#569cd6;">file</span> = <span style="color:#4ec9b0;">open</span>(<span style="color:#ce9178;">"scores.txt"</span>, <span style="color:#ce9178;">"r"</span>)<br>
+      <span style="color:#c586c0;">for</span> <span style="color:#9cdcfe;">line</span> <span style="color:#c586c0;">in</span> <span style="color:#569cd6;">file</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Read record:"</span>, <span style="color:#9cdcfe;">line</span>.strip()) <span style="color:#6a9955;"># .strip() removes the invisible \\n new line character</span><br>
+      <span style="color:#569cd6;">file</span>.close()
+    </div>
+
+  `,
+
+  // --- ROBUST PROGRAMS & VALIDATION ---
+  prac_validation: `
+    <h1>Robust Programs & Validation</h1>
+    <p>Defensive design ensures a program doesn't crash when users type in the wrong thing. We use Validation to check data meets specific rules before the program accepts it.</p>
+    
+    <h2 class="section-title">1. AQA Validation Checks</h2>
+    <p>You must be able to recognise and code these standard validation checks using While loops.</p>
+    
+    <div style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; font-family: monospace; margin-bottom: 20px;">
+      <span style="color:#6a9955;"># LENGTH CHECK (Ensures a password is at least 8 chars long)</span><br>
+      <span style="color:#569cd6;">pwd</span> = <span style="color:#ce9178;">""</span><br>
+      <span style="color:#c586c0;">while</span> <span style="color:#4ec9b0;">len</span>(<span style="color:#569cd6;">pwd</span>) < <span style="color:#b5cea8;">8</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#569cd6;">pwd</span> = <span style="color:#dcdcaa;">input</span>(<span style="color:#ce9178;">"Enter a password (8 chars minimum): "</span>)<br><br>
+
+      <span style="color:#6a9955;"># RANGE CHECK (Ensures a number is between 1 and 10)</span><br>
+      <span style="color:#569cd6;">score</span> = -<span style="color:#b5cea8;">1</span><br>
+      <span style="color:#c586c0;">while</span> <span style="color:#569cd6;">score</span> < <span style="color:#b5cea8;">1</span> <span style="color:#c586c0;">or</span> <span style="color:#569cd6;">score</span> > <span style="color:#b5cea8;">10</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#569cd6;">score</span> = <span style="color:#4ec9b0;">int</span>(<span style="color:#dcdcaa;">input</span>(<span style="color:#ce9178;">"Enter a rating 1-10: "</span>))<br><br>
+
+      <span style="color:#6a9955;"># PRESENCE CHECK (Ensures the user didn't just hit enter leaving it blank)</span><br>
+      <span style="color:#569cd6;">name</span> = <span style="color:#ce9178;">""</span><br>
+      <span style="color:#c586c0;">while</span> <span style="color:#569cd6;">name</span> == <span style="color:#ce9178;">""</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#569cd6;">name</span> = <span style="color:#dcdcaa;">input</span>(<span style="color:#ce9178;">"Name cannot be blank. Enter name: "</span>)
+    </div>
+
+    <h2 class="section-title">2. Error Handling (Try / Except)</h2>
+    <p>If a user types "Bob" when you asked for an integer, the program will crash with a ValueError. You can catch these crashes using a <code>try / except</code> block.</p>
+    
+    <div style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; font-family: monospace; margin-bottom: 20px;">
+      <span style="color:#569cd6;">valid_number</span> = <span style="color:#569cd6;">False</span><br>
+      <span style="color:#c586c0;">while not</span> <span style="color:#569cd6;">valid_number</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#c586c0;">try</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#569cd6;">age</span> = <span style="color:#4ec9b0;">int</span>(<span style="color:#dcdcaa;">input</span>(<span style="color:#ce9178;">"Enter your age in digits: "</span>))<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#569cd6;">valid_number</span> = <span style="color:#569cd6;">True</span> <span style="color:#6a9955;"># Only runs if the line above didn't crash</span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#c586c0;">except</span> <span style="color:#4ec9b0;">ValueError</span>:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Error! Please type a whole number."</span>)
+    </div>
+
+  `,
+
+  // --- BUILT-IN MODULES ---
+  prac_modules: `
+    <h1>Built-In Modules Cheat Sheet</h1>
+    <p>You do not need to memorise the entire Python library for your exam, but you are expected to know how to generate random numbers and round values using Python's built-in tools.</p>
+    
+    <h2 class="section-title">1. The Random Module</h2>
+    <p>To use random functions, you must write <code>import random</code> at the very top of your program.</p>
+    
+    <div style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; font-family: monospace; margin-bottom: 20px;">
+      <span style="color:#c586c0;">import</span> random<br><br>
+      
+      <span style="color:#6a9955;"># RANDOM.RANDINT(start, end)</span><br>
+      <span style="color:#6a9955;"># Generates a random integer between the two numbers (inclusive)</span><br>
+      <span style="color:#569cd6;">dice_roll</span> = random.randint(<span style="color:#b5cea8;">1</span>, <span style="color:#b5cea8;">6</span>)<br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"You rolled a"</span>, <span style="color:#569cd6;">dice_roll</span>)<br><br>
+
+      <span style="color:#6a9955;"># RANDOM.CHOICE(list)</span><br>
+      <span style="color:#6a9955;"># Picks a random item out of an array/list</span><br>
+      <span style="color:#569cd6;">options</span> = [<span style="color:#ce9178;">"Rock"</span>, <span style="color:#ce9178;">"Paper"</span>, <span style="color:#ce9178;">"Scissors"</span>]<br>
+      <span style="color:#569cd6;">cpu_move</span> = random.choice(<span style="color:#569cd6;">options</span>)<br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#ce9178;">"Computer played:"</span>, <span style="color:#569cd6;">cpu_move</span>)
+    </div>
+
+    <h2 class="section-title">2. Math & Rounding</h2>
+    <p>Rounding is built directly into Python (no import required). If you need more specific mathematical controls like rounding down or up strictly, you can import the <code>math</code> module.</p>
+    
+    <div style="background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; font-family: monospace; margin-bottom: 20px;">
+      <span style="color:#6a9955;"># BUILT-IN ROUND()</span><br>
+      <span style="color:#6a9955;"># round(number, decimal_places)</span><br>
+      <span style="color:#569cd6;">price</span> = <span style="color:#b5cea8;">14.99872</span><br>
+      <span style="color:#dcdcaa;">print</span>(<span style="color:#4ec9b0;">round</span>(<span style="color:#569cd6;">price</span>, <span style="color:#b5cea8;">2</span>)) <span style="color:#6a9955;"># Outputs 15.0</span><br><br>
+
+      <span style="color:#c586c0;">import</span> math<br><br>
+      <span style="color:#6a9955;"># MATH.FLOOR (Always rounds down) & MATH.CEIL (Always rounds up)</span><br>
+      <span style="color:#569cd6;">bottles</span> = <span style="color:#b5cea8;">5.8</span><br>
+      <span style="color:#dcdcaa;">print</span>(math.floor(<span style="color:#569cd6;">bottles</span>)) <span style="color:#6a9955;"># Outputs 5</span><br>
+      <span style="color:#dcdcaa;">print</span>(math.ceil(<span style="color:#569cd6;">bottles</span>)) <span style="color:#6a9955;"># Outputs 6</span>
     </div>
 
   `,
@@ -348,7 +749,7 @@ const contentData = {
       </div>
     </div>
 
-    // Replace the "Representing Algorithms" section in your script.js with this:
+    
 
     <div class="homework-box">
       <h2 class="section-title">2. Representing Algorithms</h2>
@@ -2165,6 +2566,13 @@ const pageTitles = {
   'p2_rle_act': 'RLE Compression', 'p2_huffman_act': 'Huffman Tree Activity', 'p2_threat_viz': 'Cyber Threats Viz', 'p2_phish_game': 'Spot the Phish', 'p2_attack_viz': 'Technical Attacks Viz',
   'prac_challenges': 'Coding Challenges', 
   'prac_debugging': 'Bug Fixer Activity',
+  'prac_data_structs': 'Data Structures',
+  'prac_string_manip': 'String Manipulation',
+  'prac_core_constructs': 'Python Core Constructs',
+  'prac_subroutines': 'Subroutines (Functions & Procedures)',
+  'prac_file_handling': 'File Handling',
+  'prac_validation': 'Robust Programs & Validation',
+  'prac_modules': 'Built-in Modules Cheat Sheet',
 };
 
 // --- NEW: Debugging Scenario Logic ---
