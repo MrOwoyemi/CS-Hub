@@ -1,3 +1,116 @@
+// 1. Homework Bank
+const homeworkBank = [
+  { 
+    title: "Topic 3.5 Revision", 
+    dateStr: "20/03/26", 
+    task: "Answer a selection of past exam questions on Topic 3.5. Network types, topologies, hardware, protocols, the Internet." 
+  },
+  { 
+    title: "Consolidation (3.3, 3.4, 3.5)", 
+    dateStr: "27/03/26", 
+    task: "Complete Seneca Learning quizzes or similar online revision activities covering Topics 3.3, 3.4, and 3.5. Data representation, systems, networks, consolidation." 
+  },
+  { 
+    title: "Consolidation Revision", 
+    dateStr: "17/04/26", 
+    task: "Complete a past paper (Either Paper 1 or Paper 2). Knowledge recall, application of theory." 
+  },
+  { 
+    title: "Activity Sheets", 
+    dateStr: "24/04/26", 
+    task: "Complete revision Activity Sheets 1 - 5." 
+  },
+  { 
+    title: "Paper 1 Final Practice", 
+    dateStr: "01/05/26", 
+    task: "Complete the Python coding challenges on the Practical Hub. Focus on Trace Tables and logic errors." 
+  },
+  { 
+    title: "Final Exam Prep!", 
+    dateStr: "08/05/26", 
+    task: "Use the interactive flashcards and match-up games on the dashboard to test your keyword knowledge before the big day." 
+  }
+];
+
+// 2. Helper Functions
+function createHomeworkCard(title, dateStr, task) {
+  return `
+    <div class="homework-card" style="border-left: 6px solid var(--dark-purple);">
+      <div class="homework-info">
+        <h4>${title}</h4>
+        <p><strong>Due:</strong> ${dateStr}</p>
+        <p>${task}</p>
+      </div>
+    </div>
+  `;
+}
+
+function getUpcomingHomeworkHTML() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const upcoming = homeworkBank.map(hw => {
+    const parts = hw.dateStr.split('/');
+    const dueDate = new Date("20" + parts[2], parts[1] - 1, parts[0]);
+    dueDate.setHours(0, 0, 0, 0);
+    return { ...hw, dueDate: dueDate };
+  }).filter(hw => hw.dueDate >= today);
+
+  upcoming.sort((a, b) => a.dueDate - b.dueDate);
+  const nextThree = upcoming.slice(0, 3);
+
+  if (nextThree.length === 0) {
+    return `<div style="padding: 20px; text-align: center; background: #e8f5e9; color: #2e7d32; border-radius: 8px; font-weight: bold;">No upcoming homework! 🎉</div>`;
+  }
+
+  return nextThree.map(hw => createHomeworkCard(hw.title, hw.dateStr, hw.task)).join('');
+}
+
+function createExamCard(title, dateStr, focusStr, examDateObj) {
+  const today = new Date();
+  const diffTime = examDateObj - today;
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  const diffWeeks = Math.ceil(diffDays / 7);
+
+  let countdownHTML = '';
+  if (diffDays <= 0) {
+     countdownHTML = `
+      <div style="background: #4CAF50; color: white; padding: 10px 20px; border-radius: 8px; text-align: center;">
+        <span style="font-size: 1.5rem; font-weight: bold;">Exam Completed</span>
+      </div>
+     `;
+  } else {
+    // School weeks logic subtracting Easter 2026
+    let holidayWeeks = 0;
+    const easterStart = new Date(2026, 2, 30); 
+    if (today < easterStart) holidayWeeks += 2;
+    
+    const schoolWeeks = Math.max(0, diffWeeks - holidayWeeks);
+
+    countdownHTML = `
+      <div style="background: #d32f2f; color: white; padding: 10px 20px; border-radius: 8px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <span style="font-size: 1.5rem; font-weight: bold;">${diffDays} Days Left</span><br>
+        <span style="font-size: 1rem; font-weight: bold;">${schoolWeeks} School Weeks Left</span><br>
+        <span style="font-size: 0.75rem; opacity: 0.9;">(${diffWeeks} Total Weeks)</span>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="card" style="border-left: 5px solid #d32f2f; margin-bottom: 20px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+        <div>
+          <h3 style="margin: 0; color: var(--dark-purple);">${title}</h3>
+          <p style="margin: 10px 0; font-weight: bold; color: #d32f2f; font-size: 1.2rem;">Exam Date: ${dateStr}</p>
+          <p style="margin: 5px 0;"><strong>Focus:</strong> ${focusStr}</p>
+          <p style="font-style: italic; font-size: 0.9rem; color: #666;">Countdown automatically excludes the Easter break.</p>
+        </div>
+        ${countdownHTML}
+      </div>
+    </div>
+  `;
+}
+
 const contentData = {
   home: `
     <h1>Student Dashboard</h1>
@@ -22,89 +135,12 @@ const contentData = {
     </div>
 
     <h2 style="margin-top: 40px; color: var(--accent-red);">⚠️ Final GCSE Exam Dates</h2>
-    
-    <div class="homework-card" style="border-left: 6px solid var(--accent-red); background: #fff5f5;">
-      <div class="homework-info">
-        <h4>Paper 1: Computational Thinking and Programming Skills</h4>
-        <p style="font-size: 1.4rem; color: var(--accent-red); margin: 10px 0;">
-            <strong>Exam Date: 13/05/2026 (Wednesday AM)</strong>
-        </p>
-        <p>Focus: Algorithms, Programming, and Logic.</p>
-        <p id="p1-breakdown" style="font-size: 0.85rem; color: #555; font-style: italic;"></p>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
-        <div class="countdown-tag urgent" data-due="2026-05-13">Calculating...</div>
-        <div class="weeks-tag" data-due="2026-05-13" style="font-size: 1rem; color: #333; font-weight: bold;"></div>
-      </div>
-    </div>
-
-    <div class="homework-card" style="border-left: 6px solid var(--accent-red); background: #fff5f5; margin-bottom: 40px;">
-      <div class="homework-info">
-        <h4>Paper 2: Computing Concepts</h4>
-        <p style="font-size: 1.4rem; color: var(--accent-red); margin: 10px 0;">
-            <strong>Exam Date: 19/05/2026 (Tuesday PM)</strong>
-        </p>
-        <p>Focus: Data, Systems, Networks, and Cyber Security.</p>
-        <p id="p2-breakdown" style="font-size: 0.85rem; color: #555; font-style: italic;"></p>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
-        <div class="countdown-tag urgent" data-due="2026-05-19">Calculating...</div>
-        <div class="weeks-tag" data-due="2026-05-19" style="font-size: 1rem; color: #333; font-weight: bold;"></div>
-      </div>
-    </div>
+    ${createExamCard("Paper 1: Computational Thinking and Programming Skills", "13/05/2026 (Wednesday AM)", "Algorithms, Programming, and Logic.", new Date(2026, 4, 13, 9, 0))}
+    ${createExamCard("Paper 2: Computing Concepts", "19/05/2026 (Tuesday PM)", "Data, Systems, Networks, and Cyber Security.", new Date(2026, 4, 19, 13, 30))}
 
     <h2 style="margin-top: 40px;">Year 11 Homework Reminders</h2>
-    
-    <div class="homework-card" style="border-left: 6px solid var(--dark-purple);">
-      <div class="homework-info">
-        <h4>3.5 Computer networks (Hardware & Protocols)</h4>
-        <p><strong>Due:</strong> 06/03/2026</p>
-        <p>Make revision cards for key network hardware and explain the concept of protocol layering using the 4-layer TCP/IP model.</p>
-        <p class="hw-breakdown" data-due="2026-03-06" style="font-size: 0.85rem; color: #555; font-style: italic;"></p>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
-        <div class="countdown-tag" data-due="2026-03-06">Calculating...</div>
-        <div class="weeks-tag" data-due="2026-03-06" style="font-size: 0.9rem; color: #666; font-weight: bold;"></div>
-      </div>
-    </div>
-
-    <div class="homework-card" style="border-left: 6px solid var(--dark-purple);">
-      <div class="homework-info">
-        <h4>3.5 Computer networks (Web Services)</h4>
-        <p><strong>Due:</strong> 13/03/2026</p>
-        <p>Draw a diagram illustrating the roles of DNS, hosting, and the cloud in the process of a user accessing a website.</p>
-        <p class="hw-breakdown" data-due="2026-03-13" style="font-size: 0.85rem; color: #555; font-style: italic;"></p>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
-        <div class="countdown-tag" data-due="2026-03-13">Calculating...</div>
-        <div class="weeks-tag" data-due="2026-03-13" style="font-size: 0.9rem; color: #666; font-weight: bold;"></div>
-      </div>
-    </div>
-
-    <div class="homework-card" style="border-left: 6px solid var(--dark-purple);">
-      <div class="homework-info">
-        <h4>Topic 3.5 Revision</h4>
-        <p><strong>Due:</strong> 20/03/2026</p>
-        <p>Answer a selection of past exam questions on Topic 3.5: Network types, topologies, hardware, and protocols.</p>
-        <p class="hw-breakdown" data-due="2026-03-20" style="font-size: 0.85rem; color: #555; font-style: italic;"></p>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
-        <div class="countdown-tag" data-due="2026-03-20">Calculating...</div>
-        <div class="weeks-tag" data-due="2026-03-20" style="font-size: 0.9rem; color: #666; font-weight: bold;"></div>
-      </div>
-    </div>
-
-    <div class="homework-card" style="margin-bottom: 40px; border-left: 6px solid var(--dark-purple);">
-      <div class="homework-info">
-        <h4>Topic Consolidation (Units 3.3, 3.4, 3.5)</h4>
-        <p><strong>Due:</strong> 27/03/2026</p>
-        <p>Complete Seneca Learning quizzes or similar online revision activities covering Data, Systems, and Networks.</p>
-        <p class="hw-breakdown" data-due="2026-03-27" style="font-size: 0.85rem; color: #555; font-style: italic;"></p>
-      </div>
-      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
-        <div class="countdown-tag" data-due="2026-03-27">Calculating...</div>
-        <div class="weeks-tag" data-due="2026-03-27" style="font-size: 0.9rem; color: #666; font-weight: bold;"></div>
-      </div>
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      ${getUpcomingHomeworkHTML()}
     </div>
 
     <h2>Revision Hub</h2>
