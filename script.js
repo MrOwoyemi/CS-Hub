@@ -1,116 +1,3 @@
-// 1. Homework Bank
-const homeworkBank = [
-  { 
-    title: "Topic 3.5 Revision", 
-    dateStr: "20/03/26", 
-    task: "Answer a selection of past exam questions on Topic 3.5. Network types, topologies, hardware, protocols, the Internet." 
-  },
-  { 
-    title: "Consolidation (3.3, 3.4, 3.5)", 
-    dateStr: "27/03/26", 
-    task: "Complete Seneca Learning quizzes or similar online revision activities covering Topics 3.3, 3.4, and 3.5. Data representation, systems, networks, consolidation." 
-  },
-  { 
-    title: "Consolidation Revision", 
-    dateStr: "17/04/26", 
-    task: "Complete a past paper (Either Paper 1 or Paper 2). Knowledge recall, application of theory." 
-  },
-  { 
-    title: "Activity Sheets", 
-    dateStr: "24/04/26", 
-    task: "Complete revision Activity Sheets 1 - 5." 
-  },
-  { 
-    title: "Paper 1 Final Practice", 
-    dateStr: "01/05/26", 
-    task: "Complete the Python coding challenges on the Practical Hub. Focus on Trace Tables and logic errors." 
-  },
-  { 
-    title: "Final Exam Prep!", 
-    dateStr: "08/05/26", 
-    task: "Use the interactive flashcards and match-up games on the dashboard to test your keyword knowledge before the big day." 
-  }
-];
-
-// 2. Helper Functions
-function createHomeworkCard(title, dateStr, task) {
-  return `
-    <div class="homework-card" style="border-left: 6px solid var(--dark-purple);">
-      <div class="homework-info">
-        <h4>${title}</h4>
-        <p><strong>Due:</strong> ${dateStr}</p>
-        <p>${task}</p>
-      </div>
-    </div>
-  `;
-}
-
-function getUpcomingHomeworkHTML() {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const upcoming = homeworkBank.map(hw => {
-    const parts = hw.dateStr.split('/');
-    const dueDate = new Date("20" + parts[2], parts[1] - 1, parts[0]);
-    dueDate.setHours(0, 0, 0, 0);
-    return { ...hw, dueDate: dueDate };
-  }).filter(hw => hw.dueDate >= today);
-
-  upcoming.sort((a, b) => a.dueDate - b.dueDate);
-  const nextThree = upcoming.slice(0, 3);
-
-  if (nextThree.length === 0) {
-    return `<div style="padding: 20px; text-align: center; background: #e8f5e9; color: #2e7d32; border-radius: 8px; font-weight: bold;">No upcoming homework! 🎉</div>`;
-  }
-
-  return nextThree.map(hw => createHomeworkCard(hw.title, hw.dateStr, hw.task)).join('');
-}
-
-function createExamCard(title, dateStr, focusStr, examDateObj) {
-  const today = new Date();
-  const diffTime = examDateObj - today;
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  const diffWeeks = Math.ceil(diffDays / 7);
-
-  let countdownHTML = '';
-  if (diffDays <= 0) {
-     countdownHTML = `
-      <div style="background: #4CAF50; color: white; padding: 10px 20px; border-radius: 8px; text-align: center;">
-        <span style="font-size: 1.5rem; font-weight: bold;">Exam Completed</span>
-      </div>
-     `;
-  } else {
-    // School weeks logic subtracting Easter 2026
-    let holidayWeeks = 0;
-    const easterStart = new Date(2026, 2, 30); 
-    if (today < easterStart) holidayWeeks += 2;
-    
-    const schoolWeeks = Math.max(0, diffWeeks - holidayWeeks);
-
-    countdownHTML = `
-      <div style="background: #d32f2f; color: white; padding: 10px 20px; border-radius: 8px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-        <span style="font-size: 1.5rem; font-weight: bold;">${diffDays} Days Left</span><br>
-        <span style="font-size: 1rem; font-weight: bold;">${schoolWeeks} School Weeks Left</span><br>
-        <span style="font-size: 0.75rem; opacity: 0.9;">(${diffWeeks} Total Weeks)</span>
-      </div>
-    `;
-  }
-
-  return `
-    <div class="card" style="border-left: 5px solid #d32f2f; margin-bottom: 20px;">
-      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
-        <div>
-          <h3 style="margin: 0; color: var(--dark-purple);">${title}</h3>
-          <p style="margin: 10px 0; font-weight: bold; color: #d32f2f; font-size: 1.2rem;">Exam Date: ${dateStr}</p>
-          <p style="margin: 5px 0;"><strong>Focus:</strong> ${focusStr}</p>
-          <p style="font-style: italic; font-size: 0.9rem; color: #666;">Countdown automatically excludes the Easter break.</p>
-        </div>
-        ${countdownHTML}
-      </div>
-    </div>
-  `;
-}
-
 const contentData = {
   home: `
     <h1>Student Dashboard</h1>
@@ -135,12 +22,89 @@ const contentData = {
     </div>
 
     <h2 style="margin-top: 40px; color: var(--accent-red);">⚠️ Final GCSE Exam Dates</h2>
-    ${createExamCard("Paper 1: Computational Thinking and Programming Skills", "13/05/2026 (Wednesday AM)", "Algorithms, Programming, and Logic.", new Date(2026, 4, 13, 9, 0))}
-    ${createExamCard("Paper 2: Computing Concepts", "19/05/2026 (Tuesday PM)", "Data, Systems, Networks, and Cyber Security.", new Date(2026, 4, 19, 13, 30))}
+    
+    <div class="homework-card" style="border-left: 6px solid var(--accent-red); background: #fff5f5;">
+      <div class="homework-info">
+        <h4>Paper 1: Computational Thinking and Programming Skills</h4>
+        <p style="font-size: 1.4rem; color: var(--accent-red); margin: 10px 0;">
+            <strong>Exam Date: 13/05/2026 (Wednesday AM)</strong>
+        </p>
+        <p>Focus: Algorithms, Programming, and Logic.</p>
+        <p id="p1-breakdown" style="font-size: 0.85rem; color: #555; font-style: italic;"></p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+        <div class="countdown-tag urgent" data-due="2026-05-13">Calculating...</div>
+        <div class="weeks-tag" data-due="2026-05-13" style="font-size: 1rem; color: #333; font-weight: bold;"></div>
+      </div>
+    </div>
+
+    <div class="homework-card" style="border-left: 6px solid var(--accent-red); background: #fff5f5; margin-bottom: 40px;">
+      <div class="homework-info">
+        <h4>Paper 2: Computing Concepts</h4>
+        <p style="font-size: 1.4rem; color: var(--accent-red); margin: 10px 0;">
+            <strong>Exam Date: 19/05/2026 (Tuesday PM)</strong>
+        </p>
+        <p>Focus: Data, Systems, Networks, and Cyber Security.</p>
+        <p id="p2-breakdown" style="font-size: 0.85rem; color: #555; font-style: italic;"></p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+        <div class="countdown-tag urgent" data-due="2026-05-19">Calculating...</div>
+        <div class="weeks-tag" data-due="2026-05-19" style="font-size: 1rem; color: #333; font-weight: bold;"></div>
+      </div>
+    </div>
 
     <h2 style="margin-top: 40px;">Year 11 Homework Reminders</h2>
-    <div style="display: flex; flex-direction: column; gap: 10px;">
-      ${getUpcomingHomeworkHTML()}
+    
+    <div class="homework-card" style="border-left: 6px solid var(--dark-purple);">
+      <div class="homework-info">
+        <h4>3.5 Computer networks (Hardware & Protocols)</h4>
+        <p><strong>Due:</strong> 06/03/2026</p>
+        <p>Make revision cards for key network hardware and explain the concept of protocol layering using the 4-layer TCP/IP model.</p>
+        <p class="hw-breakdown" data-due="2026-03-06" style="font-size: 0.85rem; color: #555; font-style: italic;"></p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+        <div class="countdown-tag" data-due="2026-03-06">Calculating...</div>
+        <div class="weeks-tag" data-due="2026-03-06" style="font-size: 0.9rem; color: #666; font-weight: bold;"></div>
+      </div>
+    </div>
+
+    <div class="homework-card" style="border-left: 6px solid var(--dark-purple);">
+      <div class="homework-info">
+        <h4>3.5 Computer networks (Web Services)</h4>
+        <p><strong>Due:</strong> 13/03/2026</p>
+        <p>Draw a diagram illustrating the roles of DNS, hosting, and the cloud in the process of a user accessing a website.</p>
+        <p class="hw-breakdown" data-due="2026-03-13" style="font-size: 0.85rem; color: #555; font-style: italic;"></p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+        <div class="countdown-tag" data-due="2026-03-13">Calculating...</div>
+        <div class="weeks-tag" data-due="2026-03-13" style="font-size: 0.9rem; color: #666; font-weight: bold;"></div>
+      </div>
+    </div>
+
+    <div class="homework-card" style="border-left: 6px solid var(--dark-purple);">
+      <div class="homework-info">
+        <h4>Topic 3.5 Revision</h4>
+        <p><strong>Due:</strong> 20/03/2026</p>
+        <p>Answer a selection of past exam questions on Topic 3.5: Network types, topologies, hardware, and protocols.</p>
+        <p class="hw-breakdown" data-due="2026-03-20" style="font-size: 0.85rem; color: #555; font-style: italic;"></p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+        <div class="countdown-tag" data-due="2026-03-20">Calculating...</div>
+        <div class="weeks-tag" data-due="2026-03-20" style="font-size: 0.9rem; color: #666; font-weight: bold;"></div>
+      </div>
+    </div>
+
+    <div class="homework-card" style="margin-bottom: 40px; border-left: 6px solid var(--dark-purple);">
+      <div class="homework-info">
+        <h4>Topic Consolidation (Units 3.3, 3.4, 3.5)</h4>
+        <p><strong>Due:</strong> 27/03/2026</p>
+        <p>Complete Seneca Learning quizzes or similar online revision activities covering Data, Systems, and Networks.</p>
+        <p class="hw-breakdown" data-due="2026-03-27" style="font-size: 0.85rem; color: #555; font-style: italic;"></p>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
+        <div class="countdown-tag" data-due="2026-03-27">Calculating...</div>
+        <div class="weeks-tag" data-due="2026-03-27" style="font-size: 0.9rem; color: #666; font-weight: bold;"></div>
+      </div>
     </div>
 
     <h2>Revision Hub</h2>
@@ -1665,10 +1629,100 @@ const contentData = {
   
 `,
 
-  // --- 3.4 SYSTEMS (Updated Dynamic Layout) ---
+  // --- 3.4 SYSTEMS (Updated Hub Menu) ---
   p2_sys: `
     <h1>3.4 Computer Systems</h1>
-    <p>This unit covers how hardware components work together and the essential software that manages them.</p>
+    <p>Select a topic area below to continue your revision on Computer Systems.</p>
+
+    <div class="card-grid">
+      <div class="card" onclick="loadContent('p2_hardware_software')" style="cursor: pointer; border-top: 5px solid var(--dark-purple);">
+        <div class="card-image">H/S</div>
+        <div class="card-info">
+          <h3>Hardware & Software</h3>
+          <p>Peripherals, Input/Output devices, Computer components, Application/Utility software, and OS features.</p>
+        </div>
+      </div>
+
+      <div class="card" onclick="loadContent('p2_cpu_languages')" style="cursor: pointer; border-top: 5px solid var(--dark-purple);">
+        <div class="card-image">CPU</div>
+        <div class="card-info">
+          <h3>CPU Architecture & Languages</h3>
+          <p>Von Neumann architecture, CPU components, Fetch-Decode-Execute, Translators, and High/Low level languages.</p>
+        </div>
+      </div>
+    </div>
+  `,
+
+  // --- NEW: HARDWARE & SOFTWARE ---
+  p2_hardware_software: `
+    <h1>Hardware and Software</h1>
+    <p>A computer system consists of physical components (hardware) and the programs that run on them (software).</p>
+
+    <h2 class="section-title">1. Hardware Components</h2>
+    <div class="card-grid" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch;">
+      <div class="card" style="flex: 1 1 300px; display: flex; flex-direction: column; border-top: 5px solid var(--dark-purple);">
+        <h3>Core Components</h3>
+        <p>The internal physical parts of a computer system.</p>
+        <ul style="flex-grow: 1;">
+          <li><strong>Motherboard:</strong> The main circuit board connecting all components.</li>
+          <li><strong>CPU:</strong> The brain of the computer that processes instructions.</li>
+          <li><strong>Memory (RAM/ROM):</strong> Primary storage for immediate data access.</li>
+          <li><strong>Storage (HDD/SSD):</strong> Secondary storage for permanent data retention.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="flex: 1 1 300px; display: flex; flex-direction: column; border-top: 5px solid var(--dark-purple);">
+        <h3>Peripherals & I/O Devices</h3>
+        <p><strong>Peripherals</strong> are external hardware devices connected to the computer.</p>
+        <ul style="flex-grow: 1;">
+          <li><strong>Input Devices:</strong> Send data <em>into</em> the system (e.g., Keyboard, Mouse, Microphone, Sensors).</li>
+          <li><strong>Output Devices:</strong> Send data <em>out of</em> the system (e.g., Monitor, Speakers, Printers, Actuators).</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="section-title">2. Software Types</h2>
+    <div class="card-grid" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch;">
+      <div class="card" style="flex: 1 1 300px; display: flex; flex-direction: column; border-top: 5px solid var(--accent-green);">
+        <h3>Application Software</h3>
+        <p>Software designed to perform specific tasks for the user.</p>
+        <ul style="flex-grow: 1;">
+          <li>Word processors, Spreadsheets, and Presentation software.</li>
+          <li>Web browsers and Email clients.</li>
+          <li>Video games and media players.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="flex: 1 1 300px; display: flex; flex-direction: column; border-top: 5px solid var(--accent-green);">
+        <h3>Utility Software</h3>
+        <p>System software designed to help analyze, configure, optimize, or maintain the computer.</p>
+        <ul style="flex-grow: 1;">
+          <li><strong>Defragmentation:</strong> Reorganizes files on a magnetic hard drive so they are stored contiguously, speeding up read/write times.</li>
+          <li><strong>Data Compression:</strong> Reduces file sizes to save disk space and transmission time.</li>
+          <li><strong>Backup Software:</strong> Creates copies of data to recover in case of data loss (Full or Incremental backups).</li>
+          <li><strong>Anti-malware:</strong> Detects and removes malicious software.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="homework-box" style="margin-top: 30px;">
+      <h2 class="section-title" style="margin-top: 0;">3. Operating System (OS) Features</h2>
+      <p>The Operating System is the most important piece of system software. It manages the hardware and software resources. Key functions include:</p>
+      <ul>
+        <li><strong>User Interface (UI):</strong> Provides a way for the user to interact with the system (e.g., GUI or Command Line).</li>
+        <li><strong>Memory Management:</strong> Allocates RAM to different programs and manages virtual memory when RAM is full.</li>
+        <li><strong>Multitasking:</strong> Allows multiple programs to run simultaneously by rapidly sharing CPU time.</li>
+        <li><strong>Peripheral Management:</strong> Uses device drivers to communicate with connected hardware.</li>
+        <li><strong>User Management:</strong> Handles logins, passwords, and access rights for different users on a single machine or network.</li>
+        <li><strong>File Management:</strong> Organizes files into a hierarchical directory structure (folders).</li>
+      </ul>
+    </div>
+  `,
+
+  // --- NEW: CPU ARCHITECTURE & LANGUAGES (Previously p2_sys) ---
+  p2_cpu_languages: `
+    <h1>CPU Architecture & Languages</h1>
+    <p>This unit covers how the CPU works to process data and the languages we use to give it instructions.</p>
 
     <h2 class="section-title">1. Architecture & The CPU</h2>
     <div class="card-grid" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch;">
@@ -1832,10 +1886,9 @@ const contentData = {
       <div id="game-feedback" style="margin-top: 20px; font-weight: bold; min-height: 24px; text-align: center;"></div>
       
       <div style="display:flex; justify-content: center; gap: 10px; margin-top: 20px;">
-        <button onclick="loadContent('p2_sys')" style="padding: 10px 20px; background: var(--pastel-violet); color: var(--dark-purple); font-weight: bold; border: none; border-radius: 5px; cursor: pointer;">Reset Game</button>
+        <button onclick="loadContent('p2_cpu_languages')" style="padding: 10px 20px; background: var(--pastel-violet); color: var(--dark-purple); font-weight: bold; border: none; border-radius: 5px; cursor: pointer;">Reset Game</button>
       </div>
     </div>
-
   `,
 
   // --- 3.5 COMPUTER NETWORKS (Updated with Workbook Data) ---
@@ -2593,14 +2646,14 @@ answer = <span style="color:#ce9178;">"y"</span><br>
 // --- NEW: Page Dictionary for Search & Smart Back ---
 const pageTitles = {
   'home': 'Dashboard', 'p1_hub': 'Paper 1 Hub', 'p2_hub': 'Paper 2 Hub', 'prac_hub': 'Practical Hub', 'resources': 'Revision Resources',
-  'p1_algo': '3.1 Algorithms', 'p1_prog': '3.2 Programming', 'p2_data': '3.3 Data Representation', 'p2_sys': '3.4 Systems', 
+  'p1_algo': '3.1 Algorithms', 'p1_prog': '3.2 Programming', 'p2_data': '3.3 Data Representation', 'p2_sys': '3.4 Systems Menu', 
+  'p2_hardware_software': 'Hardware & Software', 'p2_cpu_languages': 'CPU Architecture & Languages',
   'p2_net': '3.5 Networks', 'p2_cyber': '3.6 Cyber Security', 'p2_sql': '3.7 Databases', 'p2_impact': '3.8 Impacts',
   'p1_revision': 'P1 Flashcards', 'p2_revision': 'P2 Flashcards', 'prac_challenges': 'Coding Challenges',
   'act_io': 'I/O Activity', 'act_casting': 'Casting Activity', 'act_selection': 'Selection Activity', 'act_robust': 'Robustness Activity',
   'act_loops': 'Loops Activity', 'act_lists': 'Lists Activity', 'act_subroutines': 'Subroutines Activity', 'act_strings': 'Strings Activity',
   'p1_linear_viz': 'Linear Search Viz', 'p1_binary_viz': 'Binary Search Viz', 'p1_bubble_viz': 'Bubble Sort Viz', 'p1_merge_viz': 'Merge Sort Viz',
   'p2_rle_act': 'RLE Compression', 'p2_huffman_act': 'Huffman Tree Activity', 'p2_threat_viz': 'Cyber Threats Viz', 'p2_phish_game': 'Spot the Phish', 'p2_attack_viz': 'Technical Attacks Viz',
-  'prac_challenges': 'Coding Challenges', 
   'prac_debugging': 'Bug Fixer Activity',
   'prac_data_structs': 'Data Structures',
   'prac_string_manip': 'String Manipulation',
