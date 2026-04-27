@@ -1298,12 +1298,41 @@ body.dark-mode .exam-card {
   border-color: #5a2020;
 }
 
+/* Mobile sidebar backdrop */
+.sidebar-scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 33, 55, 0.45);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  display: none;
+  transition: opacity 0.25s ease;
+}
+
+.sidebar-scrim.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Hamburger -> X animation */
+.menu-btn.change .bar:nth-child(1) {
+  transform: translateY(7.75px) rotate(45deg);
+}
+.menu-btn.change .bar:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.change .bar:nth-child(3) {
+  transform: translateY(-7.75px) rotate(-45deg);
+}
+
 /* ========================
    RESPONSIVE
    ======================== */
 @media (max-width: 768px) {
   .sidebar {
     transform: translateX(-100%);
+    box-shadow: var(--shadow-lg);
   }
 
   .sidebar.mobile-open {
@@ -1316,6 +1345,11 @@ body.dark-mode .exam-card {
 
   .menu-btn {
     display: flex;
+  }
+
+  /* Hide scrim on desktop */
+  .sidebar-scrim {
+    display: block;
   }
 
   .header-stats .stat-streak,
