@@ -1461,7 +1461,7 @@ const contentData = {
     <p>Computational thinking is an approach to problem solving used to fully understand a problem and create an effective solution.</p>
 
     <div class="homework-box">
-      <h2 class="section-title" style="margin-top: 0;">1. Computational Thinking Techniques</h2>
+      <h2 class="section-title" style="margin-top: 0;">Computational Thinking Techniques</h2>
       <p>Three main techniques underpin how we solve problems computationally:</p>
       <div class="card-grid">
         <div class="card">
@@ -1479,10 +1479,8 @@ const contentData = {
       </div>
     </div>
 
-    
-
     <div class="homework-box">
-      <h2 class="section-title">2. Representing Algorithms</h2>
+      <h2 class="section-title">3.1.1 Representing Algorithms</h2>
       <p>Algorithms are independent of programming languages. We use two main methods to plan them: <strong>Flowcharts</strong> and <strong>Pseudocode</strong>.</p>
       
       <div class="card-grid">
@@ -1519,7 +1517,97 @@ const contentData = {
     </div>
 
     <div class="homework-box">
-      <h2 class="section-title">3. Searching Algorithms</h2>
+      <h2 class="section-title">Trace Tables (Dry Running)</h2>
+      <p>A <strong>trace table</strong> is used to manually walk through an algorithm step-by-step, recording the value of every variable after each line. This is the most reliable way to find <strong>logic errors</strong> — bugs where the program runs but produces the wrong answer.</p>
+
+      <div class="card-grid">
+        <div class="card" style="border-top: 5px solid var(--dark-purple);">
+          <h3>Worked Example: Counting Down</h3>
+          <p>Trace this pseudocode for an input of <code>n = 4</code>:</p>
+          <div style="background: #111; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; color: #0f0; font-size: 0.95rem;">
+            count &larr; 0<br>
+            WHILE n &gt; 0<br>
+            &nbsp;&nbsp;count &larr; count + n<br>
+            &nbsp;&nbsp;n &larr; n - 1<br>
+            ENDWHILE<br>
+            OUTPUT count
+          </div>
+          <table style="width:100%; border-collapse: collapse; text-align: center; margin-top: 15px; background: var(--card-bg); border: 1px solid var(--border);">
+            <tr style="background: #e9ecef; color: var(--dark-purple); font-weight: bold;">
+              <td style="padding: 8px; border: 1px solid var(--border);">n</td>
+              <td style="padding: 8px; border: 1px solid var(--border);">count</td>
+              <td style="padding: 8px; border: 1px solid var(--border);">n &gt; 0?</td>
+              <td style="padding: 8px; border: 1px solid var(--border);">Output</td>
+            </tr>
+            <tr><td style="padding: 6px; border: 1px solid var(--border);">4</td><td style="padding: 6px; border: 1px solid var(--border);">0</td><td style="padding: 6px; border: 1px solid var(--border);">True</td><td style="padding: 6px; border: 1px solid var(--border);">-</td></tr>
+            <tr><td style="padding: 6px; border: 1px solid var(--border);">3</td><td style="padding: 6px; border: 1px solid var(--border);">4</td><td style="padding: 6px; border: 1px solid var(--border);">True</td><td style="padding: 6px; border: 1px solid var(--border);">-</td></tr>
+            <tr><td style="padding: 6px; border: 1px solid var(--border);">2</td><td style="padding: 6px; border: 1px solid var(--border);">7</td><td style="padding: 6px; border: 1px solid var(--border);">True</td><td style="padding: 6px; border: 1px solid var(--border);">-</td></tr>
+            <tr><td style="padding: 6px; border: 1px solid var(--border);">1</td><td style="padding: 6px; border: 1px solid var(--border);">9</td><td style="padding: 6px; border: 1px solid var(--border);">True</td><td style="padding: 6px; border: 1px solid var(--border);">-</td></tr>
+            <tr><td style="padding: 6px; border: 1px solid var(--border);">0</td><td style="padding: 6px; border: 1px solid var(--border);">10</td><td style="padding: 6px; border: 1px solid var(--border);">False</td><td style="padding: 6px; border: 1px solid var(--border);"><strong>10</strong></td></tr>
+          </table>
+          <p style="font-size: 0.9rem; margin-top: 10px;"><em>The program totals 4+3+2+1 and outputs <strong>10</strong>.</em></p>
+        </div>
+
+        <div class="card" style="border-top: 5px solid var(--accent-green);">
+          <h3>Why Use Trace Tables?</h3>
+          <ul>
+            <li><strong>Find logic errors</strong> that don't crash the program.</li>
+            <li><strong>Predict</strong> what an algorithm will output before running it.</li>
+            <li><strong>Compare</strong> two algorithms to see which uses fewer steps.</li>
+            <li><strong>Common in exams</strong> — questions ask "what is the value of X after the loop?"</li>
+          </ul>
+          <h4 style="margin-top: 15px; color: var(--dark-purple);">Top Tips</h4>
+          <ul>
+            <li>Add a column for every variable that changes.</li>
+            <li>Add a column for the loop/IF condition (True/False).</li>
+            <li>Only fill in <strong>Output</strong> when an OUTPUT/PRINT line runs.</li>
+            <li>Write a new row each time a value changes — never overwrite.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="homework-box">
+      <h2 class="section-title">3.1.2 Efficiency of Algorithms</h2>
+      <p>Two algorithms can solve the same problem but at very different speeds and memory costs. We measure efficiency in two ways:</p>
+
+      <div class="card-grid">
+        <div class="card" style="border-top: 5px solid var(--accent-blue);">
+          <h3>Time Efficiency</h3>
+          <p>How many <strong>steps</strong> the algorithm performs as the input size <code>n</code> grows. Fewer steps = faster.</p>
+          <ul>
+            <li><strong>Best case:</strong> The minimum number of steps (e.g., target found on first check).</li>
+            <li><strong>Worst case:</strong> The maximum number of steps (e.g., target not in the list).</li>
+            <li><strong>Average case:</strong> The expected number of steps over many runs.</li>
+          </ul>
+        </div>
+        <div class="card" style="border-top: 5px solid var(--accent-yellow);">
+          <h3>Space Efficiency</h3>
+          <p>How much <strong>working memory (RAM)</strong> the algorithm uses while running.</p>
+          <ul>
+            <li><strong>In-place</strong> algorithms (e.g., Bubble Sort) modify the original list and use very little extra memory.</li>
+            <li><strong>Out-of-place</strong> algorithms (e.g., Merge Sort) create copies, using more memory but often saving time.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 20px;">Comparison: Searching & Sorting Algorithms</h3>
+      <table style="width:100%; border-collapse: collapse; margin-top: 10px; background: var(--card-bg); border: 1px solid var(--border);">
+        <tr style="background: var(--dark-purple); color: white; font-weight: bold;">
+          <td style="padding: 10px; border: 1px solid var(--border);">Algorithm</td>
+          <td style="padding: 10px; border: 1px solid var(--border);">Speed (Time)</td>
+          <td style="padding: 10px; border: 1px solid var(--border);">Memory (Space)</td>
+          <td style="padding: 10px; border: 1px solid var(--border);">List Must Be Sorted?</td>
+        </tr>
+        <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Linear Search</strong></td><td style="padding: 8px; border: 1px solid var(--border);">Slow on large lists</td><td style="padding: 8px; border: 1px solid var(--border);">Very low</td><td style="padding: 8px; border: 1px solid var(--border);">No</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Binary Search</strong></td><td style="padding: 8px; border: 1px solid var(--border);">Very fast</td><td style="padding: 8px; border: 1px solid var(--border);">Very low</td><td style="padding: 8px; border: 1px solid var(--border);">Yes</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Bubble Sort</strong></td><td style="padding: 8px; border: 1px solid var(--border);">Slow (many swaps)</td><td style="padding: 8px; border: 1px solid var(--border);">Very low (in-place)</td><td style="padding: 8px; border: 1px solid var(--border);">N/A</td></tr>
+        <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Merge Sort</strong></td><td style="padding: 8px; border: 1px solid var(--border);">Fast on large lists</td><td style="padding: 8px; border: 1px solid var(--border);">Higher (sub-lists)</td><td style="padding: 8px; border: 1px solid var(--border);">N/A</td></tr>
+      </table>
+    </div>
+
+    <div class="homework-box">
+      <h2 class="section-title">3.1.3 Searching Algorithms</h2>
       <p>Standard methods for finding specific data within a list.</p>
       <div class="card-grid">
         <div class="card">
@@ -1544,15 +1632,16 @@ const contentData = {
     </div>
 
     <div class="homework-box">
-      <h2 class="section-title">4. Sorting Algorithms</h2>
+      <h2 class="section-title">3.1.4 Sorting Algorithms</h2>
       <p>Standard methods for organising data into order (e.g., alphabetical or numerical).</p>
       <div class="card-grid">
         <div class="card">
           <h3>Bubble Sort</h3>
-          <p>Repeatedly steps through the list, comparing adjacent pairs and swapping them if they are in the wrong order.</p>
+          <p>Repeatedly steps through the list, comparing adjacent pairs and swapping them if they are in the wrong order. Sorting finishes once a full pass occurs with <strong>no swaps</strong>.</p>
           <ul>
             <li><strong>Method:</strong> Uses 'passes'. A pass is one full run through the list.</li>
-            <li><strong>Efficiency:</strong> Simple to code but very inefficient (slow) for large datasets.</li>
+            <li><strong>Pros:</strong> Easy to code; uses very little memory (sorts "in-place").</li>
+            <li><strong>Cons:</strong> Very inefficient for large datasets; many swaps means slow performance.</li>
           </ul>
           <button onclick="loadContent('p1_bubble_viz')" style="padding: 8px 15px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">Visualise</button>
         </div>
@@ -1560,13 +1649,44 @@ const contentData = {
           <h3>Merge Sort</h3>
           <p>Another 'Divide and Conquer' algorithm. It splits the list repeatedly into individual items, then merges them back together in the correct order.</p>
           <ul>
-            <li><strong>Efficiency:</strong> Much faster and more efficient than Bubble Sort for large lists, but uses more memory.</li>
+            <li><strong>Pros:</strong> Much faster than Bubble Sort on large datasets; predictable performance.</li>
+            <li><strong>Cons:</strong> Uses more memory because temporary sub-lists are created during the split phase; harder to code.</li>
           </ul>
           <button onclick="loadContent('p1_merge_viz')" style="margin-top: 10px; padding: 8px 15px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Visualise</button>
         </div>
       </div>
     </div>
-    
+
+    <div class="homework-box">
+      <h2 class="section-title">Key Definitions</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Algorithm</h3>
+          <p>A set of step-by-step instructions used to solve a problem or perform a task.</p>
+        </div>
+        <div class="card">
+          <h3>Abstraction</h3>
+          <p>Removing or hiding unnecessary detail so we focus only on the parts that matter to the problem.</p>
+        </div>
+        <div class="card">
+          <h3>Decomposition</h3>
+          <p>Breaking a large, complex problem down into smaller, manageable sub-problems.</p>
+        </div>
+        <div class="card">
+          <h3>Pseudocode</h3>
+          <p>A structured, English-like way to plan an algorithm without worrying about strict programming language rules.</p>
+        </div>
+        <div class="card">
+          <h3>Flowchart</h3>
+          <p>A visual diagram of an algorithm using standard shapes: <em>oval</em> (start/end), <em>parallelogram</em> (input/output), <em>rectangle</em> (process), <em>diamond</em> (decision).</p>
+        </div>
+        <div class="card">
+          <h3>Trace Table</h3>
+          <p>A table used to record the value of every variable as an algorithm runs, used to find logic errors.</p>
+        </div>
+      </div>
+    </div>
+
   `,
 
   visualizations: `
@@ -1720,7 +1840,7 @@ const contentData = {
     <h1>3.2 Programming Fundamentals</h1>
     <p>Programming involves using specific constructs to create instructions that a computer can process. Professional programmers aim to write code that is modular, easy to debug, and robust against errors.</p>
 
-    <h2 class="section-title">1. Variables and Data Types</h2>
+    <h2 class="section-title">3.2.1 Data Types</h2>
     <div class="card-grid">
       <div class="card">
         <h3>Inputs, Variables & Constants</h3>
@@ -1742,8 +1862,17 @@ const contentData = {
       </div>
     </div>
 
-    <h2 class="section-title">2. Programming Constructs</h2>
+    <h2 class="section-title">3.2.2 Programming Concepts</h2>
+    <p>The three core building blocks of every program: <strong>sequence</strong>, <strong>selection</strong>, and <strong>iteration</strong>.</p>
     <div class="card-grid">
+      <div class="card">
+        <h3>Sequence</h3>
+        <p>Statements run one after another in the order they are written. This is the default flow of any program.</p>
+        <ul>
+          <li><strong>Pros:</strong> Simple and predictable.</li>
+          <li><strong>Cons:</strong> Can't make decisions or repeat steps without selection or iteration.</li>
+        </ul>
+      </div>
       <div class="card">
         <h3>Selection (If-Else)</h3>
         <p>Selection allows a program to take different paths based on conditions. This is used to create logic, such as checking if a password is correct or a player has enough health.</p>
@@ -1764,47 +1893,312 @@ const contentData = {
       </div>
     </div>
 
-    <h2 class="section-title">3. Data Handling</h2>
+    <h2 class="section-title">3.2.3 Arithmetic Operations</h2>
+    <p>Programs perform calculations using <strong>arithmetic operators</strong>. The two most easily forgotten are integer division (DIV / <code>//</code>) and modulus (MOD / <code>%</code>).</p>
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid var(--accent-blue);">
+        <h3>Operators</h3>
+        <table style="width:100%; border-collapse: collapse; margin-top: 10px; background: var(--card-bg); border: 1px solid var(--border);">
+          <tr style="background: #e9ecef; font-weight: bold;">
+            <td style="padding: 8px; border: 1px solid var(--border);">Operation</td>
+            <td style="padding: 8px; border: 1px solid var(--border);">Symbol</td>
+            <td style="padding: 8px; border: 1px solid var(--border);">Example</td>
+            <td style="padding: 8px; border: 1px solid var(--border);">Result</td>
+          </tr>
+          <tr><td style="padding: 8px; border: 1px solid var(--border);">Add</td><td style="padding: 8px; border: 1px solid var(--border);"><code>+</code></td><td style="padding: 8px; border: 1px solid var(--border);"><code>5 + 3</code></td><td style="padding: 8px; border: 1px solid var(--border);">8</td></tr>
+          <tr><td style="padding: 8px; border: 1px solid var(--border);">Subtract</td><td style="padding: 8px; border: 1px solid var(--border);"><code>-</code></td><td style="padding: 8px; border: 1px solid var(--border);"><code>5 - 3</code></td><td style="padding: 8px; border: 1px solid var(--border);">2</td></tr>
+          <tr><td style="padding: 8px; border: 1px solid var(--border);">Multiply</td><td style="padding: 8px; border: 1px solid var(--border);"><code>*</code></td><td style="padding: 8px; border: 1px solid var(--border);"><code>5 * 3</code></td><td style="padding: 8px; border: 1px solid var(--border);">15</td></tr>
+          <tr><td style="padding: 8px; border: 1px solid var(--border);">Real Divide</td><td style="padding: 8px; border: 1px solid var(--border);"><code>/</code></td><td style="padding: 8px; border: 1px solid var(--border);"><code>7 / 2</code></td><td style="padding: 8px; border: 1px solid var(--border);">3.5</td></tr>
+          <tr><td style="padding: 8px; border: 1px solid var(--border);">Integer Divide (DIV)</td><td style="padding: 8px; border: 1px solid var(--border);"><code>//</code></td><td style="padding: 8px; border: 1px solid var(--border);"><code>7 // 2</code></td><td style="padding: 8px; border: 1px solid var(--border);">3</td></tr>
+          <tr><td style="padding: 8px; border: 1px solid var(--border);">Modulus (MOD)</td><td style="padding: 8px; border: 1px solid var(--border);"><code>%</code></td><td style="padding: 8px; border: 1px solid var(--border);"><code>7 % 2</code></td><td style="padding: 8px; border: 1px solid var(--border);">1</td></tr>
+          <tr><td style="padding: 8px; border: 1px solid var(--border);">Exponent</td><td style="padding: 8px; border: 1px solid var(--border);"><code>**</code></td><td style="padding: 8px; border: 1px solid var(--border);"><code>2 ** 3</code></td><td style="padding: 8px; border: 1px solid var(--border);">8</td></tr>
+        </table>
+        <p style="margin-top: 10px; font-size: 0.9rem;"><strong>Order of operations (BIDMAS):</strong> Brackets &rarr; Indices &rarr; Division/Multiplication &rarr; Addition/Subtraction.</p>
+      </div>
+
+      <div class="card" style="border-top: 5px solid var(--accent-green);">
+        <h3>Worked Example: Odd or Even?</h3>
+        <p>The MOD operator is the standard way to test whether a number is even or odd, because it gives the <strong>remainder</strong> of a division.</p>
+        <div style="background: #111; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; color: #0f0; font-size: 0.95rem;">
+          num &larr; USERINPUT<br>
+          IF num MOD 2 = 0 THEN<br>
+          &nbsp;&nbsp;OUTPUT 'Even'<br>
+          ELSE<br>
+          &nbsp;&nbsp;OUTPUT 'Odd'<br>
+          ENDIF
+        </div>
+        <ul style="margin-top: 10px;">
+          <li><code>10 MOD 2</code> &rarr; 0 (Even)</li>
+          <li><code>7 MOD 2</code> &rarr; 1 (Odd)</li>
+          <li><code>10 DIV 3</code> &rarr; 3 (whole number of times 3 fits in 10)</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="section-title">3.2.4 Relational Operations</h2>
+    <p>Relational operators compare two values and always return a <strong>Boolean</strong> (True or False). They are used inside <code>IF</code> statements and loops.</p>
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid var(--accent-blue);">
+        <h3>The Six Operators</h3>
+        <table style="width:100%; border-collapse: collapse; margin-top: 10px; background: var(--card-bg); border: 1px solid var(--border);">
+          <tr style="background: #e9ecef; font-weight: bold;">
+            <td style="padding: 8px; border: 1px solid var(--border);">Operator</td>
+            <td style="padding: 8px; border: 1px solid var(--border);">Meaning</td>
+            <td style="padding: 8px; border: 1px solid var(--border);">Example</td>
+          </tr>
+          <tr><td style="padding: 8px; border: 1px solid var(--border);"><code>==</code></td><td style="padding: 8px; border: 1px solid var(--border);">Equal to</td><td style="padding: 8px; border: 1px solid var(--border);"><code>5 == 5</code> &rarr; True</td></tr>
+          <tr><td style="padding: 8px; border: 1px solid var(--border);"><code>!=</code></td><td style="padding: 8px; border: 1px solid var(--border);">Not equal to</td><td style="padding: 8px; border: 1px solid var(--border);"><code>5 != 3</code> &rarr; True</td></tr>
+          <tr><td style="padding: 8px; border: 1px solid var(--border);"><code>&lt;</code></td><td style="padding: 8px; border: 1px solid var(--border);">Less than</td><td style="padding: 8px; border: 1px solid var(--border);"><code>3 &lt; 5</code> &rarr; True</td></tr>
+          <tr><td style="padding: 8px; border: 1px solid var(--border);"><code>&gt;</code></td><td style="padding: 8px; border: 1px solid var(--border);">Greater than</td><td style="padding: 8px; border: 1px solid var(--border);"><code>3 &gt; 5</code> &rarr; False</td></tr>
+          <tr><td style="padding: 8px; border: 1px solid var(--border);"><code>&lt;=</code></td><td style="padding: 8px; border: 1px solid var(--border);">Less than or equal</td><td style="padding: 8px; border: 1px solid var(--border);"><code>5 &lt;= 5</code> &rarr; True</td></tr>
+          <tr><td style="padding: 8px; border: 1px solid var(--border);"><code>&gt;=</code></td><td style="padding: 8px; border: 1px solid var(--border);">Greater than or equal</td><td style="padding: 8px; border: 1px solid var(--border);"><code>5 &gt;= 6</code> &rarr; False</td></tr>
+        </table>
+        <p style="margin-top: 10px; font-size: 0.9rem;"><strong>Watch out:</strong> <code>=</code> assigns a value, but <code>==</code> compares two values. Mixing them up is a very common bug.</p>
+      </div>
+      <div class="card" style="border-top: 5px solid var(--accent-yellow);">
+        <h3>Worked Example: Pass or Fail?</h3>
+        <div style="background: #111; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; color: #0f0; font-size: 0.95rem;">
+          score &larr; 72<br>
+          IF score &gt;= 70 THEN<br>
+          &nbsp;&nbsp;OUTPUT 'Distinction'<br>
+          ELSE IF score &gt;= 50 THEN<br>
+          &nbsp;&nbsp;OUTPUT 'Pass'<br>
+          ELSE<br>
+          &nbsp;&nbsp;OUTPUT 'Fail'<br>
+          ENDIF
+        </div>
+        <p style="margin-top: 10px;"><strong>Output:</strong> <code>Distinction</code> &mdash; the first condition (<code>72 &gt;= 70</code>) is True so the program does not check the others.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">3.2.5 Boolean Operations</h2>
+    <p>Boolean operators (<strong>AND, OR, NOT</strong>) combine simple True/False conditions into more complex tests. The exam often asks you to fill in a <strong>truth table</strong>.</p>
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid var(--dark-purple);">
+        <h3>AND</h3>
+        <p>True only when <strong>both</strong> inputs are True.</p>
+        <table style="width:100%; border-collapse: collapse; text-align: center; background: var(--card-bg); border: 1px solid var(--border);">
+          <tr style="background: #e9ecef; font-weight: bold;"><td style="padding: 6px; border: 1px solid var(--border);">A</td><td style="padding: 6px; border: 1px solid var(--border);">B</td><td style="padding: 6px; border: 1px solid var(--border);">A AND B</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">F</td><td style="padding: 6px; border: 1px solid var(--border);">F</td><td style="padding: 6px; border: 1px solid var(--border);">F</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">F</td><td style="padding: 6px; border: 1px solid var(--border);">T</td><td style="padding: 6px; border: 1px solid var(--border);">F</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">T</td><td style="padding: 6px; border: 1px solid var(--border);">F</td><td style="padding: 6px; border: 1px solid var(--border);">F</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">T</td><td style="padding: 6px; border: 1px solid var(--border);">T</td><td style="padding: 6px; border: 1px solid var(--border);">T</td></tr>
+        </table>
+        <p style="margin-top: 10px; font-size: 0.9rem;"><em>Example: <code>age &gt;= 18 AND has_id == True</code></em></p>
+      </div>
+      <div class="card" style="border-top: 5px solid var(--dark-purple);">
+        <h3>OR</h3>
+        <p>True when <strong>at least one</strong> input is True.</p>
+        <table style="width:100%; border-collapse: collapse; text-align: center; background: var(--card-bg); border: 1px solid var(--border);">
+          <tr style="background: #e9ecef; font-weight: bold;"><td style="padding: 6px; border: 1px solid var(--border);">A</td><td style="padding: 6px; border: 1px solid var(--border);">B</td><td style="padding: 6px; border: 1px solid var(--border);">A OR B</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">F</td><td style="padding: 6px; border: 1px solid var(--border);">F</td><td style="padding: 6px; border: 1px solid var(--border);">F</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">F</td><td style="padding: 6px; border: 1px solid var(--border);">T</td><td style="padding: 6px; border: 1px solid var(--border);">T</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">T</td><td style="padding: 6px; border: 1px solid var(--border);">F</td><td style="padding: 6px; border: 1px solid var(--border);">T</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">T</td><td style="padding: 6px; border: 1px solid var(--border);">T</td><td style="padding: 6px; border: 1px solid var(--border);">T</td></tr>
+        </table>
+        <p style="margin-top: 10px; font-size: 0.9rem;"><em>Example: <code>day == 'Saturday' OR day == 'Sunday'</code></em></p>
+      </div>
+      <div class="card" style="border-top: 5px solid var(--dark-purple);">
+        <h3>NOT</h3>
+        <p>Reverses (inverts) a True/False value.</p>
+        <table style="width:100%; border-collapse: collapse; text-align: center; background: var(--card-bg); border: 1px solid var(--border);">
+          <tr style="background: #e9ecef; font-weight: bold;"><td style="padding: 6px; border: 1px solid var(--border);">A</td><td style="padding: 6px; border: 1px solid var(--border);">NOT A</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">F</td><td style="padding: 6px; border: 1px solid var(--border);">T</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">T</td><td style="padding: 6px; border: 1px solid var(--border);">F</td></tr>
+        </table>
+        <p style="margin-top: 10px; font-size: 0.9rem;"><em>Example: <code>WHILE NOT password_correct</code></em></p>
+      </div>
+    </div>
+
+    <h2 class="section-title">3.2.6 Data Structures</h2>
+    <p>A <strong>data structure</strong> is a way of organising several pieces of data under one name so that loops and indexes can process them efficiently.</p>
     <div class="card-grid">
       <div class="card">
         <h3>Lists (Arrays)</h3>
         <p>Lists allow you to store multiple pieces of related data (e.g., a high-score list) under one name. This is much more efficient than creating 100 separate variables.</p>
         <ul>
+          <li><strong>1D list:</strong> a single row, accessed using <code>scores[0]</code>, <code>scores[1]</code>, etc.</li>
+          <li><strong>2D list:</strong> a grid (rows and columns) accessed using two indices: <code>grid[row][col]</code>.</li>
           <li><strong>Pros:</strong> Makes managing large datasets easier using loops and indexing.</li>
-          <li><strong>Cons:</strong> In many languages, arrays are fixed in size; accessing an index that doesn't exist causes an "Out of Bounds" error.</li>
+          <li><strong>Cons:</strong> Accessing an index that doesn't exist causes an "Index Out of Bounds" error.</li>
         </ul>
         <button onclick="loadContent('act_lists')" style="margin-top: 10px; padding: 8px 15px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Try Lists Activity</button>
       </div>
       <div class="card">
-        <h3>String Manipulation</h3>
-        <p>Used to format data for the user. Methods like <code>.upper()</code> or <code>.lower()</code> are vital for making user inputs case-insensitive during login checks.</p>
+        <h3>Records</h3>
+        <p>A record groups together related fields about a single entity, e.g. a student's <code>id</code>, <code>name</code>, and <code>age</code>. Often used as the rows of a database table.</p>
         <ul>
-          <li><strong>Pros:</strong> Allows for powerful data cleaning and user-friendly display.</li>
-          <li><strong>Cons:</strong> Strings are often immutable (cannot be changed), meaning every manipulation creates a new copy in memory.</li>
+          <li><strong>Field:</strong> one piece of data inside a record.</li>
+          <li><strong>Record:</strong> a collection of fields about one item.</li>
         </ul>
-        <button onclick="loadContent('act_strings')" style="margin-top: 10px; padding: 8px 15px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Try Strings Activity</button>
       </div>
     </div>
 
-    <h2 class="section-title">4. Modularity and Robustness</h2>
+    <h2 class="section-title">3.2.7 Input/Output and File Handling</h2>
+    <p>Programs need to communicate with the outside world. <strong>Input</strong> reads data in (keyboard or file), <strong>output</strong> sends data out (screen or file).</p>
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid var(--accent-blue);">
+        <h3>Keyboard Input &amp; Screen Output</h3>
+        <p>The two simplest forms of input/output use the keyboard and the screen.</p>
+        <div style="background: #111; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; color: #0f0; font-size: 0.95rem;">
+          name = input('Your name: ')<br>
+          print('Hello, ' + name)
+        </div>
+        <ul style="margin-top: 10px;">
+          <li><code>input()</code> always returns a <strong>string</strong> &mdash; cast with <code>int()</code> or <code>float()</code> for numbers.</li>
+          <li>Always include a clear <strong>prompt</strong> so the user knows what to enter.</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top: 5px solid var(--dark-purple);">
+        <h3>The Three File Modes</h3>
+        <table style="width:100%; border-collapse: collapse; margin-top: 10px; background: var(--card-bg); border: 1px solid var(--border);">
+          <tr style="background: #e9ecef; font-weight: bold;">
+            <td style="padding: 8px; border: 1px solid var(--border);">Mode</td>
+            <td style="padding: 8px; border: 1px solid var(--border);">Letter</td>
+            <td style="padding: 8px; border: 1px solid var(--border);">What it does</td>
+          </tr>
+          <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Read</strong></td><td style="padding: 8px; border: 1px solid var(--border);"><code>'r'</code></td><td style="padding: 8px; border: 1px solid var(--border);">Open an existing file for reading only.</td></tr>
+          <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Write</strong></td><td style="padding: 8px; border: 1px solid var(--border);"><code>'w'</code></td><td style="padding: 8px; border: 1px solid var(--border);">Create a new file <strong>or overwrite</strong> an existing file.</td></tr>
+          <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Append</strong></td><td style="padding: 8px; border: 1px solid var(--border);"><code>'a'</code></td><td style="padding: 8px; border: 1px solid var(--border);">Add new data to the end of an existing file.</td></tr>
+        </table>
+        <p style="margin-top: 10px; font-size: 0.9rem;"><strong>Always close files</strong> after use to release the lock and make sure the data is saved.</p>
+      </div>
+      <div class="card" style="border-top: 5px solid var(--accent-green);">
+        <h3>Worked Example: Save a Score</h3>
+        <div style="background: #111; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; color: #0f0; font-size: 0.95rem;">
+          # Append a new score on the end<br>
+          file = open('scores.txt', 'a')<br>
+          file.write('Sarah: 95\\n')<br>
+          file.close()<br><br>
+          # Read every score back<br>
+          file = open('scores.txt', 'r')<br>
+          for line in file:<br>
+          &nbsp;&nbsp;print(line)<br>
+          file.close()
+        </div>
+        <ul style="margin-top: 10px;">
+          <li>Use <code>'a'</code> so old scores aren't lost.</li>
+          <li>Use <code>'w'</code> only if you intentionally want to wipe the file first.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="section-title">3.2.8 String Handling Operations</h2>
+    <p>Strings are sequences of characters. Programs constantly need to <strong>measure, slice, change case</strong>, and join strings together.</p>
+    <div class="card-grid">
+      <div class="card">
+        <h3>String Manipulation</h3>
+        <p>Used to format and clean text data. Common operations include:</p>
+        <ul>
+          <li><code>len(s)</code> &mdash; the length of the string.</li>
+          <li><code>s.upper()</code> / <code>s.lower()</code> &mdash; change case (vital for case-insensitive comparisons).</li>
+          <li><code>s[0]</code>, <code>s[2:5]</code> &mdash; index and slice characters.</li>
+          <li><code>s1 + s2</code> &mdash; concatenation (joins two strings).</li>
+        </ul>
+        <ul style="margin-top: 10px;">
+          <li><strong>Pros:</strong> Allows for powerful data cleaning and user-friendly display.</li>
+          <li><strong>Cons:</strong> Strings are often immutable (cannot be changed), so every manipulation creates a new copy in memory.</li>
+        </ul>
+        <button onclick="loadContent('act_strings')" style="margin-top: 10px; padding: 8px 15px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Try Strings Activity</button>
+      </div>
+      <div class="card">
+        <h3>Worked Example: Case-Insensitive Login</h3>
+        <div style="background: #111; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; color: #0f0; font-size: 0.95rem;">
+          stored = 'admin'<br>
+          entered = input('Username: ')<br>
+          IF entered.lower() == stored THEN<br>
+          &nbsp;&nbsp;OUTPUT 'Welcome'<br>
+          ELSE<br>
+          &nbsp;&nbsp;OUTPUT 'Wrong user'<br>
+          ENDIF
+        </div>
+        <p style="margin-top: 10px; font-size: 0.9rem;"><em>Lowercasing both sides means "Admin" and "ADMIN" are treated the same as "admin".</em></p>
+      </div>
+    </div>
+
+    <h2 class="section-title">3.2.9 Random Number Generation</h2>
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid var(--accent-green);">
+        <h3>Pseudorandom Numbers</h3>
+        <p>Computers can't produce truly random numbers — they use a formula and a "seed" value to produce <strong>pseudorandom</strong> numbers that look random enough for games, simulations, and choosing test data.</p>
+        <ul>
+          <li><strong>Use cases:</strong> dice rolls, card shuffling, password generators, picking enemies in games.</li>
+          <li><strong>Inclusive range:</strong> <code>RANDOM_INT(1, 6)</code> can return 1, 2, 3, 4, 5, or 6.</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top: 5px solid var(--accent-blue);">
+        <h3>Worked Example: Dice Roller</h3>
+        <div style="background: #111; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; color: #0f0; font-size: 0.95rem;">
+          import random<br><br>
+          die1 = random.randint(1, 6)<br>
+          die2 = random.randint(1, 6)<br>
+          total = die1 + die2<br>
+          print('You rolled', total)
+        </div>
+        <p style="margin-top: 10px; font-size: 0.9rem;"><em>Each call to <code>randint(1, 6)</code> returns a fresh whole number between 1 and 6 (both ends included).</em></p>
+      </div>
+    </div>
+
+    <h2 class="section-title">3.2.10 Subroutines (Procedures and Functions)</h2>
+    <p>A <strong>subroutine</strong> is a named block of code that performs a specific task. They make programs <strong>modular</strong> and <strong>reusable</strong>.</p>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Procedures vs Functions</h3>
+        <ul>
+          <li><strong>Procedure:</strong> performs an action but does <em>not</em> return a value.</li>
+          <li><strong>Function:</strong> performs a calculation and <em>returns</em> a value to the calling code.</li>
+          <li><strong>Parameter:</strong> the placeholder variable in the subroutine header.</li>
+          <li><strong>Argument:</strong> the actual value passed in when the subroutine is called.</li>
+        </ul>
+        <button onclick="loadContent('act_subroutines')" style="margin-top: 10px; padding: 8px 15px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Try Subroutines Activity</button>
+      </div>
+      <div class="card">
+        <h3>Local vs Global Variables</h3>
+        <p>The <strong>scope</strong> of a variable decides where in the code it can be used.</p>
+        <ul>
+          <li><strong>Local:</strong> declared inside a subroutine; only exists while that subroutine runs.</li>
+          <li><strong>Global:</strong> declared outside all subroutines; can be read anywhere.</li>
+          <li><strong>Pros of local:</strong> safer (no accidental changes from elsewhere) and easier to debug.</li>
+          <li><strong>Cons of global:</strong> changes anywhere can break the program in surprising ways.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Worked Example: Function with Return</h3>
+        <div style="background: #111; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; color: #0f0; font-size: 0.95rem;">
+          def area(width, height):<br>
+          &nbsp;&nbsp;return width * height<br><br>
+          a = area(5, 3)<br>
+          print(a) <span style="color:#888;"># 15</span>
+        </div>
+        <p style="margin-top: 10px; font-size: 0.9rem;"><em><code>width</code> and <code>height</code> are parameters; 5 and 3 are the arguments passed in.</em></p>
+      </div>
+    </div>
+
+    <h2 class="section-title">3.2.11 Structured Programming</h2>
+    <p>Writing programs that are well-organised, easy to read, and robust against errors. Includes <strong>defensive design</strong>, validation, and understanding the different kinds of errors.</p>
     <div class="card-grid">
       <div class="card">
         <h3>Defensive Design</h3>
-        <p>Involves <strong>Validation</strong> (checking if data follows rules) and <strong>Authentication</strong>. It is used to protect programs from malicious users and accidental typos.</p>
+        <p>Anticipates bad inputs and protects the program from crashing.</p>
         <ul>
+          <li><strong>Validation:</strong> checks data is sensible (range check, length check, presence check, type check).</li>
+          <li><strong>Authentication:</strong> checks the user is who they say they are (e.g. passwords).</li>
           <li><strong>Pros:</strong> Prevents program crashes and ensures only "clean" data enters the system.</li>
           <li><strong>Cons:</strong> Over-validating can make the user experience feel slow or frustrating.</li>
         </ul>
         <button onclick="loadContent('act_robust')" style="margin-top: 10px; padding: 8px 15px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Try Robustness Activity</button>
       </div>
       <div class="card">
-        <h3>Subroutines (Functions)</h3>
-        <p>Subroutines are blocks of code that perform a specific task. They are used to make code <strong>modular</strong> and <strong>reusable</strong> across different projects.</p>
-        <ul>
-          <li><strong>Pros:</strong> Code only needs to be written once; makes debugging easier as errors are isolated to specific functions.</li>
-          <li><strong>Cons:</strong> Passing too many parameters between functions can make the program logic confusing to follow.</li>
-        </ul>
-        <button onclick="loadContent('act_subroutines')" style="margin-top: 10px; padding: 8px 15px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Try Subroutines Activity</button>
+        <h3>Syntax Error</h3>
+        <p>A mistake in the rules of the language &mdash; a missing colon, unmatched bracket, or misspelled keyword. The program <strong>won't run at all</strong>.</p>
+      </div>
+      <div class="card">
+        <h3>Logic Error</h3>
+        <p>The program runs but produces the <strong>wrong output</strong> (e.g., using <code>+</code> when you meant <code>-</code>). Trace tables are the best way to find these.</p>
+      </div>
+      <div class="card">
+        <h3>Runtime Error</h3>
+        <p>An error that occurs <strong>while</strong> the program is running, e.g. dividing by zero or asking for a list index that doesn't exist.</p>
       </div>
     </div>
 
@@ -2067,28 +2461,26 @@ const contentData = {
     <h1>3.3 Fundamentals of Data Representation</h1>
     <p>Computers use binary to represent all forms of data because they are made of switches that can only be 'on' (1) or 'off' (0).</p>
     
-    <h2 class="section-title">1. Units of Information</h2>
+    <h2 class="section-title">3.3.1 Number Bases</h2>
+    <p>Computers store data using a different number system from the one we use day-to-day. You need to be able to recognise three:</p>
     <div class="card-grid">
-      <div class="card">
-        <h3>Standard Units</h3>
-        <ul>
-          <li><strong>Bit (b):</strong> A single 0 or 1.</li>
-          <li><strong>Nibble:</strong> 4 bits.</li>
-          <li><strong>Byte (B):</strong> 8 bits.</li>
-          <li><strong>Kilobyte (KB):</strong> 1,000 bytes.</li>
-          <li><strong>Megabyte (MB):</strong> 1,000 KB.</li>
-          <li><strong>Gigabyte (GB):</strong> 1,000 MB.</li>
-          <li><strong>Terabyte (TB):</strong> 1,000 GB.</li>
-        </ul>
+      <div class="card" style="border-top: 5px solid var(--dark-purple);">
+        <h3>Denary (Base 10)</h3>
+        <p>The everyday number system humans use. Has 10 digits: <strong>0&ndash;9</strong>. Each column is a power of 10 (1, 10, 100, 1000...).</p>
       </div>
-      <div class="card">
-        <h3>Number Systems</h3>
-        <p><strong>Binary (Base 2):</strong> Uses 0 and 1. Essential as computers physically cannot represent more than two states.</p>
-        <p><strong>Hexadecimal (Base 16):</strong> Uses 0-9 and A-F. Used by computer scientists to simplify long binary strings into a shorter, more readable format.</p>
+      <div class="card" style="border-top: 5px solid var(--accent-blue);">
+        <h3>Binary (Base 2)</h3>
+        <p>The number system computers use internally. Has 2 digits: <strong>0 and 1</strong>. Each column is a power of 2 (1, 2, 4, 8, 16, 32...).</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;"><em>Why binary? Computer hardware uses transistors that are either on or off &mdash; only two states.</em></p>
+      </div>
+      <div class="card" style="border-top: 5px solid var(--accent-green);">
+        <h3>Hexadecimal (Base 16)</h3>
+        <p>A shorthand for binary used by programmers. Has 16 symbols: <strong>0&ndash;9</strong> then <strong>A&ndash;F</strong> (where A=10, B=11, C=12, D=13, E=14, F=15).</p>
+        <p style="margin-top: 10px; font-size: 0.9rem;"><em>Each hex digit represents exactly 4 bits, so two hex digits = one byte.</em></p>
       </div>
     </div>
 
-    <h2 class="section-title">2. Conversion Guide</h2>
+    <h2 class="section-title">3.3.2 Converting Between Number Bases</h2>
     <div class="card-grid">
       <div class="card" style="border-top: 5px solid var(--dark-purple);">
         <h3>Denary to Binary</h3>
@@ -2206,7 +2598,99 @@ const contentData = {
       </div>
     </div>
 
-    <h2 class="section-title">3. Characters and Text</h2>
+    <h2 class="section-title">3.3.3 Units of Information</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Standard Units</h3>
+        <ul>
+          <li><strong>Bit (b):</strong> A single 0 or 1.</li>
+          <li><strong>Nibble:</strong> 4 bits.</li>
+          <li><strong>Byte (B):</strong> 8 bits.</li>
+          <li><strong>Kilobyte (KB):</strong> 1,000 bytes.</li>
+          <li><strong>Megabyte (MB):</strong> 1,000 KB.</li>
+          <li><strong>Gigabyte (GB):</strong> 1,000 MB.</li>
+          <li><strong>Terabyte (TB):</strong> 1,000 GB.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Why Bits and Bytes?</h3>
+        <p>One <strong>bit</strong> can store two states (0 or 1). Adding more bits doubles the number of possible patterns:</p>
+        <ul>
+          <li>1 bit &rarr; 2 patterns</li>
+          <li>2 bits &rarr; 4 patterns</li>
+          <li>4 bits (a nibble) &rarr; 16 patterns</li>
+          <li>8 bits (a byte) &rarr; 256 patterns</li>
+        </ul>
+        <p style="margin-top: 10px; font-size: 0.9rem;"><em>Every type of data &mdash; numbers, characters, images, sound &mdash; is ultimately stored as bits.</em></p>
+      </div>
+    </div>
+
+    <h2 class="section-title">3.3.4 Binary Arithmetic</h2>
+    <p>The CPU does all calculations in binary. The two operations you must be able to perform by hand are <strong>binary addition</strong> and <strong>binary shifts</strong>.</p>
+
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid var(--accent-blue);">
+        <h3>Binary Addition Rules</h3>
+        <p>There are only four rules to remember:</p>
+        <ul>
+          <li><code>0 + 0 = 0</code></li>
+          <li><code>0 + 1 = 1</code></li>
+          <li><code>1 + 1 = 10</code> &nbsp;<em>(0, carry 1)</em></li>
+          <li><code>1 + 1 + 1 = 11</code> &nbsp;<em>(1, carry 1)</em></li>
+        </ul>
+        <h4 style="margin-top: 15px; color: var(--dark-purple);">Worked Example: 01011010 + 00110011</h4>
+        <div style="background: #111; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; color: #0f0; font-size: 1rem; line-height: 1.4;">
+          &nbsp;&nbsp;0 1 0 1 1 0 1 0&nbsp;&nbsp;(90)<br>
+          + 0 0 1 1 0 0 1 1&nbsp;&nbsp;(51)<br>
+          ---------------<br>
+          &nbsp;&nbsp;1 0 0 0 1 1 0 1&nbsp;&nbsp;(141)
+        </div>
+        <p style="margin-top: 10px; font-size: 0.9rem;"><em>Add column by column starting from the right, carrying any 1s into the next column to the left.</em></p>
+      </div>
+
+      <div class="card" style="border-top: 5px solid var(--accent-red);">
+        <h3>Overflow Errors</h3>
+        <p>An <strong>overflow</strong> happens when the result of a calculation needs more bits than the computer has set aside. In an 8-bit byte the maximum value is 255 — anything above that loses the highest bit.</p>
+        <h4 style="margin-top: 15px; color: var(--dark-purple);">Worked Example: 11111110 + 00000011</h4>
+        <div style="background: #111; padding: 15px; border-radius: 8px; font-family: 'Courier New', monospace; color: #0f0; font-size: 1rem; line-height: 1.4;">
+          &nbsp;&nbsp;1 1 1 1 1 1 1 0&nbsp;&nbsp;(254)<br>
+          + 0 0 0 0 0 0 1 1&nbsp;&nbsp;(3)<br>
+          ---------------<br>
+          <span style="color: #ff6b6b;">1</span> 0 0 0 0 0 0 0 1&nbsp;&nbsp;(should be 257)
+        </div>
+        <p style="margin-top: 10px; font-size: 0.9rem;"><em>The leftmost <strong>1</strong> can't fit in an 8-bit byte, so the stored answer is <code>00000001</code> = 1. The CPU sets an <strong>overflow flag</strong> to warn the program.</em></p>
+        <ul style="margin-top: 10px;">
+          <li><strong>Pros of more bits:</strong> larger numbers can be stored without overflow.</li>
+          <li><strong>Cons of more bits:</strong> more memory used per number.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid var(--accent-yellow);">
+        <h3>Logical Shift Left (&lt;&lt;)</h3>
+        <p>Moves every bit one place to the left and fills the empty space on the right with a 0. Each shift left is the same as <strong>multiplying by 2</strong>.</p>
+        <table style="width:100%; border-collapse: collapse; text-align: center; margin-top: 10px; background: var(--card-bg); border: 1px solid var(--border);">
+          <tr style="background: #e9ecef; font-weight: bold;"><td style="padding: 6px; border: 1px solid var(--border);">Step</td><td style="padding: 6px; border: 1px solid var(--border);">Binary</td><td style="padding: 6px; border: 1px solid var(--border);">Denary</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">Start</td><td style="padding: 6px; border: 1px solid var(--border);">00001100</td><td style="padding: 6px; border: 1px solid var(--border);">12</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">Shift left 1</td><td style="padding: 6px; border: 1px solid var(--border);">00011000</td><td style="padding: 6px; border: 1px solid var(--border);">24 (×2)</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">Shift left 2</td><td style="padding: 6px; border: 1px solid var(--border);">00110000</td><td style="padding: 6px; border: 1px solid var(--border);">48 (×4)</td></tr>
+        </table>
+      </div>
+
+      <div class="card" style="border-top: 5px solid var(--accent-yellow);">
+        <h3>Logical Shift Right (&gt;&gt;)</h3>
+        <p>Moves every bit one place to the right and fills the empty space on the left with a 0. Each shift right is the same as <strong>integer division by 2</strong> (any 1s that fall off the right are lost).</p>
+        <table style="width:100%; border-collapse: collapse; text-align: center; margin-top: 10px; background: var(--card-bg); border: 1px solid var(--border);">
+          <tr style="background: #e9ecef; font-weight: bold;"><td style="padding: 6px; border: 1px solid var(--border);">Step</td><td style="padding: 6px; border: 1px solid var(--border);">Binary</td><td style="padding: 6px; border: 1px solid var(--border);">Denary</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">Start</td><td style="padding: 6px; border: 1px solid var(--border);">00011000</td><td style="padding: 6px; border: 1px solid var(--border);">24</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">Shift right 1</td><td style="padding: 6px; border: 1px solid var(--border);">00001100</td><td style="padding: 6px; border: 1px solid var(--border);">12 (÷2)</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">Shift right 2</td><td style="padding: 6px; border: 1px solid var(--border);">00000110</td><td style="padding: 6px; border: 1px solid var(--border);">6 (÷4)</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <h2 class="section-title">3.3.5 Character Encoding</h2>
     <div class="card-grid">
       <div class="card" style="border-top: 5px solid var(--dark-purple);">
         <h3>ASCII</h3>
@@ -2227,7 +2711,7 @@ const contentData = {
       </div>
     </div>
 
-    <h2 class="section-title">4. Images and Sound</h2>
+    <h2 class="section-title">3.3.6 Representing Images</h2>
     <div class="card-grid">
       <div class="card">
         <h3>Bitmap Images</h3>
@@ -2235,24 +2719,12 @@ const contentData = {
         <ul>
           <li><strong>Resolution:</strong> The number of pixels in a space (e.g., DPI). Higher resolution means more detail but larger file size.</li>
           <li><strong>Colour Depth:</strong> The number of bits per pixel. More bits allow for a greater range of colours, making images look more real.</li>
+          <li><strong>Metadata:</strong> Extra data stored about the image such as date, dimensions, and camera settings.</li>
         </ul>
       </div>
-      <div class="card">
-        <h3>Digital Sound</h3>
-        <p>Sound is digitised by <strong>sampling</strong> the amplitude of analogue waves at set intervals.</p>
-        <ul>
-          <li><strong>Sample Rate:</strong> Number of samples per second (Hz). Higher rates reduce gaps between recordings.</li>
-          <li><strong>Bit Depth:</strong> Number of bits used per sample. Higher bit depth improves quality by recording more data per sample.</li>
-        </ul>
-      </div>
-    </div>
-
-    <h2 class="section-title">5. Data Representation Calculations</h2>
-    <div class="card-grid">
       <div class="card" style="border-top: 5px solid #007bff;">
         <h3>Image File Size Calculation</h3>
         <p>The total number of bits in an image is calculated by multiplying dimensions by the colour depth.</p>
-        
         <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #dee2e6; font-family: monospace;">
           <strong>Example:</strong> A 100 x 100 pixel image with a 8-bit colour depth.<br><br>
           1. <strong>Total Pixels:</strong> 100 x 100 = 10,000 pixels<br>
@@ -2261,11 +2733,22 @@ const contentData = {
           <strong>Formula:</strong> Width x Height x Colour Depth
         </div>
       </div>
+    </div>
 
+    <h2 class="section-title">3.3.7 Representing Sound</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Digital Sound</h3>
+        <p>Sound is digitised by <strong>sampling</strong> the amplitude of analogue waves at set intervals.</p>
+        <ul>
+          <li><strong>Sample Rate:</strong> Number of samples per second (Hz). Higher rates reduce gaps between recordings.</li>
+          <li><strong>Bit Depth:</strong> Number of bits used per sample. Higher bit depth improves quality by recording more data per sample.</li>
+          <li><strong>Trade-off:</strong> Higher rate or depth = better quality, but also a larger file.</li>
+        </ul>
+      </div>
       <div class="card" style="border-top: 5px solid #28a745;">
         <h3>Sound File Size Calculation</h3>
         <p>Calculated by multiplying the sample rate, bit depth, and duration in seconds.</p>
-        
         <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #dee2e6; font-family: monospace;">
           <strong>Example:</strong> 10s of audio, 44,100Hz sample rate, 16-bit depth.<br><br>
           1. <strong>Calculation:</strong> 44,100 x 16 x 10<br>
@@ -2276,7 +2759,7 @@ const contentData = {
       </div>
     </div>
 
-    <h2 class="section-title">6. Compression File Types</h2>
+    <h2 class="section-title">3.3.8 Data Compression</h2>
     <div class="homework-box">
       <p>Different file formats are designed for specific tasks. Lossy is best for streaming and web use, while Lossless is essential for documents where every bit must be preserved.</p>
       <table style="width:100%; border-collapse: collapse; margin-top: 20px; color: white; background: #222; border-radius: 8px; overflow: hidden;">
@@ -2323,6 +2806,16 @@ const contentData = {
         <p>Uses a frequency-based tree to assign shorter binary codes to more frequent characters, reducing the overall file size.</p>
         <button onclick="loadContent('p2_huffman_act')" style="margin-top: 10px; padding: 8px 15px; background: var(--accent-green); color: white; border: none; border-radius: 5px; cursor: pointer;">Try Huffman Activity</button>
       </div>
+    </div>
+
+    <h2 class="section-title">Key Definitions</h2>
+    <div class="card-grid">
+      <div class="card"><h3>Bit</h3><p>A single binary digit, 0 or 1. The smallest unit of digital data.</p></div>
+      <div class="card"><h3>Byte</h3><p>A group of 8 bits. Used to represent one character of text in basic ASCII.</p></div>
+      <div class="card"><h3>Pixel</h3><p>The smallest single point of colour in a bitmap image (short for "picture element").</p></div>
+      <div class="card"><h3>Sample</h3><p>One measurement of a sound wave's amplitude taken at a single point in time.</p></div>
+      <div class="card"><h3>Compression</h3><p>Reducing the file size of data so it takes up less storage and transfers faster.</p></div>
+      <div class="card"><h3>Lossy vs Lossless</h3><p><strong>Lossy</strong> permanently removes data the user is unlikely to notice (smaller files, lower quality). <strong>Lossless</strong> rebuilds the original perfectly.</p></div>
     </div>
 
   `,
@@ -2401,53 +2894,120 @@ const contentData = {
     <h1>3.4 Computer Systems</h1>
     <p>This unit covers how hardware components work together and the essential software that manages them.</p>
 
-    <h2 class="section-title">1. Architecture & The CPU</h2>
-    <div class="card-grid" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch;">
-      
-      <div class="card" style="flex: 1 1 100%; border: 2px solid var(--dark-purple); min-height: auto;">
-        <h3 style="text-align: center;">Von Neumann Architecture</h3>
-        <div style="background: white; padding: 10px; border-radius: 8px; text-align: center;">
-          <img src="./Von-Neumann-Architecture-Diagram.jpg" alt="Von Neumann CPU Diagram" style="max-width: 100%; height: auto; border-radius: 5px;">
-          <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">The Operating System sits between applications and the hardware, enabling them to communicate.</p>
-        </div>
-      </div>
-
-      <div class="card" style="flex: 1 1 300px; display: flex; flex-direction: column;">
-        <div class="card-image">CPU</div>
-        <h3>The CPU Components</h3>
-        <p>The CPU uses binary logic to make decisions based on inputs.</p>
-        <ul style="flex-grow: 1;">
-          <li><strong>CU (Control Unit):</strong> Decodes instructions and controls data flow.</li>
-          <li><strong>ALU (Arithmetic Logic Unit):</strong> Performs calculations and logic operations like AND, OR, and NOT.</li>
-          <li><strong>Cache:</strong> High-speed memory for frequently used data.</li>
-          <li><strong>Logic Gates:</strong> Millions of components (AND, OR, NOT) that make up the CPU.</li>
+    <h2 class="section-title">3.4.1 Hardware and Software</h2>
+    <p>Every computer system has two parts: the physical things you can touch (hardware) and the instructions that tell them what to do (software).</p>
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid var(--dark-purple);">
+        <h3>Hardware</h3>
+        <p>The physical, electronic components of a computer system.</p>
+        <ul>
+          <li><strong>Internal:</strong> CPU, RAM, motherboard, hard drive, power supply.</li>
+          <li><strong>External / peripherals:</strong> keyboard, mouse, monitor, printer.</li>
         </ul>
       </div>
-
-      <div class="card" style="flex: 1 1 300px; display: flex; flex-direction: column;">
-        <div class="card-image">REG</div>
-        <h3>Registers</h3>
-        <p>Extremely fast storage locations within the CPU:</p>
-        <ul style="flex-grow: 1;">
-          <li><strong>PC (Program Counter):</strong> Holds the address of the next instruction.</li>
-          <li><strong>MAR:</strong> Memory Address Register for the current memory location.</li>
-          <li><strong>MDR:</strong> Memory Data Register for actual data or instructions.</li>
-          <li><strong>ACC (Accumulator):</strong> Stores results of ALU logic operations.</li>
+      <div class="card" style="border-top: 5px solid var(--accent-green);">
+        <h3>Software</h3>
+        <p>Programs and instructions that run on the hardware.</p>
+        <ul>
+          <li><strong>System software:</strong> operating system, utility software, drivers, translators.</li>
+          <li><strong>Application software:</strong> what users run to do tasks &mdash; web browsers, word processors, games.</li>
         </ul>
       </div>
     </div>
 
-    <div class="homework-box" style="margin-top: 50px;">
-      <h2 class="section-title">The Fetch-Decode-Execute Cycle</h2>
-      <p>The continuous process a CPU follows to process instructions:</p>
+    <h2 class="section-title">3.4.2 Boolean Logic</h2>
+    <p>The CPU is built from millions of <strong>logic gates</strong>. Each gate takes one or two binary inputs and produces a single binary output. You must be able to recognise the symbols and complete a truth table for each.</p>
+
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid var(--dark-purple);">
+        <h3>NOT Gate (Inverter)</h3>
+        <p>One input, one output. Flips a 0 to a 1 and vice-versa.</p>
+        <table style="width:100%; border-collapse: collapse; text-align: center; margin-top: 10px; background: var(--card-bg); border: 1px solid var(--border);">
+          <tr style="background: #e9ecef; font-weight: bold;"><td style="padding: 6px; border: 1px solid var(--border);">A</td><td style="padding: 6px; border: 1px solid var(--border);">NOT A</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">0</td><td style="padding: 6px; border: 1px solid var(--border);">1</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">1</td><td style="padding: 6px; border: 1px solid var(--border);">0</td></tr>
+        </table>
+        <p style="margin-top: 10px; font-size: 0.9rem;"><em>Symbol: triangle with a small circle on the output.</em></p>
+      </div>
+
+      <div class="card" style="border-top: 5px solid var(--dark-purple);">
+        <h3>AND Gate</h3>
+        <p>Two inputs, one output. Output is 1 only when <strong>both</strong> inputs are 1.</p>
+        <table style="width:100%; border-collapse: collapse; text-align: center; margin-top: 10px; background: var(--card-bg); border: 1px solid var(--border);">
+          <tr style="background: #e9ecef; font-weight: bold;"><td style="padding: 6px; border: 1px solid var(--border);">A</td><td style="padding: 6px; border: 1px solid var(--border);">B</td><td style="padding: 6px; border: 1px solid var(--border);">A AND B</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">0</td><td style="padding: 6px; border: 1px solid var(--border);">0</td><td style="padding: 6px; border: 1px solid var(--border);">0</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">0</td><td style="padding: 6px; border: 1px solid var(--border);">1</td><td style="padding: 6px; border: 1px solid var(--border);">0</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">1</td><td style="padding: 6px; border: 1px solid var(--border);">0</td><td style="padding: 6px; border: 1px solid var(--border);">0</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">1</td><td style="padding: 6px; border: 1px solid var(--border);">1</td><td style="padding: 6px; border: 1px solid var(--border);">1</td></tr>
+        </table>
+        <p style="margin-top: 10px; font-size: 0.9rem;"><em>Symbol: D-shape with a flat back.</em></p>
+      </div>
+
+      <div class="card" style="border-top: 5px solid var(--dark-purple);">
+        <h3>OR Gate</h3>
+        <p>Two inputs, one output. Output is 1 when <strong>at least one</strong> input is 1.</p>
+        <table style="width:100%; border-collapse: collapse; text-align: center; margin-top: 10px; background: var(--card-bg); border: 1px solid var(--border);">
+          <tr style="background: #e9ecef; font-weight: bold;"><td style="padding: 6px; border: 1px solid var(--border);">A</td><td style="padding: 6px; border: 1px solid var(--border);">B</td><td style="padding: 6px; border: 1px solid var(--border);">A OR B</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">0</td><td style="padding: 6px; border: 1px solid var(--border);">0</td><td style="padding: 6px; border: 1px solid var(--border);">0</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">0</td><td style="padding: 6px; border: 1px solid var(--border);">1</td><td style="padding: 6px; border: 1px solid var(--border);">1</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">1</td><td style="padding: 6px; border: 1px solid var(--border);">0</td><td style="padding: 6px; border: 1px solid var(--border);">1</td></tr>
+          <tr><td style="padding: 6px; border: 1px solid var(--border);">1</td><td style="padding: 6px; border: 1px solid var(--border);">1</td><td style="padding: 6px; border: 1px solid var(--border);">1</td></tr>
+        </table>
+        <p style="margin-top: 10px; font-size: 0.9rem;"><em>Symbol: curved back with a pointed output (rocket-shaped).</em></p>
+      </div>
+    </div>
+
+    <div class="homework-box" style="margin-top: 20px;">
+      <h3>Combined Logic: Worked Example</h3>
+      <p>Calculate the output Q for the expression <code>Q = (A AND B) OR (NOT C)</code> when A=1, B=0, C=1.</p>
       <ol>
-        <li><strong>Fetch:</strong> The instruction is retrieved from memory (RAM) to the CPU.</li>
-        <li><strong>Decode:</strong> The Control Unit (CU) works out what the instruction is.</li>
-        <li><strong>Execute:</strong> The instruction is carried out by the ALU or other components.</li>
+        <li><code>A AND B</code> &rarr; <code>1 AND 0</code> = <strong>0</strong></li>
+        <li><code>NOT C</code> &rarr; <code>NOT 1</code> = <strong>0</strong></li>
+        <li><code>0 OR 0</code> = <strong>0</strong></li>
       </ol>
+      <p style="margin-top: 10px;"><strong>Final answer: Q = 0.</strong></p>
+      <p style="margin-top: 10px; font-size: 0.9rem;"><em>Tip: in the exam, build a truth table with one column per intermediate step so you don't lose track.</em></p>
     </div>
 
-    <h2 class="section-title">2. Programming Languages</h2>
+    <h2 class="section-title">3.4.3 Software Classification</h2>
+    <p>Software falls into two main groups: <strong>system software</strong> manages the computer itself, while <strong>application software</strong> performs useful tasks for the user. Programming languages and translators are also part of system software.</p>
+
+    <h3 style="margin-top: 20px; color: var(--dark-purple);">System Software</h3>
+    <div class="card-grid" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch;">
+      <div class="card" style="flex: 1 1 300px; display: flex; flex-direction: column; border-top: 5px solid var(--dark-purple);">
+        <h3>Operating System (OS)</h3>
+        <p>Software that manages the hardware and lets applications run. Examples: Windows, macOS, Linux, Android, iOS.</p>
+        <ul style="flex-grow: 1;">
+          <li><strong>Memory management</strong> &mdash; decides which programs go in RAM.</li>
+          <li><strong>Processor management</strong> &mdash; schedules CPU time between tasks.</li>
+          <li><strong>Peripheral management</strong> &mdash; controls keyboards, printers, etc. via device drivers.</li>
+          <li><strong>User interface (UI)</strong> &mdash; lets users interact (GUI or CLI).</li>
+          <li><strong>User & file management</strong> &mdash; logins, permissions, organising files.</li>
+        </ul>
+      </div>
+      <div class="card" style="flex: 1 1 300px; display: flex; flex-direction: column; border-top: 5px solid var(--accent-green);">
+        <h3>Utility Software</h3>
+        <p>Specialised programs that help maintain or protect the computer.</p>
+        <ul style="flex-grow: 1;">
+          <li><strong>Anti-virus / anti-malware</strong> &mdash; detects and removes malicious software.</li>
+          <li><strong>Backup software</strong> &mdash; creates copies of important files in case of loss.</li>
+          <li><strong>Disk defragmentation</strong> &mdash; tidies up scattered file pieces on a hard drive to speed it up.</li>
+          <li><strong>File compression</strong> &mdash; reduces file sizes for storage or transfer (e.g. ZIP).</li>
+          <li><strong>Encryption</strong> &mdash; scrambles files so only authorised users can read them.</li>
+        </ul>
+      </div>
+      <div class="card" style="flex: 1 1 300px; display: flex; flex-direction: column; border-top: 5px solid var(--accent-blue);">
+        <h3>Embedded Systems</h3>
+        <p>A computer system built into another device to perform a single specific task. Examples: washing machines, microwaves, traffic lights, smart thermostats.</p>
+        <ul style="flex-grow: 1;">
+          <li>Cheap to make and very reliable.</li>
+          <li>Software is usually held in ROM and rarely updated.</li>
+          <li>Use very little power compared to a general-purpose PC.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 30px; color: var(--dark-purple);">Programming Languages</h3>
     <div class="card-grid">
       <div class="card" style="border-top: 5px solid #007bff;">
         <h3>High-Level Languages</h3>
@@ -2496,12 +3056,12 @@ const contentData = {
       </table>
     </div>
 
-    <h2 class="section-title">3. Translators</h2>
+    <h3 style="margin-top: 30px; color: var(--dark-purple);">Translators</h3>
     <div class="card-grid">
       <div class="card" style="border-top: 5px solid var(--accent-green); flex: 1 1 100%;">
         <h3>How Code is Converted</h3>
-        <p>Computers can only execute **Machine Code** (binary). Translators convert source code into this executable format.</p>
-        
+        <p>Computers can only execute <strong>Machine Code</strong> (binary). Translators convert source code into this executable format.</p>
+
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 15px;">
           <div style="background: #f1f1f1; padding: 15px; border-radius: 8px;">
             <h4>Compiler</h4>
@@ -2512,7 +3072,7 @@ const contentData = {
               <li><strong>Error Handling:</strong> Reports all errors only after trying to compile the whole program.</li>
             </ul>
           </div>
-          
+
           <div style="background: #f1f1f1; padding: 15px; border-radius: 8px;">
             <h4>Interpreter</h4>
             <p>Translates and executes code <strong>line-by-line</strong>.</p>
@@ -2535,9 +3095,9 @@ const contentData = {
       </div>
     </div>
 
-    <h2 class="section-title" style="margin-top: 40px;">Translator Matching Game</h2>
+    <h3 style="margin-top: 40px; color: var(--dark-purple);">Translator Matching Game</h3>
     <p>Drag the language or feature to the correct translator.</p>
-    
+
     <div class="homework-box">
       <div id="role-bank" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; padding: 15px; background: #eee; border-radius: 8px; min-height: 50px;">
         <div class="draggable-role" draggable="true" ondragstart="drag(event)" id="match-python" data-phase="interp">Python</div>
@@ -2559,13 +3119,100 @@ const contentData = {
           <h3>Assembler</h3>
         </div>
       </div>
-      
+
       <div id="game-feedback" style="margin-top: 20px; font-weight: bold; min-height: 24px; text-align: center;"></div>
-      
+
       <div style="display:flex; justify-content: center; gap: 10px; margin-top: 20px;">
         <button onclick="loadContent('p2_sys')" style="padding: 10px 20px; background: var(--pastel-violet); color: var(--dark-purple); font-weight: bold; border: none; border-radius: 5px; cursor: pointer;">Reset Game</button>
       </div>
     </div>
+
+    <h2 class="section-title">3.4.4 Systems Architecture</h2>
+    <p>How the CPU is built, how it executes instructions, and how main memory and storage support it.</p>
+
+    <div class="card-grid" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch;">
+
+      <div class="card" style="flex: 1 1 100%; border: 2px solid var(--dark-purple); min-height: auto;">
+        <h3 style="text-align: center;">Von Neumann Architecture</h3>
+        <div style="background: white; padding: 10px; border-radius: 8px; text-align: center;">
+          <img src="./Von-Neumann-Architecture-Diagram.jpg" alt="Von Neumann CPU Diagram" style="max-width: 100%; height: auto; border-radius: 5px;">
+          <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">In Von Neumann architecture, instructions and data share the same memory. The CPU fetches them one at a time.</p>
+        </div>
+      </div>
+
+      <div class="card" style="flex: 1 1 300px; display: flex; flex-direction: column;">
+        <div class="card-image">CPU</div>
+        <h3>The CPU Components</h3>
+        <p>The CPU uses binary logic to make decisions based on inputs.</p>
+        <ul style="flex-grow: 1;">
+          <li><strong>CU (Control Unit):</strong> Decodes instructions and controls data flow.</li>
+          <li><strong>ALU (Arithmetic Logic Unit):</strong> Performs calculations and logic operations like AND, OR, and NOT.</li>
+          <li><strong>Cache:</strong> High-speed memory for frequently used data.</li>
+          <li><strong>Logic Gates:</strong> Millions of components (AND, OR, NOT) that make up the CPU.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="flex: 1 1 300px; display: flex; flex-direction: column;">
+        <div class="card-image">REG</div>
+        <h3>Registers</h3>
+        <p>Extremely fast storage locations within the CPU:</p>
+        <ul style="flex-grow: 1;">
+          <li><strong>PC (Program Counter):</strong> Holds the address of the next instruction.</li>
+          <li><strong>MAR:</strong> Memory Address Register for the current memory location.</li>
+          <li><strong>MDR:</strong> Memory Data Register for actual data or instructions.</li>
+          <li><strong>ACC (Accumulator):</strong> Stores results of ALU logic operations.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="homework-box" style="margin-top: 30px;">
+      <h3>The Fetch-Decode-Execute Cycle</h3>
+      <p>The continuous process a CPU follows to process instructions:</p>
+      <ol>
+        <li><strong>Fetch:</strong> The instruction is retrieved from memory (RAM) to the CPU.</li>
+        <li><strong>Decode:</strong> The Control Unit (CU) works out what the instruction is.</li>
+        <li><strong>Execute:</strong> The instruction is carried out by the ALU or other components.</li>
+      </ol>
+    </div>
+
+    <h3 style="margin-top: 30px; color: var(--dark-purple);">Memory</h3>
+    <div class="card-grid" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch;">
+      <div class="card" style="flex: 1 1 300px; display: flex; flex-direction: column;">
+        <h3>RAM (Random Access Memory)</h3>
+        <p>Main memory used while the computer is running.</p>
+        <ul style="flex-grow: 1;">
+          <li><strong>Volatile</strong> &mdash; loses contents when power is off.</li>
+          <li>Holds the operating system, open programs, and the data they use.</li>
+          <li>Can be read from <strong>and</strong> written to.</li>
+        </ul>
+      </div>
+      <div class="card" style="flex: 1 1 300px; display: flex; flex-direction: column;">
+        <h3>ROM (Read-Only Memory)</h3>
+        <p>Permanent memory the CPU uses at start-up.</p>
+        <ul style="flex-grow: 1;">
+          <li><strong>Non-volatile</strong> &mdash; keeps contents without power.</li>
+          <li>Holds the <strong>BIOS / boot loader</strong>.</li>
+          <li>Read-only in normal use.</li>
+        </ul>
+      </div>
+      <div class="card" style="flex: 1 1 300px; display: flex; flex-direction: column;">
+        <h3>Virtual Memory</h3>
+        <p>If RAM fills up, the OS uses part of the hard drive as "extra" RAM by swapping data in and out. It stops the program from crashing but is much slower than real RAM.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 30px; color: var(--dark-purple);">Secondary Storage Types</h3>
+    <table style="width:100%; border-collapse: collapse; margin-top: 10px; background: var(--card-bg); border: 1px solid var(--border);">
+      <tr style="background: var(--dark-purple); color: white; font-weight: bold;">
+        <td style="padding: 10px; border: 1px solid var(--border);">Type</td>
+        <td style="padding: 10px; border: 1px solid var(--border);">Examples</td>
+        <td style="padding: 10px; border: 1px solid var(--border);">Pros</td>
+        <td style="padding: 10px; border: 1px solid var(--border);">Cons</td>
+      </tr>
+      <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Magnetic</strong></td><td style="padding: 8px; border: 1px solid var(--border);">HDD, magnetic tape</td><td style="padding: 8px; border: 1px solid var(--border);">Cheap per GB, very large capacity</td><td style="padding: 8px; border: 1px solid var(--border);">Slow, fragile (moving parts)</td></tr>
+      <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Optical</strong></td><td style="padding: 8px; border: 1px solid var(--border);">CD, DVD, Blu-ray</td><td style="padding: 8px; border: 1px solid var(--border);">Cheap, portable, good for distribution</td><td style="padding: 8px; border: 1px solid var(--border);">Small capacity, easily scratched</td></tr>
+      <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Solid State (Flash)</strong></td><td style="padding: 8px; border: 1px solid var(--border);">SSD, USB stick, SD card</td><td style="padding: 8px; border: 1px solid var(--border);">Very fast, silent, robust (no moving parts)</td><td style="padding: 8px; border: 1px solid var(--border);">More expensive per GB; limited write cycles</td></tr>
+    </table>
 
   `,
 
@@ -2574,21 +3221,24 @@ const contentData = {
     <h1>3.5 Computer Networks</h1>
     <p>A computer network is defined as two or more computers connected together to share information and resources.</p>
 
-    <h2 class="section-title">1. Network Types & Topologies</h2>
+    <h2 class="section-title">3.5.1 Network Types</h2>
     <div class="card-grid" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch;">
-      <div class="card" style="flex: 1 1 300px; display: flex; flex-direction: column;">
-        <h3>Types of Network</h3>
+      <div class="card" style="flex: 1 1 100%; display: flex; flex-direction: column;">
+        <h3>PAN, LAN and WAN</h3>
         <ul style="flex-grow: 1;">
           <li><strong>PAN (Personal Area Network):</strong> Covers a very short range (few metres) for personal devices like Bluetooth headphones.</li>
           <li><strong>LAN (Local Area Network):</strong> Covers a small geographical area. Infrastructure is typically organisation-owned.</li>
           <li><strong>WAN (Wide Area Network):</strong> Covers a large or worldwide area using 3rd party infrastructure like satellites.</li>
         </ul>
       </div>
+    </div>
 
-      <div class="card" style="flex: 1 1 300px; display: flex; flex-direction: column;">
-        <h3>Network Topologies</h3>
+    <h2 class="section-title">3.5.2 Network Topologies</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>The Four Topologies</h3>
         <p>Devices on a network are known as <strong>nodes</strong>.</p>
-        <ul style="flex-grow: 1;">
+        <ul>
           <li><strong>Star:</strong> All nodes connect to a central switch. Easy to add devices but relies on the central node.</li>
           <li><strong>Bus:</strong> All nodes connect to a single backbone cable. Cheap to install but a cable break ruins the whole network.</li>
           <li><strong>Ring:</strong> Each node connects to two others, forming a loop. Data travels in one direction, preventing collisions.</li>
@@ -2597,7 +3247,62 @@ const contentData = {
       </div>
     </div>
 
-    <h2 class="section-title">2. Protocols & Addressing</h2>
+    <h3 style="margin-top: 20px; color: var(--dark-purple);">Topology Pros &amp; Cons</h3>
+    <table style="width:100%; border-collapse: collapse; margin-top: 10px; background: var(--card-bg); border: 1px solid var(--border);">
+      <tr style="background: var(--dark-purple); color: white; font-weight: bold;">
+        <td style="padding: 10px; border: 1px solid var(--border);">Topology</td>
+        <td style="padding: 10px; border: 1px solid var(--border);">Advantages</td>
+        <td style="padding: 10px; border: 1px solid var(--border);">Disadvantages</td>
+      </tr>
+      <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Star</strong></td><td style="padding: 8px; border: 1px solid var(--border);">Easy to add/remove devices; one cable fault doesn't bring down the rest</td><td style="padding: 8px; border: 1px solid var(--border);">Whole network depends on the central switch; lots of cabling</td></tr>
+      <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Bus</strong></td><td style="padding: 8px; border: 1px solid var(--border);">Cheap and simple to install</td><td style="padding: 8px; border: 1px solid var(--border);">If the backbone breaks, the entire network fails; slow with many devices (collisions)</td></tr>
+      <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Ring</strong></td><td style="padding: 8px; border: 1px solid var(--border);">No data collisions; predictable performance</td><td style="padding: 8px; border: 1px solid var(--border);">A single break stops the loop; harder to reconfigure</td></tr>
+      <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Mesh</strong></td><td style="padding: 8px; border: 1px solid var(--border);">No single point of failure; "self-healing" by routing around faults</td><td style="padding: 8px; border: 1px solid var(--border);">Very expensive: lots of cabling and hardware</td></tr>
+    </table>
+
+    <h2 class="section-title">3.5.3 Network Hardware</h2>
+    <p>Different devices play different roles on a network. Don't confuse them &mdash; exam questions love to test the difference between a switch and a hub.</p>
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid var(--dark-purple);">
+        <h3>Switch</h3>
+        <p>Connects devices on a LAN. Reads the destination MAC address on each packet and sends it <strong>only</strong> to the target device. Used in star networks.</p>
+      </div>
+      <div class="card" style="border-top: 5px solid var(--dark-purple);">
+        <h3>Router</h3>
+        <p>Connects different networks together (e.g. your home LAN to the internet). Reads <strong>IP addresses</strong> and chooses the best route for each packet.</p>
+      </div>
+      <div class="card" style="border-top: 5px solid var(--dark-purple);">
+        <h3>Wireless Access Point (WAP)</h3>
+        <p>Allows wireless devices (Wi-Fi) to join a wired network by converting between radio waves and electrical signals.</p>
+      </div>
+      <div class="card" style="border-top: 5px solid var(--dark-purple);">
+        <h3>Network Interface Card (NIC)</h3>
+        <p>The hardware inside a computer (or built into the motherboard) that lets it connect to a network. Has a unique <strong>MAC address</strong> fixed at the factory.</p>
+      </div>
+      <div class="card" style="border-top: 5px solid var(--dark-purple);">
+        <h3>Hub</h3>
+        <p>An older device that sends every packet to <strong>every</strong> connected device, regardless of destination. Inefficient and a security risk &mdash; switches have largely replaced them.</p>
+      </div>
+      <div class="card" style="border-top: 5px solid var(--dark-purple);">
+        <h3>Transmission Media</h3>
+        <p><strong>Copper cable</strong> (ethernet) is cheap and easy to install. <strong>Fibre-optic</strong> cable carries data as light, giving very high speeds and long ranges. <strong>Radio waves</strong> are used for Wi-Fi and mobile data.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">3.5.4 Wired vs Wireless</h2>
+    <table style="width:100%; border-collapse: collapse; margin-top: 10px; background: var(--card-bg); border: 1px solid var(--border);">
+      <tr style="background: var(--dark-purple); color: white; font-weight: bold;">
+        <td style="padding: 10px; border: 1px solid var(--border);">Feature</td>
+        <td style="padding: 10px; border: 1px solid var(--border);">Wired (Ethernet)</td>
+        <td style="padding: 10px; border: 1px solid var(--border);">Wireless (Wi-Fi)</td>
+      </tr>
+      <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Speed</strong></td><td style="padding: 8px; border: 1px solid var(--border);">Higher and very stable</td><td style="padding: 8px; border: 1px solid var(--border);">Variable; depends on distance and obstacles</td></tr>
+      <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Mobility</strong></td><td style="padding: 8px; border: 1px solid var(--border);">Limited &mdash; you must be plugged in</td><td style="padding: 8px; border: 1px solid var(--border);">Free to move within range</td></tr>
+      <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Security</strong></td><td style="padding: 8px; border: 1px solid var(--border);">Harder to intercept (physical access needed)</td><td style="padding: 8px; border: 1px solid var(--border);">Signals broadcast in the air; need encryption (WPA2/WPA3)</td></tr>
+      <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Setup</strong></td><td style="padding: 8px; border: 1px solid var(--border);">Cabling can be expensive and disruptive</td><td style="padding: 8px; border: 1px solid var(--border);">Cheap and quick to add new devices</td></tr>
+    </table>
+
+    <h2 class="section-title">3.5.5 Protocols &amp; Addressing</h2>
     <div class="card-grid" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch;">
       <div class="card" style="flex: 1 1 300px; display: flex; flex-direction: column;">
         <h3>Addressing</h3>
@@ -2633,7 +3338,7 @@ const contentData = {
       </div>
     </div>
 
-    <h2 class="section-title">3. TCP/IP Layer Stack</h2>
+    <h2 class="section-title">3.5.6 The TCP/IP Layer Stack</h2>
     <div class="card-grid" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch;">
       <div class="card" style="flex: 1 1 100%; border-top: 5px solid var(--dark-purple);">
         <h3>The 4-Layer Model</h3>
@@ -2679,10 +3384,45 @@ const contentData = {
       </div>
       
       <div id="game-feedback" style="margin-top: 20px; font-weight: bold; min-height: 24px; text-align: center;"></div>
-      
+
       <div style="display:flex; justify-content: center; gap: 10px; margin-top: 20px;">
         <button onclick="loadContent('p2_net')" style="padding: 10px 20px; background: var(--pastel-violet); color: var(--dark-purple); font-weight: bold; border: none; border-radius: 5px; cursor: pointer;">Reset Game</button>
       </div>
+    </div>
+
+    <h2 class="section-title">3.5.7 The Internet, DNS &amp; Cloud</h2>
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid var(--accent-blue);">
+        <h3>The Internet</h3>
+        <p>A global network of networks that uses the TCP/IP protocol stack. The <strong>World Wide Web (WWW)</strong> is just one service that runs on the internet (using HTTP/HTTPS); the internet also carries email, gaming, video calls, and more.</p>
+      </div>
+      <div class="card" style="border-top: 5px solid var(--accent-green);">
+        <h3>Domain Name System (DNS)</h3>
+        <p>The DNS is the internet's "phonebook". It translates a domain name a human can read (e.g. <code>bbc.co.uk</code>) into the numeric IP address a computer needs to connect.</p>
+        <ol>
+          <li>Browser asks DNS server: "What is the IP for bbc.co.uk?"</li>
+          <li>DNS server replies with the IP (e.g. <code>151.101.0.81</code>).</li>
+          <li>Browser opens a connection to that IP and requests the page.</li>
+        </ol>
+      </div>
+      <div class="card" style="border-top: 5px solid var(--accent-yellow);">
+        <h3>Cloud Computing</h3>
+        <p>Storing and processing data on remote servers accessed over the internet rather than on your own device.</p>
+        <ul>
+          <li><strong>Pros:</strong> access files from anywhere, automatic backup, no need to maintain hardware, scales easily for businesses.</li>
+          <li><strong>Cons:</strong> needs internet to use; data privacy depends on the provider; ongoing subscription cost; you don't control the physical hardware.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="section-title">Key Definitions</h2>
+    <div class="card-grid">
+      <div class="card"><h3>Protocol</h3><p>An agreed set of rules that lets two devices communicate (e.g. HTTP, TCP, IP).</p></div>
+      <div class="card"><h3>Packet</h3><p>A small chunk of data sent across a network. Contains the sender's IP, the receiver's IP, the data itself and a sequence number for reassembly.</p></div>
+      <div class="card"><h3>IP Address</h3><p>A logical address used by IP to route data to the right network and device. Can change.</p></div>
+      <div class="card"><h3>MAC Address</h3><p>A unique 48-bit physical address built into a NIC at the factory. Stays with the hardware.</p></div>
+      <div class="card"><h3>Bandwidth</h3><p>The maximum amount of data that can be carried per second, usually measured in Mbps or Gbps.</p></div>
+      <div class="card"><h3>Encryption</h3><p>Scrambling data using a key so only authorised receivers can read it. Used by HTTPS and Wi-Fi.</p></div>
     </div>
   `,
 
@@ -2691,7 +3431,7 @@ const contentData = {
     <h1>3.6 Cyber Security</h1>
     <p>Cyber security consists of the processes, practices, and technologies designed to protect networks, computers, programs, and data from attack, damage, or unauthorised access.</p>
 
-    <h2 class="section-title">1. Threats and Attack Methods</h2>
+    <h2 class="section-title">3.6.1 Cyber Security Threats</h2>
     <div class="card-grid" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch;">
       <div class="card" style="flex: 1 1 300px; display: flex; flex-direction: column;">
         <h3>Malware</h3>
@@ -2718,7 +3458,7 @@ const contentData = {
     <button onclick="loadContent('p2_threat_viz')" style="margin-top: 20px; margin-left:15px; padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Visualise</button>
     <button onclick="loadContent('p2_phish_game')" style="margin-top: 10px; padding: 10px 20px; background: var(--accent-green); color: white; border: none; border-radius: 5px; cursor: pointer;">Play Spot the Phish</button>
     
-    <h2 class="section-title">2. Other Attack Types</h2>
+    <h3 style="margin-top: 30px; color: var(--dark-purple);">Other Attack Types</h3>
     <div class="card-grid" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch;">
       <div class="card" style="flex: 1 1 300px; display: flex; flex-direction: column;">
         <h3>Technical Attacks</h3>
@@ -2736,7 +3476,7 @@ const contentData = {
 
     <button onclick="loadContent('p2_attack_viz')" style="margin-top: 20px; margin-left:15px; padding: 10px 20px; background: var(--dark-purple); color: white; border: none; border-radius: 5px; cursor: pointer;">Visualise</button>
     
-    <h2 class="section-title">3. Cyber Security Protection</h2>
+    <h2 class="section-title">3.6.2 Methods of Detecting &amp; Preventing Threats</h2>
     <div class="card-grid" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch;">
       <div class="card" style="flex: 1 1 100%; border-top: 5px solid var(--accent-green);">
         <h3>Defensive Methods</h3>
@@ -2846,6 +3586,7 @@ const contentData = {
     <h1>3.7 Relational Databases (SQL)</h1>
     <p>A database is a <strong>persistent, organised store of related data</strong>. Persistent means the data is permanent and remains stored even after the computer is turned off.</p>
 
+    <h2 class="section-title">3.7.1 Relational Databases</h2>
     <div class="card-grid">
       <div class="card">
         <h3>Important Terminology</h3>
@@ -2867,7 +3608,7 @@ const contentData = {
 
     
 
-    <h2 class="section-title">Structured Query Language (SQL)</h2>
+    <h2 class="section-title">3.7.2 Structured Query Language (SQL)</h2>
     <p>SQL is the standard language used to create, update, delete, and query (search) databases.</p>
 
     <div class="card-grid">
@@ -2895,6 +3636,79 @@ const contentData = {
       <p>A Database Management System (DBMS) is the software used to manage data. It must be able to: <strong>Create, Add, Delete, Edit,</strong> and <strong>Search</strong> for data.</p>
     </div>
 
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid var(--accent-red);">
+        <h3>Deleting Records</h3>
+        <p><strong>DELETE FROM:</strong> Removes one or more records that match a condition. Always include a <code>WHERE</code> clause &mdash; without one, every row in the table will be deleted.</p>
+        <code style="display:block; background:#eee; padding:10px; border-radius:5px; font-family:monospace; color:#333;">DELETE FROM students<br>WHERE student_ID = '009'</code>
+      </div>
+      <div class="card" style="border-top: 5px solid var(--accent-yellow);">
+        <h3>Querying Multiple Tables</h3>
+        <p>When data is spread across two tables, link them with their primary/foreign key inside the <code>WHERE</code> clause.</p>
+        <code style="display:block; background:#eee; padding:10px; border-radius:5px; font-family:monospace; color:#333;">SELECT students.first_name, classes.subject<br>FROM students, classes<br>WHERE students.class_ID = classes.class_ID</code>
+      </div>
+    </div>
+
+    <h2 class="section-title">Worked Example: Sample Database</h2>
+    <p>Look at this <code>Students</code> table and follow the queries below.</p>
+
+    <table style="width:100%; border-collapse: collapse; margin-top: 10px; background: var(--card-bg); border: 1px solid var(--border);">
+      <tr style="background: var(--dark-purple); color: white; font-weight: bold;">
+        <td style="padding: 10px; border: 1px solid var(--border);">student_ID</td>
+        <td style="padding: 10px; border: 1px solid var(--border);">first_name</td>
+        <td style="padding: 10px; border: 1px solid var(--border);">surname</td>
+        <td style="padding: 10px; border: 1px solid var(--border);">group</td>
+        <td style="padding: 10px; border: 1px solid var(--border);">age</td>
+      </tr>
+      <tr><td style="padding: 8px; border: 1px solid var(--border);">001</td><td style="padding: 8px; border: 1px solid var(--border);">Aisha</td><td style="padding: 8px; border: 1px solid var(--border);">Khan</td><td style="padding: 8px; border: 1px solid var(--border);">9AB</td><td style="padding: 8px; border: 1px solid var(--border);">14</td></tr>
+      <tr><td style="padding: 8px; border: 1px solid var(--border);">002</td><td style="padding: 8px; border: 1px solid var(--border);">Ben</td><td style="padding: 8px; border: 1px solid var(--border);">Owusu</td><td style="padding: 8px; border: 1px solid var(--border);">9CD</td><td style="padding: 8px; border: 1px solid var(--border);">15</td></tr>
+      <tr><td style="padding: 8px; border: 1px solid var(--border);">003</td><td style="padding: 8px; border: 1px solid var(--border);">Chloe</td><td style="padding: 8px; border: 1px solid var(--border);">Smith</td><td style="padding: 8px; border: 1px solid var(--border);">9AB</td><td style="padding: 8px; border: 1px solid var(--border);">14</td></tr>
+      <tr><td style="padding: 8px; border: 1px solid var(--border);">004</td><td style="padding: 8px; border: 1px solid var(--border);">Daniel</td><td style="padding: 8px; border: 1px solid var(--border);">Park</td><td style="padding: 8px; border: 1px solid var(--border);">9CD</td><td style="padding: 8px; border: 1px solid var(--border);">14</td></tr>
+    </table>
+
+    <div class="card-grid" style="margin-top: 20px;">
+      <div class="card" style="border-top: 5px solid var(--accent-blue);">
+        <h3>Q1: List names of group 9AB</h3>
+        <code style="display:block; background:#eee; padding:10px; border-radius:5px; font-family:monospace; color:#333;">SELECT first_name, surname<br>FROM students<br>WHERE group = '9AB'</code>
+        <p style="margin-top: 10px;"><strong>Result:</strong></p>
+        <ul>
+          <li>Aisha Khan</li>
+          <li>Chloe Smith</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top: 5px solid var(--accent-blue);">
+        <h3>Q2: List 14-year-olds, oldest surname first</h3>
+        <code style="display:block; background:#eee; padding:10px; border-radius:5px; font-family:monospace; color:#333;">SELECT * FROM students<br>WHERE age = 14<br>ORDER BY surname DESC</code>
+        <p style="margin-top: 10px;"><strong>Result order:</strong> Smith, Park, Khan.</p>
+      </div>
+      <div class="card" style="border-top: 5px solid var(--accent-blue);">
+        <h3>Q3: Update Daniel's group</h3>
+        <code style="display:block; background:#eee; padding:10px; border-radius:5px; font-family:monospace; color:#333;">UPDATE students<br>SET group = '9AB'<br>WHERE student_ID = '004'</code>
+        <p style="margin-top: 10px;"><em>Daniel is moved into class 9AB. Without the WHERE clause every student would be moved.</em></p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Why Use Relational Databases?</h2>
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid var(--accent-green);">
+        <h3>Pros</h3>
+        <ul>
+          <li><strong>No redundancy</strong> &mdash; each fact is stored once.</li>
+          <li><strong>Consistent</strong> &mdash; updating one record updates the whole system.</li>
+          <li><strong>Powerful querying</strong> &mdash; SQL can answer complex questions.</li>
+          <li><strong>Better security</strong> &mdash; permissions can be set per table or field.</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top: 5px solid var(--accent-red);">
+        <h3>Cons</h3>
+        <ul>
+          <li>More complex to design than a flat file.</li>
+          <li>Can be slower for very simple data.</li>
+          <li>Requires DBMS software, which may cost money.</li>
+        </ul>
+      </div>
+    </div>
+
   `,
 
   // --- 3.8 IMPACTS OF TECH (Updated with Workbook Data) ---
@@ -2902,7 +3716,7 @@ const contentData = {
     <h1>3.8 Impacts of Digital Technology</h1>
     <p>As technology develops, it creates a range of issues that can be categorised as ethical, legal, cultural, environmental, and privacy-related. To understand these, we must look at them through the eyes of <strong>stakeholders</strong>—individuals or groups affected by an issue.</p>
 
-    <h2 class="section-title">1. Ethical, Cultural & Social Issues</h2>
+    <h2 class="section-title">Ethical, Cultural &amp; Social Issues</h2>
     <div class="card-grid">
       <div class="card">
         <h3>Privacy & Surveillance</h3>
@@ -2922,7 +3736,7 @@ const contentData = {
       </div>
     </div>
 
-    <h2 class="section-title">2. Environmental Impacts</h2>
+    <h2 class="section-title">Environmental Impacts</h2>
     <div class="homework-box">
       <p>Technology impacts the environment in three main ways:</p>
       <ul>
@@ -2932,7 +3746,7 @@ const contentData = {
       </ul>
     </div>
 
-    <h2 class="section-title">3. Legislation (The Law)</h2>
+    <h2 class="section-title">Legislation (The Law)</h2>
     <p>There are five major laws governing computer use in the UK that you must know:</p>
     <div class="card-grid">
       <div class="card" style="border-top: 5px solid var(--dark-purple);">
@@ -2955,6 +3769,42 @@ const contentData = {
         <h3>Creative Commons Licensing</h3>
         <p>Allows owners to specify how others can use and share their work (e.g., non-commercial use only or requiring attribution).</p>
       </div>
+    </div>
+
+    <h2 class="section-title">Stakeholders</h2>
+    <p>A <strong>stakeholder</strong> is any person or group affected by a piece of technology. In an exam answer about impact, you should always identify <strong>who</strong> is affected and <strong>how</strong> &mdash; both positively and negatively.</p>
+    <div class="card-grid">
+      <div class="card" style="border-top: 5px solid var(--accent-blue);">
+        <h3>Common Stakeholders</h3>
+        <ul>
+          <li><strong>Individuals / Users</strong> &mdash; personal data, privacy, health.</li>
+          <li><strong>Businesses</strong> &mdash; profit, productivity, security risk.</li>
+          <li><strong>Employees</strong> &mdash; job security, work-life balance.</li>
+          <li><strong>Society</strong> &mdash; digital divide, fairness, culture.</li>
+          <li><strong>Government</strong> &mdash; legislation, surveillance, public services.</li>
+          <li><strong>Environment</strong> &mdash; energy use, e-waste, raw materials.</li>
+        </ul>
+      </div>
+      <div class="card" style="border-top: 5px solid var(--accent-yellow);">
+        <h3>Worked Example: Self-Driving Cars</h3>
+        <ul>
+          <li><strong>Drivers (positive):</strong> hands-free travel, accessibility for the elderly or disabled.</li>
+          <li><strong>Society (positive):</strong> potentially fewer accidents caused by human error.</li>
+          <li><strong>Taxi/HGV drivers (negative):</strong> jobs at risk of replacement.</li>
+          <li><strong>Government (legal):</strong> who is liable when a self-driving car causes a crash?</li>
+          <li><strong>Environment:</strong> electric autonomous cars cut emissions but more vehicles increase resource use.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="section-title">Exam Tip: Structuring Impact Answers</h2>
+    <div class="homework-box">
+      <p>For longer mark questions, use this 3-step structure:</p>
+      <ol>
+        <li><strong>Name the issue</strong> (ethical, legal, cultural, environmental, privacy).</li>
+        <li><strong>Identify the stakeholders</strong> affected.</li>
+        <li><strong>Give a balanced argument</strong> &mdash; at least one positive and one negative impact, plus any relevant law (e.g. <em>Data Protection Act 2018</em>).</li>
+      </ol>
     </div>
 
   `,
@@ -3629,8 +4479,46 @@ let bossTimeWhenStarted = 0;
 let bossWrongAnswers = 0;
 let bossQuestions = [];
 let currentBossIndex = 0;
+// --- SIGNED STORAGE (discourages casual localStorage tampering) ---
+const SIGN_SALT = 'csgcsehub_v1_9a8b7c6d5e4f';
+function _fnv1aHash(str) {
+  let h = 2166136261;
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return (h >>> 0).toString(36);
+}
+function secureGetInt(key, fallback) {
+  const val = localStorage.getItem(key);
+  const sig = localStorage.getItem(key + '__s');
+  if (val === null) return fallback;
+  if (sig !== _fnv1aHash(String(val) + '|' + key + '|' + SIGN_SALT)) {
+    localStorage.removeItem(key);
+    localStorage.removeItem(key + '__s');
+    return fallback;
+  }
+  const n = parseInt(val, 10);
+  return isNaN(n) ? fallback : n;
+}
+function secureSetInt(key, value) {
+  const v = String(value);
+  localStorage.setItem(key, v);
+  localStorage.setItem(key + '__s', _fnv1aHash(v + '|' + key + '|' + SIGN_SALT));
+}
+// Re-sign any pre-existing unsigned values so users don't lose legitimate XP on upgrade
+(function migrateUnsigned() {
+  ['totalXP', 'ach-quizzes', 'ach-walls', 'ach-bosses'].forEach(k => {
+    const v = localStorage.getItem(k);
+    const s = localStorage.getItem(k + '__s');
+    if (v !== null && s === null) {
+      localStorage.setItem(k + '__s', _fnv1aHash(v + '|' + k + '|' + SIGN_SALT));
+    }
+  });
+})();
+
 // --- LEVELING SYSTEM STATE ---
-let totalXP = parseInt(localStorage.getItem('totalXP')) || 0;
+let totalXP = secureGetInt('totalXP', 0);
 // --- QUIZ TRAINER LOGIC ---
 let activeQuizQuestions = [];
 let currentQuizIndex = 0;
@@ -3812,12 +4700,12 @@ const getLevelData = (xp) => {
 
 // --- ACHIEVEMENTS ---
 function getAchievementCount(key) {
-  return parseInt(localStorage.getItem('ach-' + key) || '0', 10);
+  return secureGetInt('ach-' + key, 0);
 }
 
 function incrementAchievement(key) {
   const next = getAchievementCount(key) + 1;
-  localStorage.setItem('ach-' + key, next);
+  secureSetInt('ach-' + key, next);
   updateAchievementsUI();
 }
 
@@ -3831,7 +4719,7 @@ function updateAchievementsUI() {
 // Adds XP, saves it, and updates the top right header
 function updateXP(amount) {
   totalXP += amount;
-  localStorage.setItem('totalXP', totalXP);
+  secureSetInt('totalXP', totalXP);
   updateGlobalUI();
 }
 
@@ -4192,12 +5080,32 @@ function updateSmartBackButton() {
   }
 }
 
-function toggleNav() {
-  document.getElementById("menu-btn").classList.toggle("change");
-  document.getElementById("sidebar").classList.toggle("sidebar-open");
-  document.getElementById("main-content").classList.toggle("main-push");
-  document.body.classList.toggle("sidebar-open-logo");
+function toggleMobileNav() {
+  const sidebar = document.getElementById("sidebar");
+  const menuBtn = document.getElementById("menu-btn");
+  const isOpen = sidebar.classList.toggle("mobile-open");
+  menuBtn.classList.toggle("change", isOpen);
+  menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+  let scrim = document.getElementById("sidebar-scrim");
+  if (isOpen) {
+    if (!scrim) {
+      scrim = document.createElement("div");
+      scrim.id = "sidebar-scrim";
+      scrim.className = "sidebar-scrim";
+      scrim.addEventListener("click", toggleMobileNav);
+      document.body.appendChild(scrim);
+    }
+    scrim.classList.add("visible");
+    document.body.style.overflow = "hidden";
+  } else if (scrim) {
+    scrim.classList.remove("visible");
+    document.body.style.overflow = "";
+  }
 }
+
+// Backward-compat alias in case any code still calls toggleNav
+function toggleNav() { toggleMobileNav(); }
 
 function toggleSubMenu(id) {
   // Close all other submenus first
@@ -4255,9 +5163,12 @@ function loadContent(topic) {
     }
   }
 
-  // Mobile navigation toggle & scroll to top
-  if (window.innerWidth < 768 && typeof toggleNav === 'function') {
-    toggleNav();
+  // Close sidebar after navigation on mobile
+  if (window.innerWidth < 768) {
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar && sidebar.classList.contains('mobile-open')) {
+      toggleMobileNav();
+    }
   }
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
