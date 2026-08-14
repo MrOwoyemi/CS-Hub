@@ -1790,3 +1790,39 @@ body.dark-mode .exam-card {
     border-left-color: var(--accent-red);
     color: var(--text);
 }
+
+/* ========================
+   DASHBOARD QUICK ACTIONS
+   Shown when no exams or homework are outstanding, so the dashboard still
+   offers somewhere to go. Uses theme variables so it follows dark mode.
+   ======================== */
+.dash-action {
+  display: inline-block;
+  padding: 9px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.dash-action:hover {
+  background: var(--primary-lighter);
+  transform: translateY(-2px);
+}
+
+.dash-action:focus-visible {
+  outline: 3px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+body.dark-mode .dash-action {
+  background: var(--accent-blue);
+}
+
+body.dark-mode .dash-action:hover {
+  background: #60a5fa;
+}

@@ -1,35 +1,38 @@
 // 1. Homework Bank
+// Single source of truth for homework reminders: the full Year 11 scheme of
+// work, in ISO date order. (This previously lived in two arrays -- a 6-entry
+// `homeworkBank` that the dashboard rendered, and a 24-entry `homeworkSchedule`
+// that was declared but never referenced -- so most of the year's homework
+// never reached the page. They are merged here.)
 const homeworkBank = [
-  {
-    title: "Topic 3.5 Revision",
-    dateStr: "20/03/26",
-    task: "Answer a selection of past exam questions on Topic 3.5. Network types, topologies, hardware, protocols, the Internet."
-  },
-  {
-    title: "Consolidation (3.3, 3.4, 3.5)",
-    dateStr: "27/03/26",
-    task: "Complete Seneca Learning quizzes or similar online revision activities covering Topics 3.3, 3.4, and 3.5. Data representation, systems, networks, consolidation."
-  },
-  {
-    title: "Consolidation Revision",
-    dateStr: "17/04/26",
-    task: "Complete a past paper (Either Paper 1 or Paper 2). Knowledge recall, application of theory."
-  },
-  {
-    title: "Activity Sheets",
-    dateStr: "24/04/26",
-    task: "Complete revision Activity Sheets 1 - 5."
-  },
-  {
-    title: "Paper 1 Final Practice",
-    dateStr: "01/05/26",
-    task: "Complete the Python coding challenges on the Practical Hub. Focus on Trace Tables and logic errors."
-  },
-  {
-    title: "Final Exam Prep!",
-    dateStr: "08/05/26",
-    task: "Use the interactive flashcards and match-up games on the dashboard to test your keyword knowledge before the big day."
-  }
+  { date: "2025-09-19", title: "3.1 Fundamentals of algorithms", task: "Create a mind map explaining the principles of computational thinking." },
+  { date: "2025-09-26", title: "3.1 Fundamentals of algorithms", task: "Create two simple algorithms (average, recipe) using pseudocode and flowcharts." },
+  { date: "2025-10-03", title: "3.1 Fundamentals of algorithms", task: "Make revision cards for searching and sorting algorithms with annotated data sets." },
+  { date: "2025-10-10", title: "Revision", task: "Answer a selection of past exam questions on Topic 3.1." },
+  { date: "2025-10-17", title: "3.2 Programming", task: "Make revision cards on fundamental programming concepts with Python examples." },
+  { date: "2025-10-24", title: "3.2 Programming", task: "Create a mind map illustrating sequence, selection, and iteration with examples." },
+  { date: "2025-11-07", title: "3.2 Programming", task: "Explain subroutines and create a program using a 1D array/list." },
+  { date: "2025-11-14", title: "Revision", task: "Answer past exam questions on Topic 3.2. Annotate logic errors." },
+  { date: "2025-11-21", title: "3.3 Data representation", task: "Revision cards for denary, binary, and hex conversions + binary addition." },
+  { date: "2025-11-28", title: "3.3 Data representation", task: "Table comparing binary representation of characters, bitmaps, and sound." },
+  { date: "2025-12-05", title: "3.3 Data representation", task: "Explain the difference between lossy and lossless compression with use cases." },
+  { date: "2025-12-12", title: "Revision", task: "Complete practice questions on number systems and data representation." },
+  { date: "2026-01-09", title: "Synoptic Revision", task: "Design an algorithm (3.1) and write the corresponding code (3.2)." },
+  { date: "2026-01-16", title: "Revision", task: "Answer a selection of past exam questions on Topic 3.3." },
+  { date: "2026-01-23", title: "3.4 Computer systems", task: "Label Von Neumann architecture and explain Fetch-Decode-Execute." },
+  { date: "2026-01-30", title: "3.4 Computer systems", task: "Comparison table for memory/storage (speed, cost, capacity, volatility)." },
+  { date: "2026-02-06", title: "3.4 Computer systems", task: "Revision cards on OS functions and common utility software." },
+  { date: "2026-02-13", title: "Revision", task: "Answer past exam questions on Topic 3.4. Review misconceptions." },
+  { date: "2026-02-27", title: "3.5 Computer networks", task: "Mind map explaining LAN vs WAN and star/mesh topologies." },
+  { date: "2026-03-06", title: "3.5 Computer networks", task: "Revision cards for network hardware and the 4-layer TCP/IP model." },
+  { date: "2026-03-13", title: "3.5 Computer networks", task: "Diagram illustrating DNS, hosting, and the cloud." },
+  { date: "2026-03-20", title: "Topic 3.5 Revision", task: "Answer a selection of past exam questions on Topic 3.5. Network types, topologies, hardware, protocols, the Internet." },
+  { date: "2026-03-27", title: "Consolidation (3.3, 3.4, 3.5)", task: "Complete Seneca Learning quizzes or similar online revision activities covering Topics 3.3, 3.4, and 3.5. Data representation, systems, networks, consolidation." },
+  { date: "2026-04-17", title: "Consolidation Revision", task: "Complete a past paper (Either Paper 1 or Paper 2). Knowledge recall, application of theory." },
+  { date: "2026-04-24", title: "Consolidation", task: "Complete a full past paper (Paper 1 or Paper 2)." },
+  { date: "2026-04-24", title: "Activity Sheets", task: "Complete revision Activity Sheets 1 - 5." },
+  { date: "2026-05-01", title: "Paper 1 Final Practice", task: "Complete the Python coding challenges on the Practical Hub. Focus on Trace Tables and logic errors." },
+  { date: "2026-05-08", title: "Final Exam Prep!", task: "Use the interactive flashcards and match-up games on the dashboard to test your keyword knowledge before the big day." }
 ];
 
 const questionBank = {
@@ -671,31 +674,56 @@ function createHomeworkCard(title, dateStr, task) {
   `;
 }
 
-function getUpcomingHomeworkHTML() {
+// Midnight UTC today, used as the cutoff for "still upcoming".
+function todayUTC() {
   const now = new Date();
-  const todayUTC = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+  return Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+}
 
-  const upcoming = homeworkBank.map(hw => {
-    const parts = hw.dateStr.split('/');
-    const dueUTC = Date.UTC(2000 + parseInt(parts[2], 10), parseInt(parts[1], 10) - 1, parseInt(parts[0], 10));
-    return { ...hw, dueUTC };
-  }).filter(hw => hw.dueUTC >= todayUTC);
+// "2026-03-20" -> midnight UTC on that day.
+function isoToUTC(iso) {
+  const [y, m, d] = iso.split('-').map(Number);
+  return Date.UTC(y, m - 1, d);
+}
 
-  upcoming.sort((a, b) => a.dueUTC - b.dueUTC);
-  const nextThree = upcoming.slice(0, 3);
+// "2026-03-20" -> "Fri 20 Mar 2026"
+function formatDueDate(iso) {
+  return new Date(isoToUTC(iso)).toLocaleDateString('en-GB', {
+    weekday: 'short', day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC'
+  });
+}
 
-  if (nextThree.length === 0) {
-    return `<div style="padding: 20px; text-align: center; background: rgba(16, 185, 129, 0.12); color: var(--accent-green); border-radius: 8px; font-weight: bold;">No upcoming homework! 🎉</div>`;
+function getUpcomingHomeworkHTML() {
+  const cutoff = todayUTC();
+
+  const upcoming = homeworkBank
+    .filter(hw => isoToUTC(hw.date) >= cutoff)
+    .sort((a, b) => isoToUTC(a.date) - isoToUTC(b.date))
+    .slice(0, 3);
+
+  if (upcoming.length === 0) {
+    // The scheme of work has run out. Rather than leaving a dead panel, point
+    // the student at the activities that are always available.
+    return `
+      <div class="card" style="border-left: 5px solid var(--accent-green);">
+        <h3 style="margin-top: 0;">No homework set 🎉</h3>
+        <p>You're all caught up. Keep your recall sharp with a few minutes of practice:</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+          <a href="#quiz_trainer" class="dash-action">Quiz Trainer</a>
+          <a href="#p1_revision" class="dash-action">Paper 1 Flashcards</a>
+          <a href="#p2_revision" class="dash-action">Paper 2 Flashcards</a>
+          <a href="#binary_boss" class="dash-action">Binary Boss Battle</a>
+        </div>
+      </div>`;
   }
 
-  return nextThree.map(hw => createHomeworkCard(hw.title, hw.dateStr, hw.task)).join('');
+  return upcoming.map(hw => createHomeworkCard(hw.title, formatDueDate(hw.date), hw.task)).join('');
 }
 
 function createExamCard(title, dateStr, focusStr, examDateObj) {
-  const now = new Date();
-  const todayUTC = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+  const cutoff = todayUTC();
   const examUTC = Date.UTC(examDateObj.getUTCFullYear(), examDateObj.getUTCMonth(), examDateObj.getUTCDate());
-  const diffDays = Math.ceil((examUTC - todayUTC) / (1000 * 60 * 60 * 24));
+  const diffDays = Math.ceil((examUTC - cutoff) / (1000 * 60 * 60 * 24));
   const diffWeeks = Math.ceil(diffDays / 7);
 
   let countdownHTML = '';
@@ -706,10 +734,10 @@ function createExamCard(title, dateStr, focusStr, examDateObj) {
       </div>
      `;
   } else {
-    // School weeks logic subtracting Easter 2026 (30 Mar – 12 Apr)
+    // School weeks logic subtracting the Easter break
     let holidayWeeks = 0;
     const easterEndUTC = Date.UTC(2026, 3, 13);
-    if (todayUTC < easterEndUTC) holidayWeeks += 2;
+    if (cutoff < easterEndUTC) holidayWeeks += 2;
 
     const schoolWeeks = Math.max(0, diffWeeks - holidayWeeks);
 
@@ -1487,12 +1515,75 @@ const contentData = {
         <div class="card">
           <h3>Flowchart (Find Max)</h3>
           <p>A visual representation using standard shapes to show program logic.</p>
-          
-          <div style="background: #1e1e1e; padding: 10px; border-radius: 8px; display: flex; justify-content: center; align-items: center; min-height: 420px; border: 1px solid #333;">
-            <img src="./basic-symbols-table.jpg" alt="Find Max Flowchart Diagram" style="max-width: 100%; height: auto; border-radius: 4px;">
+
+          <div style="background: var(--card-bg); padding: 10px; border-radius: 8px; display: flex; justify-content: center; align-items: center; min-height: 420px; border: 1px solid var(--border);">
+            <svg viewBox="0 0 400 650" role="img"
+              aria-label="Flowchart for the Find Max algorithm: start, set maxVal to list[0] and i to 1, then while i is less than the length of the list, if list[i] is greater than maxVal set maxVal to list[i], add one to i and repeat; when the loop ends, output maxVal and stop."
+              style="max-width: 100%; height: auto; font-family: 'Segoe UI', Arial, sans-serif;">
+              <g fill="none" stroke="var(--text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- connectors -->
+                <path d="M175 48 V 68" marker-end="url(#fc-arrow)" />
+                <path d="M175 120 V 140" marker-end="url(#fc-arrow)" />
+                <path d="M175 228 V 248" marker-end="url(#fc-arrow)" />
+                <path d="M175 340 V 360" marker-end="url(#fc-arrow)" />
+                <path d="M175 405 V 428" marker-end="url(#fc-arrow)" />
+                <!-- false branch of the inner test rejoins above i = i + 1 -->
+                <path d="M270 295 H 300 V 428 H 180" marker-end="url(#fc-arrow)" />
+                <!-- loop back to the top of the loop test -->
+                <path d="M175 473 V 495 H 20 V 185 H 76" marker-end="url(#fc-arrow)" />
+                <!-- loop exit -->
+                <path d="M270 185 H 340 V 545 H 272" marker-end="url(#fc-arrow)" />
+                <path d="M175 568 V 588" marker-end="url(#fc-arrow)" />
+              </g>
+
+              <defs>
+                <marker id="fc-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                  <path d="M0 0 L10 5 L0 10 z" fill="var(--text)" />
+                </marker>
+              </defs>
+
+              <g stroke="#0D2137" stroke-width="2" fill="#B3CDE0">
+                <rect x="110" y="8" width="130" height="40" rx="20" />
+                <rect x="85" y="68" width="180" height="52" />
+                <path d="M175 140 L270 185 L175 230 L80 185 Z" />
+                <path d="M175 248 L270 295 L175 342 L80 295 Z" />
+                <rect x="90" y="360" width="170" height="45" />
+                <rect x="105" y="428" width="140" height="45" />
+                <path d="M97 524 H268 L246 568 H75 Z" />
+                <rect x="110" y="588" width="130" height="40" rx="20" />
+              </g>
+
+              <g fill="#0D2137" font-size="14" text-anchor="middle">
+                <text x="175" y="33" font-weight="700">START</text>
+                <text x="175" y="89">maxVal &#8592; list[0]</text>
+                <text x="175" y="108">i &#8592; 1</text>
+                <text x="175" y="190">i &lt; length(list)?</text>
+                <text x="175" y="300">list[i] &gt; maxVal?</text>
+                <text x="175" y="388">maxVal &#8592; list[i]</text>
+                <text x="175" y="456">i &#8592; i + 1</text>
+                <text x="172" y="551">OUTPUT maxVal</text>
+                <text x="175" y="613" font-weight="700">STOP</text>
+              </g>
+
+              <g fill="var(--text)" font-size="12" font-weight="700">
+                <text x="186" y="245">Yes</text>
+                <text x="288" y="178">No</text>
+                <text x="186" y="357">Yes</text>
+                <text x="278" y="289">No</text>
+              </g>
+            </svg>
           </div>
-          
-          <p style="font-size: 0.8rem; color: #777; margin-top: 10px;"><em>Oval = Start, Rectangle = Process, Diamond = Decision.</em></p>
+
+          <p style="font-size: 0.8rem; color: var(--text-light); margin-top: 10px;"><em>Oval = Start/Stop, Rectangle = Process, Diamond = Decision, Parallelogram = Input/Output.</em></p>
+        </div>
+
+        <div class="card">
+          <h3>Flowchart Symbols</h3>
+          <p>The standard shapes, and what each one means. Learn these &mdash; questions often ask you to name a symbol or draw one.</p>
+
+          <div style="background: var(--card-bg); padding: 10px; border-radius: 8px; display: flex; justify-content: center; align-items: center; border: 1px solid var(--border);">
+            <img src="./basic-symbols-table.jpg" alt="Table of standard flowchart symbols: an oval for start and end, arrows for connectors, a parallelogram for input and output, a rectangle for a process, and a diamond for a decision." style="max-width: 100%; height: auto; border-radius: 4px;" loading="lazy">
+          </div>
         </div>
 
         <div class="card">
@@ -4351,12 +4442,12 @@ answer = <span style="color:#ce9178;">"y"</span><br>
         <div class="parsons-layout" style="display: flex; gap: 20px; flex-wrap: wrap;">
             <div class="parsons-panel" style="flex: 1; min-width: 300px; background: var(--card-bg); padding: 15px; border-radius: 10px; border: 1px solid var(--border);">
                 <h3 style="margin-top: 0; color: var(--accent-blue); border-bottom: 1px solid var(--border); padding-bottom: 10px;">Available Blocks</h3>
-                <div id="parsons-source" class="parsons-dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" style="min-height: 300px; display: flex; flex-direction: column; gap: 10px; padding: 10px; background: var(--bg); border-radius: 8px; border: 1px solid var(--border);"></div>
+                <div id="parsons-source" class="parsons-dropzone" ondrop="parsonsDrop(event)" ondragover="parsonsAllowDrop(event)" style="min-height: 300px; display: flex; flex-direction: column; gap: 10px; padding: 10px; background: var(--bg); border-radius: 8px; border: 1px solid var(--border);"></div>
             </div>
 
             <div class="parsons-panel" style="flex: 1; min-width: 300px; background: var(--card-bg); padding: 15px; border-radius: 10px; border: 1px solid var(--border);">
                 <h3 style="margin-top: 0; color: var(--accent-green); border-bottom: 1px solid var(--border); padding-bottom: 10px;">Your Solution</h3>
-                <div id="parsons-solution" class="parsons-dropzone" ondrop="drop(event)" ondragover="allowDrop(event)" style="min-height: 300px; display: flex; flex-direction: column; gap: 10px; padding: 10px; background: var(--bg); border-radius: 8px; border: 2px dashed var(--accent-green);"></div>
+                <div id="parsons-solution" class="parsons-dropzone" ondrop="parsonsDrop(event)" ondragover="parsonsAllowDrop(event)" style="min-height: 300px; display: flex; flex-direction: column; gap: 10px; padding: 10px; background: var(--bg); border-radius: 8px; border: 2px dashed var(--accent-green);"></div>
             </div>
         </div>
 
@@ -4506,16 +4597,12 @@ function secureSetInt(key, value) {
   localStorage.setItem(key, v);
   localStorage.setItem(key + '__s', _fnv1aHash(v + '|' + key + '|' + SIGN_SALT));
 }
-// Re-sign any pre-existing unsigned values so users don't lose legitimate XP on upgrade
-(function migrateUnsigned() {
-  ['totalXP', 'ach-quizzes', 'ach-walls', 'ach-bosses'].forEach(k => {
-    const v = localStorage.getItem(k);
-    const s = localStorage.getItem(k + '__s');
-    if (v !== null && s === null) {
-      localStorage.setItem(k + '__s', _fnv1aHash(v + '|' + k + '|' + SIGN_SALT));
-    }
-  });
-})();
+// NOTE: a previous migrateUnsigned() step re-signed any value whose signature was
+// missing, which made the signature check trivially bypassable (delete the '__s'
+// key, then write any value). It has been removed. Unsigned legacy values now
+// fall back to 0, which is the same result tampering would have produced anyway.
+// This check only deters casual editing — the salt ships in the source, so it is
+// not, and cannot be, a real integrity guarantee for a purely client-side app.
 
 // --- LEVELING SYSTEM STATE ---
 let totalXP = secureGetInt('totalXP', 0);
@@ -4985,9 +5072,34 @@ function showBugScenario(num) {
 }
 
 // --- History Management Variables ---
-let historyStack = ['home'];
-let isGoingBack = false;
+// Navigation is driven by the real browser history (pushState + #hash), so the
+// device Back button/gesture steps back through the app instead of leaving it,
+// and every page is bookmarkable and shareable. historyStack mirrors that
+// history purely so the floating Back button can name its destination.
+let historyStack = [];
+let navDepth = 0;
 let searchIndex = [];
+let contentIndex = [];
+
+// Reduce a page's HTML to searchable plain text.
+function stripHtml(html) {
+  return html
+    .replace(/<(script|style)[\s\S]*?<\/\1>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&larr;/g, '←').replace(/&rarr;/g, '→')
+    .replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"').replace(/&#39;/g, "'")
+    .replace(/&amp;/g, '&')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function escapeHtml(str) {
+  return str.replace(/[&<>"']/g, c => (
+    { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]
+  ));
+}
 
 function buildSearchIndex() {
   searchIndex = [];
@@ -4999,6 +5111,14 @@ function buildSearchIndex() {
   p1_cards.forEach(c => searchIndex.push({ title: c.term, desc: c.def, id: "p1_revision", type: "P1 Keyword" }));
   // 3. Add P2 Flashcards
   p2_cards.forEach(c => searchIndex.push({ title: c.term, desc: c.def, id: "p2_revision", type: "P2 Keyword" }));
+
+  // 4. Add the body text of every page. Without this the index only covered
+  // page titles and the two flashcard decks, so terms explained inside a page
+  // ("Von Neumann", "fetch-decode-execute") returned no results at all.
+  contentIndex = Object.entries(contentData).map(([id, html]) => {
+    const text = stripHtml(html);
+    return { id, title: pageTitles[id] || id, text, lower: text.toLowerCase() };
+  });
 }
 
 // Run on boot
@@ -5022,22 +5142,41 @@ function handleSearch() {
     return;
   }
 
-  // Filter the index based on the query (search term or definition)
+  // Titles and flashcard definitions first — these are the most precise hits.
   const matches = searchIndex.filter(item =>
     item.title.toLowerCase().includes(query) ||
     (item.desc && item.desc.toLowerCase().includes(query))
-  ).slice(0, 6); // Limit to top 6 results
+  ).slice(0, 6);
 
-  if (matches.length > 0) {
-    resultsDiv.innerHTML = matches.map(m =>
+  // Then fall back to the body text of each page, skipping pages already
+  // represented above, and quote the sentence fragment the term appears in.
+  const alreadyListed = new Set(matches.map(m => m.id));
+  const pageHits = [];
+  for (const page of contentIndex) {
+    if (matches.length + pageHits.length >= 8) break;
+    if (alreadyListed.has(page.id)) continue;
+
+    const at = page.lower.indexOf(query);
+    if (at === -1) continue;
+
+    const from = Math.max(0, at - 40);
+    const snippet = (from > 0 ? '…' : '') +
+      page.text.substring(from, at + query.length + 60).trim() + '…';
+    pageHits.push({ title: page.title, desc: snippet, id: page.id, type: 'On this page' });
+  }
+
+  const results = matches.concat(pageHits);
+
+  if (results.length > 0) {
+    resultsDiv.innerHTML = results.map(m =>
       `<div onclick="executeSearch('${m.id}')">
-          <strong style="color: var(--dark-purple);">${m.title}</strong> <span style="font-size: 0.8rem; color: #888; background: #eee; padding: 2px 5px; border-radius: 4px; margin-left: 5px;">${m.type}</span>
-          ${m.desc ? `<br><span style="font-size:0.85rem; color:#555;">${m.desc.substring(0, 60)}${m.desc.length > 60 ? '...' : ''}</span>` : ''}
+          <strong style="color: var(--dark-purple);">${escapeHtml(m.title)}</strong> <span style="font-size: 0.8rem; color: var(--text-light); background: var(--bg); border: 1px solid var(--border); padding: 2px 5px; border-radius: 4px; margin-left: 5px;">${m.type}</span>
+          ${m.desc ? `<br><span style="font-size:0.85rem; color:var(--text-light);">${escapeHtml(m.desc.substring(0, 110))}${m.desc.length > 110 ? '…' : ''}</span>` : ''}
         </div>`
     ).join('');
     resultsDiv.style.display = 'block';
   } else {
-    resultsDiv.innerHTML = '<div style="padding:15px; color:#777; text-align: center;">No matching terms or topics found.</div>';
+    resultsDiv.innerHTML = '<div style="padding:15px; color:var(--text-light); text-align: center;">No matching terms or topics found.</div>';
     resultsDiv.style.display = 'block';
   }
 }
@@ -5071,7 +5210,9 @@ function updateSmartBackButton() {
   const backBtn = document.getElementById('smart-back-btn');
   const tooltip = document.getElementById('back-tooltip');
 
-  if (historyStack.length > 1) {
+  if (!backBtn || !tooltip) return;
+
+  if (navDepth > 1) {
     backBtn.style.display = 'flex';
     const prevPageId = historyStack[historyStack.length - 2];
     tooltip.innerText = `Back to ${pageTitles[prevPageId] || 'Previous Page'}`;
@@ -5119,8 +5260,16 @@ function toggleSubMenu(id) {
   }
 }
 
-function loadContent(topic) {
+function loadContent(topic, fromHistory = false) {
   const display = document.getElementById("display-area");
+
+  // Unknown topic (stale bookmark, hand-edited hash, typo in a link): fall back
+  // to the dashboard rather than silently leaving the previous page on screen
+  // while the sidebar highlight moves on without it.
+  if (!contentData[topic]) {
+    if (topic !== 'home') loadContent('home', fromHistory);
+    return;
+  }
 
   // --- AUTOMATIC SIDEBAR HIGHLIGHT ---
   // Remove 'active' class from all links
@@ -5134,16 +5283,17 @@ function loadContent(topic) {
   }
   // -----------------------------------
 
-  if (contentData[topic]) {
+  {
     display.innerHTML = contentData[topic];
+    document.title = pageTitles[topic] ? `${pageTitles[topic]} | CS GCSE Hub` : 'CS GCSE Hub';
 
-    // Properly push to history stack if we aren't using the back button
-    if (!isGoingBack) {
-      if (historyStack[historyStack.length - 1] !== topic) {
-        historyStack.push(topic);
-      }
+    // Record the visit in the browser's own history unless we got here *from*
+    // the browser (popstate), in which case the entry already exists.
+    if (!fromHistory && currentRoute() !== topic) {
+      navDepth++;
+      history.pushState({ page: topic, depth: navDepth }, '', '#' + topic);
+      historyStack.push(topic);
     }
-    isGoingBack = false; // Reset flag
     updateSmartBackButton(); // Update floating button
 
     // Initialise specific page features
@@ -5173,15 +5323,64 @@ function loadContent(topic) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// The floating Back button now just drives the browser, so it and the device
+// Back gesture always agree with each other.
 function goBack() {
-  if (historyStack.length > 1) {
-    isGoingBack = true;
-    historyStack.pop(); // Remove current page
-    const previousPage = historyStack[historyStack.length - 1]; // Get previous page
-    loadContent(previousPage);
+  if (navDepth > 1) {
+    history.back();
   } else {
     loadContent('home');
   }
+}
+
+// --- ROUTING ---
+// The page id currently reflected in the address bar.
+function currentRoute() {
+  return decodeURIComponent(location.hash.replace(/^#/, ''));
+}
+
+// In-app anchors keep a real href so they can be shared, bookmarked and opened
+// in a new tab, but JavaScript owns the actual navigation: letting the browser
+// also perform its own fragment navigation pushes a second, state-less history
+// entry and desynchronises the route. Modified clicks are left alone so
+// ctrl/cmd/middle-click still opens the page in a new tab.
+document.addEventListener('click', (ev) => {
+  if (ev.button !== 0 || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+  const link = ev.target.closest && ev.target.closest('a[href^="#"]');
+  if (!link) return;
+
+  ev.preventDefault();
+
+  // Links with an inline onclick (the sidebar) route themselves; a plain
+  // "#page" link elsewhere in the content is routed here.
+  const route = link.getAttribute('href').slice(1);
+  if (!link.getAttribute('onclick') && route && contentData[route]) {
+    loadContent(route);
+  }
+});
+
+// Browser Back/Forward (including the Android gesture and iOS edge-swipe).
+window.addEventListener('popstate', (ev) => {
+  const target = (ev.state && ev.state.page) || currentRoute() || 'home';
+  const newDepth = (ev.state && typeof ev.state.depth === 'number') ? ev.state.depth : 0;
+
+  // Keep the tooltip stack in step with whichever direction we moved.
+  if (newDepth < navDepth) historyStack.pop();
+  else if (newDepth > navDepth) historyStack.push(target);
+  navDepth = newDepth;
+
+  loadContent(target, true);
+});
+
+// Resolve the opening page from the URL so a bookmarked or shared link such as
+// /#binary_boss lands directly on that activity.
+function startRouting() {
+  const initial = currentRoute() || 'home';
+  const topic = contentData[initial] ? initial : 'home';
+  navDepth = 1;
+  historyStack = [topic];
+  history.replaceState({ page: topic, depth: 1 }, '', '#' + topic);
+  loadContent(topic, true);
 }
 
 // Drag and Drop Logic
@@ -6202,43 +6401,12 @@ async function runAttackLogic(type) {
   }
 }
 
-function updateCountdowns() {
-  const tags = document.querySelectorAll('.countdown-tag');
-  const weekTags = document.querySelectorAll('.weeks-tag');
-  const today = new Date("2026-03-02"); // Your static dashboard date
-
-  tags.forEach((tag, index) => {
-    const dateStr = tag.getAttribute('data-due');
-    if (!dateStr) return;
-    const dueDate = new Date(dateStr);
-    const timeDiff = dueDate.getTime() - today.getTime();
-    const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-
-    tag.innerText = daysLeft + " Days Left";
-
-    if (daysLeft > 0) {
-      const totalWeeks = Math.floor(daysLeft / 7);
-
-      // FIX: Calculate school weeks dynamically for EACH card
-      const easterWeeks = 2;
-      const schoolWeeks = totalWeeks - easterWeeks;
-
-      if (weekTags[index]) {
-        weekTags[index].innerText = totalWeeks + " Total Weeks Left";
-      }
-
-      // Dynamically target the breakdown paragraph for each specific paper
-      const breakdownId = index === 0 ? 'p1-breakdown' : 'p2-breakdown';
-      const breakdownEl = document.getElementById(breakdownId);
-
-      if (breakdownEl) {
-        breakdownEl.innerHTML = `Includes <strong>${schoolWeeks} School Weeks</strong> and <strong>2 Weeks of Easter Break</strong>.`;
-      }
-    }
-  });
-}
-
 // --- Daily-refreshing exam dates & homework reminders ---
+//
+// UPDATE ME EACH ACADEMIC YEAR. Replace these two entries with the current
+// series' AQA GCSE Computer Science dates (note: month is 0-indexed, so
+// `4` is May). Until they are updated, the dashboard falls back to the
+// revision panel below rather than showing stale "Exam Completed" badges.
 const EXAM_SCHEDULE = [
   { title: "Paper 1: Computational Thinking and Programming Skills", dateStr: "13/05/2026 (Wednesday AM)",  focus: "Algorithms, Programming, and Logic.",        date: new Date(Date.UTC(2026, 4, 13, 8, 0)) },
   { title: "Paper 2: Computing Concepts",                            dateStr: "19/05/2026 (Tuesday PM)",    focus: "Data, Systems, Networks, and Cyber Security.", date: new Date(Date.UTC(2026, 4, 19, 12, 30)) },
@@ -6247,7 +6415,30 @@ const EXAM_SCHEDULE = [
 function renderExamCards() {
   const container = document.getElementById('exam-cards-container');
   if (!container) return;
-  container.innerHTML = EXAM_SCHEDULE
+
+  const cutoff = todayUTC();
+  const upcoming = EXAM_SCHEDULE.filter(e => Date.UTC(
+    e.date.getUTCFullYear(), e.date.getUTCMonth(), e.date.getUTCDate()) >= cutoff);
+
+  // Once every exam in the series has passed the countdowns are meaningless,
+  // so show the practice hub instead of two dead "Exam Completed" cards.
+  if (upcoming.length === 0) {
+    container.innerHTML = `
+      <div class="card" style="border-left: 5px solid var(--accent-green);">
+        <h3 style="margin-top: 0;">That series is over — nice work 🎓</h3>
+        <p>There are no exams scheduled right now. Everything on the hub stays open, so you can keep practising whenever you want.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+          <a href="#quiz_trainer" class="dash-action">Quiz Trainer</a>
+          <a href="#connecting_walls" class="dash-action">Connecting Walls</a>
+          <a href="#parsons_puzzles" class="dash-action">Parson's Puzzles</a>
+          <a href="#logic_gate_lab" class="dash-action">Logic Gate Lab</a>
+          <a href="#visualizations" class="dash-action">Visualizations</a>
+        </div>
+      </div>`;
+    return;
+  }
+
+  container.innerHTML = upcoming
     .map(e => createExamCard(e.title, e.dateStr, e.focus, e.date))
     .join('');
 }
@@ -6261,7 +6452,6 @@ function renderHomeworkReminders() {
 function refreshDailyContent() {
   renderExamCards();
   renderHomeworkReminders();
-  updateCountdowns();
 }
 
 let dailyMidnightTimer = null;
@@ -6280,32 +6470,6 @@ function scheduleDailyMidnightRefresh() {
 
 
 // Full homework schedule from the provided document
-const homeworkSchedule = [
-  { date: "2025-09-19", topic: "3.1 Fundamentals of algorithms", detail: "Create a mind map explaining the principles of computational thinking." },
-  { date: "2025-09-26", topic: "3.1 Fundamentals of algorithms", detail: "Create two simple algorithms (average, recipe) using pseudocode and flowcharts." },
-  { date: "2025-10-03", topic: "3.1 Fundamentals of algorithms", detail: "Make revision cards for searching and sorting algorithms with annotated data sets." },
-  { date: "2025-10-10", topic: "Revision", detail: "Answer a selection of past exam questions on Topic 3.1." },
-  { date: "2025-10-17", topic: "3.2 Programming", detail: "Make revision cards on fundamental programming concepts with Python examples." },
-  { date: "2025-10-24", topic: "3.2 Programming", detail: "Create a mind map illustrating sequence, selection, and iteration with examples." },
-  { date: "2025-11-07", topic: "3.2 Programming", detail: "Explain subroutines and create a program using a 1D array/list." },
-  { date: "2025-11-14", topic: "Revision", detail: "Answer past exam questions on Topic 3.2. Annotate logic errors." },
-  { date: "2025-11-21", topic: "3.3 Data representation", detail: "Revision cards for denary, binary, and hex conversions + binary addition." },
-  { date: "2025-11-28", topic: "3.3 Data representation", detail: "Table comparing binary representation of characters, bitmaps, and sound." },
-  { date: "2025-12-05", topic: "3.3 Data representation", detail: "Explain the difference between lossy and lossless compression with use cases." },
-  { date: "2025-12-12", topic: "Revision", detail: "Complete practice questions on number systems and data representation." },
-  { date: "2026-01-09", topic: "Synoptic Revision", detail: "Design an algorithm (3.1) and write the corresponding code (3.2)." },
-  { date: "2026-01-16", topic: "Revision", detail: "Answer a selection of past exam questions on Topic 3.3." },
-  { date: "2026-01-23", topic: "3.4 Computer systems", detail: "Label Von Neumann architecture and explain Fetch-Decode-Execute." },
-  { date: "2026-01-30", topic: "3.4 Computer systems", detail: "Comparison table for memory/storage (speed, cost, capacity, volatility)." },
-  { date: "2026-02-06", topic: "3.4 Computer systems", detail: "Revision cards on OS functions and common utility software." },
-  { date: "2026-02-13", topic: "Revision", detail: "Answer past exam questions on Topic 3.4. Review misconceptions." },
-  { date: "2026-02-27", topic: "3.5 Computer networks", detail: "Mind map explaining LAN vs WAN and star/mesh topologies." },
-  { date: "2026-03-06", topic: "3.5 Computer networks", detail: "Revision cards for network hardware and the 4-layer TCP/IP model." },
-  { date: "2026-03-13", topic: "3.5 Computer networks", detail: "Diagram illustrating DNS, hosting, and the cloud." },
-  { date: "2026-03-20", topic: "Revision", detail: "Answer a selection of past exam questions on Topic 3.5." },
-  { date: "2026-03-27", topic: "Revision", detail: "Complete Seneca Learning quizzes covering Topics 3.3, 3.4, and 3.5." },
-  { date: "2026-04-24", topic: "Consolidation", detail: "Complete a full past paper (Paper 1 or Paper 2)." }
-];
 
 document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.sidebar-nav .nav-link');
@@ -7086,28 +7250,31 @@ function renderParsonsBlocks() {
         div.className = 'parsons-block';
         div.id = `block-${block.id}`;
         div.draggable = true;
-        div.ondragstart = drag; // This will crash if the drag() function below is missing!
+        div.ondragstart = parsonsDrag;
         div.innerHTML = block.text; 
         sourceZone.appendChild(div);
     });
 }
 
-// --- ESSENTIAL DRAG AND DROP API ---
-// (Paste these right below your renderParsonsBlocks function!)
+// --- PARSON'S PUZZLE DRAG AND DROP API ---
+// Named separately from the generic match-up handlers (allowDrop/drag/drop)
+// above: identical names previously redeclared them and broke the drag-match
+// activities on the Systems and Networks pages.
 
-function allowDrop(ev) {
+function parsonsAllowDrop(ev) {
     ev.preventDefault();
 }
 
-function drag(ev) {
+function parsonsDrag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 }
 
-function drop(ev) {
+function parsonsDrop(ev) {
     ev.preventDefault();
     const data = ev.dataTransfer.getData("text");
     const block = document.getElementById(data);
-    
+    if (!block) return;
+
     if (ev.target.classList.contains('parsons-dropzone')) {
         ev.target.appendChild(block);
     } else if (ev.target.classList.contains('parsons-block')) {
@@ -7164,11 +7331,7 @@ function checkParsonsSolution() {
 
 
 function initApp() {
-  historyStack = [];
-  isGoingBack = false;
-
-  updateGlobalUI(); // <--- ADD THIS LINE
-
-  loadContent('home');
+  updateGlobalUI();
+  startRouting();
   scheduleDailyMidnightRefresh();
 }

@@ -7,7 +7,7 @@
   <title>CS GCSE Hub</title>
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230D2137'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Segoe UI,Arial,sans-serif' font-size='28' font-weight='800' fill='white'%3ECS%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="style.css?v=6">
+  <link rel="stylesheet" href="style.css?v=7">
 </head>
 
 <body onload="initApp()">
@@ -15,7 +15,7 @@
   <!-- Sidebar Navigation -->
   <nav class="sidebar" id="sidebar">
     <div class="sidebar-nav">
-      <a href="#" onclick="loadContent('home')" class="nav-link active" data-page="home">
+      <a href="#home" onclick="loadContent('home')" class="nav-link active" data-page="home">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
@@ -24,7 +24,7 @@
         <span>Dashboard</span>
       </a>
 
-      <a href="#" onclick="loadContent('visualizations')" class="nav-link sub-nav-link" data-page="visualizations">
+      <a href="#visualizations" onclick="loadContent('visualizations')" class="nav-link sub-nav-link" data-page="visualizations">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="20" x2="18" y2="10" />
@@ -48,18 +48,18 @@
       </a>
 
       <div id="flashcards-sub" class="submenu">
-        <a href="#" onclick="loadContent('p1_revision')" class="nav-link"
+        <a href="#p1_revision" onclick="loadContent('p1_revision')" class="nav-link"
           style="padding-left: 55px; font-size: 0.8rem;">
           <span>Paper 1 Flashcards</span>
         </a>
-        <a href="#" onclick="loadContent('p2_revision')" class="nav-link"
+        <a href="#p2_revision" onclick="loadContent('p2_revision')" class="nav-link"
           style="padding-left: 55px; font-size: 0.8rem;">
           <span>Paper 2 Flashcards</span>
         </a>
       </div>
 
 
-      <a href="#" onclick="loadContent('quiz_trainer')" class="nav-link" data-page="quiz_trainer">
+      <a href="#quiz_trainer" onclick="loadContent('quiz_trainer')" class="nav-link" data-page="quiz_trainer">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="10" />
@@ -68,7 +68,7 @@
         </svg>
         <span>Quiz Trainer</span>
       </a>
-      <a href="#" onclick="loadContent('connecting_walls')" class="nav-link" data-page="connecting_walls">
+      <a href="#connecting_walls" onclick="loadContent('connecting_walls')" class="nav-link" data-page="connecting_walls">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round" stroke-linejoin="round">
           <rect x="3" y="3" width="7" height="7" />
@@ -78,7 +78,7 @@
         </svg>
         <span>Connecting Walls</span>
       </a>
-      <a href="#" onclick="loadContent('parsons_puzzles')" class="nav-link" data-page="parsons_puzzles">
+      <a href="#parsons_puzzles" onclick="loadContent('parsons_puzzles')" class="nav-link" data-page="parsons_puzzles">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round" stroke-linejoin="round">
           <polyline points="16 18 22 12 16 6" />
@@ -86,7 +86,7 @@
         </svg>
         <span>Parson's Puzzles</span>
       </a>
-      <a href="#" onclick="loadContent('logic_gate_lab')" class="nav-link" data-page="logic_gate_lab">
+      <a href="#logic_gate_lab" onclick="loadContent('logic_gate_lab')" class="nav-link" data-page="logic_gate_lab">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round" stroke-linejoin="round">
           <rect x="4" y="4" width="16" height="16" rx="2" />
@@ -97,7 +97,7 @@
         </svg>
         <span>Logic Gate Lab</span>
       </a>
-      <a href="#" onclick="loadContent('binary_boss')" class="nav-link" data-page="binary_boss">
+      <a href="#binary_boss" onclick="loadContent('binary_boss')" class="nav-link" data-page="binary_boss">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
           stroke-linecap="round" stroke-linejoin="round">
           <path d="M14.5 17.5L3 6V3h3l11.5 11.5" />
@@ -184,7 +184,7 @@
     <span class="tooltip" id="back-tooltip">Go Back</span>
   </button>
 
-  <script src="script.js?v=9"></script>
+  <script src="script.js?v=10"></script>
 </body>
 
 </html>
