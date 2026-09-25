@@ -7,7 +7,7 @@
   <title>CS GCSE Hub</title>
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230D2137'/%3E%3Ctext x='50%25' y='54%25' text-anchor='middle' dominant-baseline='middle' font-family='Segoe UI,Arial,sans-serif' font-size='28' font-weight='800' fill='white'%3ECS%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="style.css?v=7">
+  <link rel="stylesheet" href="style.css?v=32">
 </head>
 
 <body onload="initApp()">
@@ -48,11 +48,11 @@
       </a>
 
       <div id="flashcards-sub" class="submenu">
-        <a href="#p1_revision" onclick="loadContent('p1_revision')" class="nav-link"
+        <a href="#p1_revision" onclick="loadContent('p1_revision')" class="nav-link" data-page="p1_revision"
           style="padding-left: 55px; font-size: 0.8rem;">
           <span>Paper 1 Flashcards</span>
         </a>
-        <a href="#p2_revision" onclick="loadContent('p2_revision')" class="nav-link"
+        <a href="#p2_revision" onclick="loadContent('p2_revision')" class="nav-link" data-page="p2_revision"
           style="padding-left: 55px; font-size: 0.8rem;">
           <span>Paper 2 Flashcards</span>
         </a>
@@ -129,12 +129,14 @@
     <!-- Top Header -->
     <header class="navbar">
       <div class="navbar-left">
-        <button class="menu-btn" id="menu-btn" onclick="toggleMobileNav()">
+        <button class="menu-btn" id="menu-btn" onclick="toggleMobileNav()" aria-label="Open navigation menu"
+          aria-expanded="false" aria-controls="sidebar">
           <div class="bar"></div>
           <div class="bar"></div>
           <div class="bar"></div>
         </button>
-        <div class="logo-container" onclick="loadContent('home')" style="cursor:pointer;">
+        <div class="logo-container" onclick="loadContent('home')" style="cursor:pointer;" role="button" tabindex="0"
+          aria-label="CS GCSE Hub home">
           <span class="logo-badge">CS</span>
           <span class="logo-text">GCSE Hub</span>
         </div>
@@ -145,7 +147,9 @@
           <circle cx="11" cy="11" r="8" />
           <line x1="21" y1="21" x2="16.65" y2="16.65" />
         </svg>
-        <input type="text" id="global-search" placeholder="Search topics, terms..." oninput="handleSearch()">
+        <label for="global-search" class="visually-hidden">Search topics and terms</label>
+        <input type="text" id="global-search" placeholder="Search topics, terms..." oninput="handleSearch()"
+          role="combobox" aria-expanded="false" aria-controls="search-results" aria-autocomplete="list">
         <div id="search-results" class="search-dropdown"></div>
       </div>
 
@@ -165,26 +169,60 @@
             <div class="xp-bar-fill" id="xp-bar-fill" style="width: 0%"></div>
           </div>
         </div>
-        <button id="theme-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <!-- MOVE 05: printing is otherwise something you have to think to try. -->
+        <button class="print-btn" onclick="window.print()" title="Print this page" aria-label="Print this page">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 6 2 18 2 18 9" />
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+            <rect x="6" y="14" width="12" height="8" />
+          </svg>
+          <span class="print-btn-label">Print</span>
+        </button>
+        <button id="theme-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode" aria-label="Toggle dark mode">
+          <!-- Both icons ship; CSS shows whichever matches the current theme.
+               Swapping .innerText used to destroy the SVG on the first click. -->
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
           </svg>
         </button>
       </div>
     </header>
 
     <!-- Page Content -->
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
       <div id="display-area"></div>
     </main>
   </div>
 
-  <button id="smart-back-btn" class="smart-back floating-btn" onclick="goBack()">
+  <!-- Screen-reader announcements for the keyboard drag alternative. -->
+  <div id="a11y-live" class="visually-hidden" role="status" aria-live="polite" aria-atomic="true"></div>
+
+
+  <!-- MOVE 04: the five most-used destinations, always thumb-reachable on a
+       phone. The sidebar drawer remains behind "More". -->
+  <nav class="bottom-nav" aria-label="Primary">
+    <div class="bottom-nav-inner">
+        <a href="#home" onclick="loadContent('home')" data-page="home"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>Home</span></a>
+        <a href="#quiz_trainer" onclick="loadContent('quiz_trainer')" data-page="quiz_trainer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg><span>Quiz</span></a>
+        <a href="#connecting_walls" onclick="loadContent('connecting_walls')" data-page="connecting_walls"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg><span>Walls</span></a>
+        <a href="#p1_revision" onclick="loadContent('p1_revision')" data-page="p1_revision"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="14" rx="2"/><rect x="4" y="4" width="16" height="14" rx="2"/><rect x="6" y="2" width="12" height="14" rx="2"/></svg><span>Cards</span></a>
+        <a href="#" onclick="toggleMobileNav(); return false;" aria-label="More destinations"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg><span>More</span></a>
+    </div>
+  </nav>
+
+  <button id="smart-back-btn" class="smart-back floating-btn" onclick="goBack()" aria-label="Go back">
     <span class="icon">&#x2190;</span>
     <span class="tooltip" id="back-tooltip">Go Back</span>
   </button>
 
-  <script src="script.js?v=10"></script>
+  <script src="script.js?v=40"></script>
 </body>
 
 </html>
