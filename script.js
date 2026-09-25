@@ -295,7 +295,7 @@ const questionBank = {
     { q: "How does a Binary Search reduce the search area?", a: "By eliminating half of the remaining list at each step", options: ["By eliminating half of the remaining list at each step", "By checking every second item in the remaining list", "By comparing only the first and last items of the list", "By utilising multiple processors to scan the data"], hint: "Dividing.", why: "It checks the middle and eliminates the impossible half." },
     { q: "In a list of 10 items, what is the max checks for a Linear Search?", a: "10 (if the item is at the end or missing)", options: ["10 (if the item is at the end or missing)", "1 (if the item is at the very beginning)", "5 (the average number of checks required)", "100 (if the list needs to be checked ten times)"], hint: "Worst-case.", why: "You must check every item once if it is at the end." },
     { q: "Which search is better for an unordered list?", a: "Linear Search", options: ["Linear Search", "Binary Search", "Both", "Neither"], hint: "No prep.", why: "Linear search doesn't require sorted data." },
-    { q: "In a sorted list of 8 items, what is the max checks for Binary Search?", a: "3", options: ["3", "8", "4", "1"], hint: "Halving 8.", why: "8-4-2-1 equals 3 steps." },
+    { q: "In a sorted list of 8 items, what is the max checks for Binary Search?", a: "4", options: ["3", "8", "4", "1"], hint: "Count the items checked, not the halvings.", why: "Each check halves what is left: 8, then 4, then 2, then 1 item, and that last item still has to be checked. That is 4 checks." },
     { q: "What happens if a search target is not present in the list?", a: "The algorithm returns a flag value like -1 or False", options: ["The algorithm returns a flag value like -1 or False", "The computer hardware will experience a fatal crash", "The algorithm will delete the entire contents of the list", "The programme will continue searching in an infinite loop"], hint: "Signal failure.", why: "Algorithms return flag values to show the item wasn't found." },
     { q: "Which search is also known as a 'Sequential Search'?", a: "Linear Search", options: ["Linear Search", "Binary Search", "Bubble Search", "Quick Search"], hint: "In sequence.", why: "It looks at elements one after the other." },
     { q: "Which search utilises 'low', 'mid', and 'high' pointers?", a: "Binary Search", options: ["Binary Search", "Linear Search", "Bubble Sort", "Merge Sort"], hint: "Halving.", why: "Binary search tracks the current range with these markers." },
@@ -658,7 +658,7 @@ const questionBank = {
     { q: "A subroutine 'Header' contains?", a: "The unique name and any parameters needed", options: ["The unique name and any parameters needed", "The entire block of algorithmic code", "The final return value of the function", "The copyright information of the coder"], hint: "The top line.", why: "The header defines how the subroutine is identified." },
     { q: "Can a procedure have parameters?", a: "Yes (it can receive data without returning it)", options: ["Yes (it can receive data without returning it)", "No (only functions can receive data)"], hint: "Input but no output.", why: "Both functions and procedures can receive data." },
     { q: "What is the difference between a function and a procedure?", a: "A function returns a value; a procedure does not", options: ["A function returns a value; a procedure does not", "A procedure returns a value; a function does not", "Functions cannot take parameters", "Procedures cannot be called twice"], hint: "Does it send something back?", why: "A function's result can be stored or used in an expression." },
-    { q: "What is a parameter?", a: "A value passed into a subroutine when it is called", options: ["A value passed into a subroutine when it is called", "A value returned from a subroutine", "A variable declared outside all subroutines", "A name given to the subroutine"], hint: "The input to the routine.", why: "Parameters let the same subroutine work on different data." },
+    { q: "What is a parameter?", a: "A variable in the subroutine definition that receives a value", options: ["A variable in the subroutine definition that receives a value", "A value returned from a subroutine", "A variable declared outside all subroutines", "A name given to the subroutine"], hint: "The input to the routine.", why: "Parameters let the same subroutine work on different data." },
     { q: "What does the RETURN statement do?", a: "Sends a value back to the code that called the subroutine", options: ["Sends a value back to the code that called the subroutine", "Ends the whole program", "Prints a value to the screen", "Restarts the subroutine"], hint: "Hand the answer back.", why: "Without RETURN the caller receives nothing, often shown as None." },
     { q: "What is a local variable?", a: "One that exists only inside the subroutine that created it", options: ["One that exists only inside the subroutine that created it", "One available everywhere in the program", "One stored permanently on disk", "One that cannot be changed"], hint: "Limited scope.", why: "Locals prevent subroutines accidentally overwriting each other's data." },
     { q: "Why are subroutines useful in a large program?", a: "They avoid repeating code and make it easier to maintain", options: ["They avoid repeating code and make it easier to maintain", "They make the program run without errors", "They remove the need for variables", "They increase the file size deliberately"], hint: "Write once, call often.", why: "A fix in one subroutine applies everywhere it is used." },
@@ -775,7 +775,7 @@ const questionBank = {
 
   "3.3.3 Units of information": [
     { q: "What is the smallest unit of data in a computer?", a: "Bit", options: ["Bit", "Byte", "Nibble", "Kilobyte"], hint: "Binary Digit.", why: "A bit is a single 0 or 1." },
-    { q: "How many bits are in a Kilobyte (KB) using the standard power of 2?", a: "8000 bits (based on 1000 bytes)", options: ["8000 bits (based on 1000 bytes)", "1024 bits", "1000 bits", "8192 bits"], hint: "8 bits * 1000.", why: "Usually, 1 KB is defined as 1000 bytes for GCSE (or 1024 for Kibibytes)." },
+    { q: "How many bits are in a kilobyte (KB), using the definition AQA uses?", a: "8000 bits (based on 1000 bytes)", options: ["8000 bits (based on 1000 bytes)", "1024 bits", "1000 bits", "8192 bits"], hint: "8 bits * 1000.", why: "AQA defines 1 kilobyte as 1000 bytes, so 1000 × 8 = 8000 bits. 1024 bytes is a kibibyte (KiB)." },
     { q: "How many Megabytes (MB) are in 1 Gigabyte (GB)?", a: "1000", options: ["1000", "1024", "100", "500"], hint: "Prefix for billion / million.", why: "In SI units used in exams, 1000 MB = 1 GB." },
     { q: "What is the correct order of size from smallest to largest?", a: "Bit, Nibble, Byte, Kilobyte", options: ["Bit, Nibble, Byte, Kilobyte", "Bit, Byte, Nibble, Kilobyte", "Byte, Bit, Nibble, Kilobyte", "Kilobyte, Byte, Nibble, Bit"], hint: "B, N, B, K.", why: "Bit (1), Nibble (4), Byte (8)." },
     { q: "How many bits are in 2 bytes?", a: "16", options: ["16", "8", "32", "4"], hint: "2 * 8.", why: "Each byte is 8 bits." },
@@ -2753,7 +2753,7 @@ const contentData = {
         <p>Data types (Integer, Real, Boolean, String) tell the computer how much memory to allocate. <strong>Casting</strong> is essential for converting user input (always a string) into numbers for calculations.</p>
         <ul>
           <li><strong>Pros:</strong> Casting allows mathematical operations on text-based inputs.</li>
-          <li><strong>Cons:</strong> Incorrect casting (e.g., trying to turn "Hello" into an Int) will crash the program with a Type Error.</li>
+          <li><strong>Cons:</strong> Incorrect casting (e.g., trying to turn "Hello" into an Int) will crash the program with a ValueError.</li>
         </ul>
         <button onclick="loadContent('act_casting')" style="margin-top: 10px; padding: 8px 15px; background: var(--brand-surface); color: white; border: none; border-radius: 5px; cursor: pointer;">Try Casting Activity</button>
       </div>
@@ -3593,7 +3593,7 @@ const contentData = {
         <h3>ASCII</h3>
         <p>The American Standard Code for Information Interchange.</p>
         <ul>
-          <li><strong>Standard ASCII:</strong> Uses 7 bits to represent 127 characters.</li>
+          <li><strong>Standard ASCII:</strong> Uses 7 bits to represent 128 characters (codes 0 to 127).</li>
           <li><strong>Extended ASCII:</strong> Uses 8 bits (1 byte) to represent 256 characters.</li>
           <li><strong>Limitation:</strong> It cannot represent characters from non-English languages.</li>
         </ul>
@@ -3736,44 +3736,45 @@ const contentData = {
   p2_huffman_act: `
   <h1>Full Huffman Tree Challenge</h1>
   <p>Build the tree for <strong>"BANNED"</strong>. Frequencies: <strong>N:2, B:1, A:1, E:1, D:1</strong>. Total = 6.</p>
+  <p>Fill in each node's total, then place the four letters that appear once in the bottom row.</p>
   
   <div style="background: #111; padding: 40px; border-radius: 12px; margin: 20px 0; text-align: center; color: white; overflow-x: auto;">
-    <div class="tree-wrapper" style="position: relative; width: 800px; margin: 0 auto; height: 550px;">
-      
-      <div style="position: absolute; left: 375px; top: 0; z-index: 2;">
-        <input type="text" id="node-sum-6" placeholder="Sum" style="width: 55px; height: 55px; text-align: center; border-radius: 50%; background: #222; color: white; border: 2px solid #888;">
+    <div class="tree-wrapper" style="position: relative; width: 800px; margin: 0 auto; height: 430px;">
+
+      <div style="position: absolute; left: 375px; top: 0px; z-index: 2;">
+        <input type="text" id="node-sum-6" placeholder="Sum" aria-label="Sum" style="width: 55px; height: 55px; text-align: center; border-radius: 50%; background: #222; color: white; border: 2px solid #888;">
       </div>
 
-      <div style="position: absolute; left: 150px; top: 120px; z-index: 2;">
+      <div style="position: absolute; left: 200px; top: 120px; z-index: 2;">
         <div style="width: 55px; height: 55px; background: var(--accent-green); border-radius: 8px; line-height: 55px; font-weight: bold;">N</div>
       </div>
-      <div style="position: absolute; left: 600px; top: 120px; z-index: 2;">
-        <input type="text" id="node-sum-4" placeholder="Sum" style="width: 55px; height: 55px; text-align: center; border-radius: 50%; background: #222; color: white; border: 2px solid #888;">
+      <div style="position: absolute; left: 550px; top: 120px; z-index: 2;">
+        <input type="text" id="node-sum-4" placeholder="Sum" aria-label="Sum" style="width: 55px; height: 55px; text-align: center; border-radius: 50%; background: #222; color: white; border: 2px solid #888;">
       </div>
 
-      <div style="position: absolute; left: 450px; top: 220px; z-index: 2;">
-         <input type="text" id="node-letter-B" placeholder="Ltr" style="width: 50px; height: 50px; text-align: center; background: #444; color: white; border-radius: 4px; border: 1px solid #888;">
+      <div style="position: absolute; left: 425px; top: 240px; z-index: 2;">
+        <input type="text" id="node-sum-2a" placeholder="Sum" aria-label="Sum" style="width: 55px; height: 55px; text-align: center; border-radius: 50%; background: #222; color: white; border: 2px solid #888;">
       </div>
-      <div style="position: absolute; left: 700px; top: 220px; z-index: 2;">
-        <input type="text" id="node-sum-3" placeholder="Sum" style="width: 55px; height: 55px; text-align: center; border-radius: 50%; background: #222; color: white; border: 2px solid #888;">
-      </div>
-
-      <div style="position: absolute; left: 600px; top: 320px; z-index: 2;">
-        <input type="text" id="node-letter-A" placeholder="Ltr" style="width: 50px; height: 50px; text-align: center; background: #444; color: white; border-radius: 4px; border: 1px solid #888;">
-      </div>
-      <div style="position: absolute; left: 750px; top: 320px; z-index: 2;">
-        <input type="text" id="node-sum-2" placeholder="Sum" style="width: 55px; height: 55px; text-align: center; border-radius: 50%; background: #222; color: white; border: 2px solid #888;">
+      <div style="position: absolute; left: 675px; top: 240px; z-index: 2;">
+        <input type="text" id="node-sum-2b" placeholder="Sum" aria-label="Sum" style="width: 55px; height: 55px; text-align: center; border-radius: 50%; background: #222; color: white; border: 2px solid #888;">
       </div>
 
-      <div style="position: absolute; left: 700px; top: 420px; z-index: 2;">
-        <input type="text" id="node-letter-E" placeholder="Ltr" style="width: 50px; height: 50px; text-align: center; background: #444; color: white; border-radius: 4px; border: 1px solid #888;">
+      <div style="position: absolute; left: 360px; top: 360px; z-index: 2;">
+        <input type="text" id="node-leaf-1" placeholder="Ltr" aria-label="Letter" maxlength="1" style="width: 50px; height: 50px; text-align: center; background: #444; color: white; border-radius: 4px; border: 1px solid #888;">
       </div>
-      <div style="position: absolute; left: 800px; top: 420px; z-index: 2;">
-        <input type="text" id="node-letter-D" placeholder="Ltr" style="width: 50px; height: 50px; text-align: center; background: #444; color: white; border-radius: 4px; border: 1px solid #888;">
+      <div style="position: absolute; left: 480px; top: 360px; z-index: 2;">
+        <input type="text" id="node-leaf-2" placeholder="Ltr" aria-label="Letter" maxlength="1" style="width: 50px; height: 50px; text-align: center; background: #444; color: white; border-radius: 4px; border: 1px solid #888;">
+      </div>
+      <div style="position: absolute; left: 610px; top: 360px; z-index: 2;">
+        <input type="text" id="node-leaf-3" placeholder="Ltr" aria-label="Letter" maxlength="1" style="width: 50px; height: 50px; text-align: center; background: #444; color: white; border-radius: 4px; border: 1px solid #888;">
+      </div>
+      <div style="position: absolute; left: 730px; top: 360px; z-index: 2;">
+        <input type="text" id="node-leaf-4" placeholder="Ltr" aria-label="Letter" maxlength="1" style="width: 50px; height: 50px; text-align: center; background: #444; color: white; border-radius: 4px; border: 1px solid #888;">
       </div>
 
-      <svg style="position: absolute; top: 0; left: 0; width: 900px; height: 100%; pointer-events: none;">
-        <line x1="402" y1="55" x2="177" y2="120" stroke="#666" stroke-width="2" /> <line x1="402" y1="55" x2="627" y2="120" stroke="#666" stroke-width="2" /> <line x1="627" y1="175" x2="475" y2="220" stroke="#666" stroke-width="2" /> <line x1="627" y1="175" x2="727" y2="220" stroke="#666" stroke-width="2" /> <line x1="727" y1="275" x2="625" y2="320" stroke="#666" stroke-width="2" /> <line x1="727" y1="275" x2="777" y2="320" stroke="#666" stroke-width="2" /> <line x1="777" y1="375" x2="725" y2="420" stroke="#666" stroke-width="2" /> <line x1="777" y1="375" x2="825" y2="420" stroke="#666" stroke-width="2" /> </svg>
+      <svg style="position: absolute; top: 0; left: 0; width: 800px; height: 100%; pointer-events: none;">
+        <line x1="402" y1="55" x2="227" y2="120" stroke="#666" stroke-width="2" /> <line x1="402" y1="55" x2="577" y2="120" stroke="#666" stroke-width="2" /> <line x1="577" y1="175" x2="452" y2="240" stroke="#666" stroke-width="2" /> <line x1="577" y1="175" x2="702" y2="240" stroke="#666" stroke-width="2" /> <line x1="452" y1="295" x2="385" y2="360" stroke="#666" stroke-width="2" /> <line x1="452" y1="295" x2="505" y2="360" stroke="#666" stroke-width="2" /> <line x1="702" y1="295" x2="635" y2="360" stroke="#666" stroke-width="2" /> <line x1="702" y1="295" x2="755" y2="360" stroke="#666" stroke-width="2" />
+      </svg>
     </div>
 
     <div id="huff-feedback" style="margin-top: 40px; min-height: 24px; font-weight: bold;"></div>
@@ -4468,7 +4469,7 @@ const contentData = {
   
   <div style="background: white; color: #333; padding: 20px; border-radius: 8px; max-width: 600px; margin: 20px auto; border: 1px solid #ccc; text-align: left; font-family: Arial, sans-serif;">
     <div style="border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 15px;">
-      <strong>From:</strong> <span class="phish-target" onclick="revealPhish(this, 'Spoofed Email: It says \\'Security\\', but the actual address is \\'noreply@hack-net.com\\'')">Security Center &lt;account-verify@security-bank-web.net&gt;</span><br>
+      <strong>From:</strong> <span class="phish-target" onclick="revealPhish(this, 'Spoofed Email: It says \\'Security\\', but the address is on \\'security-bank-web.net\\', not the bank\\'s real domain')">Security Center &lt;account-verify@security-bank-web.net&gt;</span><br>
       <strong>Subject:</strong> <span class="phish-target" onclick="revealPhish(this, 'Urgency: Using alarming language like \\'Immediate Action\\' is a common tactic')">URGENT: Immediate Action Required - Account Suspended</span>
     </div>
     
@@ -4557,16 +4558,16 @@ const contentData = {
       <div class="card" style="border-top: 5px solid var(--dark-purple);">
         <h3>Creating & Inserting</h3>
         <p><strong>CREATE TABLE:</strong> Sets up a new table with specific fields and data types.</p>
-        <code style="display:block; background:var(--bg); padding:10px; border-radius:5px; font-family:monospace; color:var(--text);">CREATE TABLE Students<br>(student_ID text, first_name text, surname text, age number)</code>
+        <code style="display:block; background:var(--bg); padding:10px; border-radius:5px; font-family:monospace; color:var(--text);">CREATE TABLE Students<br>(student_ID text, first_name text, surname text, form text, age number)</code>
         
         <p><strong>INSERT INTO:</strong> Adds a new record to a table.</p>
-        <code style="display:block; background:var(--bg); padding:10px; border-radius:5px; font-family:monospace; color:var(--text);">INSERT INTO students<br>VALUES ('009', 'Jim', 'Smith', '9AB', '14')</code>
+        <code style="display:block; background:var(--bg); padding:10px; border-radius:5px; font-family:monospace; color:var(--text);">INSERT INTO students<br>VALUES ('009', 'Jim', 'Smith', '9AB', 14)</code>
       </div>
 
       <div class="card" style="border-top: 5px solid var(--dark-purple);">
         <h3>Querying & Modifying</h3>
         <p><strong>SELECT:</strong> Used to retrieve specific data. Use * as a wildcard for "all".</p>
-        <code style="display:block; background:var(--bg); padding:10px; border-radius:5px; font-family:monospace; color:var(--text);">SELECT first_name, surname FROM students<br>WHERE group = '9AB' ORDER BY surname DESC</code>
+        <code style="display:block; background:var(--bg); padding:10px; border-radius:5px; font-family:monospace; color:var(--text);">SELECT first_name, surname FROM students<br>WHERE form = '9AB' ORDER BY surname DESC</code>
 
         <p><strong>UPDATE:</strong> Alters existing data in the database.</p>
         <code style="display:block; background:var(--bg); padding:10px; border-radius:5px; font-family:monospace; color:var(--text);">UPDATE students SET surname = 'Hickman'<br>WHERE first_name = 'Sam'</code>
@@ -4599,7 +4600,7 @@ const contentData = {
         <td style="padding: 10px; border: 1px solid var(--border);">student_ID</td>
         <td style="padding: 10px; border: 1px solid var(--border);">first_name</td>
         <td style="padding: 10px; border: 1px solid var(--border);">surname</td>
-        <td style="padding: 10px; border: 1px solid var(--border);">group</td>
+        <td style="padding: 10px; border: 1px solid var(--border);">form</td>
         <td style="padding: 10px; border: 1px solid var(--border);">age</td>
       </tr>
       <tr><td style="padding: 8px; border: 1px solid var(--border);">001</td><td style="padding: 8px; border: 1px solid var(--border);">Aisha</td><td style="padding: 8px; border: 1px solid var(--border);">Khan</td><td style="padding: 8px; border: 1px solid var(--border);">9AB</td><td style="padding: 8px; border: 1px solid var(--border);">14</td></tr>
@@ -4610,8 +4611,8 @@ const contentData = {
 
     <div class="card-grid" style="margin-top: 20px;">
       <div class="card" style="border-top: 5px solid var(--accent-blue);">
-        <h3>Q1: List names of group 9AB</h3>
-        <code style="display:block; background:var(--bg); padding:10px; border-radius:5px; font-family:monospace; color:var(--text);">SELECT first_name, surname<br>FROM students<br>WHERE group = '9AB'</code>
+        <h3>Q1: List names of form 9AB</h3>
+        <code style="display:block; background:var(--bg); padding:10px; border-radius:5px; font-family:monospace; color:var(--text);">SELECT first_name, surname<br>FROM students<br>WHERE form = '9AB'</code>
         <p style="margin-top: 10px;"><strong>Result:</strong></p>
         <ul>
           <li>Aisha Khan</li>
@@ -4619,14 +4620,14 @@ const contentData = {
         </ul>
       </div>
       <div class="card" style="border-top: 5px solid var(--accent-blue);">
-        <h3>Q2: List 14-year-olds, oldest surname first</h3>
+        <h3>Q2: List 14-year-olds, surnames Z to A</h3>
         <code style="display:block; background:var(--bg); padding:10px; border-radius:5px; font-family:monospace; color:var(--text);">SELECT * FROM students<br>WHERE age = 14<br>ORDER BY surname DESC</code>
         <p style="margin-top: 10px;"><strong>Result order:</strong> Smith, Park, Khan.</p>
       </div>
       <div class="card" style="border-top: 5px solid var(--accent-blue);">
-        <h3>Q3: Update Daniel's group</h3>
-        <code style="display:block; background:var(--bg); padding:10px; border-radius:5px; font-family:monospace; color:var(--text);">UPDATE students<br>SET group = '9AB'<br>WHERE student_ID = '004'</code>
-        <p style="margin-top: 10px;"><em>Daniel is moved into class 9AB. Without the WHERE clause every student would be moved.</em></p>
+        <h3>Q3: Update Daniel's form</h3>
+        <code style="display:block; background:var(--bg); padding:10px; border-radius:5px; font-family:monospace; color:var(--text);">UPDATE students<br>SET form = '9AB'<br>WHERE student_ID = '004'</code>
+        <p style="margin-top: 10px;"><em>Daniel is moved into form 9AB. Without the WHERE clause every student would be moved.</em></p>
       </div>
     </div>
 
@@ -4689,7 +4690,7 @@ const contentData = {
     </div>
 
     <h2 class="section-title">Legislation (The Law)</h2>
-    <p>There are five major laws governing computer use in the UK that you must know:</p>
+    <p>These four laws govern how computers and data are used in the UK. Creative Commons, the last card, is not a law: it is a licence creators use to give permission in advance.</p>
     <div class="card-grid">
       <div class="card" style="border-top: 5px solid var(--dark-purple);">
         <h3>Data Protection Act (2018)</h3>
@@ -4701,7 +4702,7 @@ const contentData = {
       </div>
       <div class="card" style="border-top: 5px solid var(--dark-purple);">
         <h3>Copyright, Designs & Patents Act (1988)</h3>
-        <p>Makes it illegal to copy or share intellectual property (like music, software, or ideas) without the owner's permission.</p>
+        <p>Makes it illegal to copy or share original work (like music, software, images or writing) without the owner's permission. It protects the work itself, not the idea behind it.</p>
       </div>
       <div class="card" style="border-top: 5px solid var(--accent-green);">
         <h3>Freedom of Information Act (2000)</h3>
@@ -4709,7 +4710,7 @@ const contentData = {
       </div>
       <div class="card" style="border-top: 5px solid var(--accent-green);">
         <h3>Creative Commons Licensing</h3>
-        <p>Allows owners to specify how others can use and share their work (e.g., non-commercial use only or requiring attribution).</p>
+        <p>A licence, not a law. Owners use it to say in advance how others may use and share their work (e.g., non-commercial use only or requiring attribution), within copyright law.</p>
       </div>
     </div>
 
@@ -5293,20 +5294,33 @@ answer = <span style="color:#ce9178;">"y"</span><br>
             <div class="wall-topic-card p1" onclick="startParsonsPuzzle('Basics')" style="border-left-color: var(--accent-blue);"><h3>Basics</h3></div>
             <div class="wall-topic-card p1" onclick="startParsonsPuzzle('If statements')" style="border-left-color: var(--accent-blue);"><h3>If statements</h3></div>
             <div class="wall-topic-card p1" onclick="startParsonsPuzzle('Strings')" style="border-left-color: var(--accent-blue);"><h3>Strings</h3></div>
+            <div class="wall-topic-card p1" onclick="startParsonsPuzzle('Strings part 2')" style="border-left-color: var(--accent-blue);"><h3>Strings (part 2)</h3></div>
             <div class="wall-topic-card p1" onclick="startParsonsPuzzle('Maths')" style="border-left-color: var(--accent-blue);"><h3>Maths</h3></div>
+            <div class="wall-topic-card p1" onclick="startParsonsPuzzle('Random')" style="border-left-color: var(--accent-blue);"><h3>Random</h3></div>
             <div class="wall-topic-card p1" onclick="startParsonsPuzzle('For loops')" style="border-left-color: var(--accent-blue);"><h3>For loops</h3></div>
             <div class="wall-topic-card p1" onclick="startParsonsPuzzle('While loops')" style="border-left-color: var(--accent-blue);"><h3>While loops</h3></div>
             <div class="wall-topic-card p1" onclick="startParsonsPuzzle('Lists')" style="border-left-color: var(--accent-blue);"><h3>Lists</h3></div>
+            <div class="wall-topic-card p1" onclick="startParsonsPuzzle('Numeric Arrays')" style="border-left-color: var(--accent-blue);"><h3>Numeric arrays</h3></div>
+            <div class="wall-topic-card p1" onclick="startParsonsPuzzle('2D lists')" style="border-left-color: var(--accent-blue);"><h3>2D lists</h3></div>
             <div class="wall-topic-card p1" onclick="startParsonsPuzzle('Subprograms')" style="border-left-color: var(--accent-blue);"><h3>Subprograms</h3></div>
+            <div class="wall-topic-card p1" onclick="startParsonsPuzzle('Reading and writing to a text file')" style="border-left-color: var(--accent-blue);"><h3>Text files</h3></div>
         </div>
 
         <h2 class="section-title" style="margin-top: 35px;">Challenge Mode (Faded Inputs)</h2>
         <div class="card-grid">
             <div class="wall-topic-card p1" onclick="startParsonsPuzzle('Basics', true)" style="border-left-color: var(--accent-red-text);"><h3>Basics (Hard)</h3></div>
             <div class="wall-topic-card p1" onclick="startParsonsPuzzle('If statements', true)" style="border-left-color: var(--accent-red-text);"><h3>If statements (Hard)</h3></div>
+            <div class="wall-topic-card p1" onclick="startParsonsPuzzle('Strings', true)" style="border-left-color: var(--accent-red-text);"><h3>Strings (Hard)</h3></div>
+            <div class="wall-topic-card p1" onclick="startParsonsPuzzle('Strings part 2', true)" style="border-left-color: var(--accent-red-text);"><h3>Strings (part 2) (Hard)</h3></div>
+            <div class="wall-topic-card p1" onclick="startParsonsPuzzle('Maths', true)" style="border-left-color: var(--accent-red-text);"><h3>Maths (Hard)</h3></div>
+            <div class="wall-topic-card p1" onclick="startParsonsPuzzle('Random', true)" style="border-left-color: var(--accent-red-text);"><h3>Random (Hard)</h3></div>
             <div class="wall-topic-card p1" onclick="startParsonsPuzzle('For loops', true)" style="border-left-color: var(--accent-red-text);"><h3>For loops (Hard)</h3></div>
             <div class="wall-topic-card p1" onclick="startParsonsPuzzle('While loops', true)" style="border-left-color: var(--accent-red-text);"><h3>While loops (Hard)</h3></div>
+            <div class="wall-topic-card p1" onclick="startParsonsPuzzle('Lists', true)" style="border-left-color: var(--accent-red-text);"><h3>Lists (Hard)</h3></div>
+            <div class="wall-topic-card p1" onclick="startParsonsPuzzle('Numeric Arrays', true)" style="border-left-color: var(--accent-red-text);"><h3>Numeric arrays (Hard)</h3></div>
+            <div class="wall-topic-card p1" onclick="startParsonsPuzzle('2D lists', true)" style="border-left-color: var(--accent-red-text);"><h3>2D lists (Hard)</h3></div>
             <div class="wall-topic-card p1" onclick="startParsonsPuzzle('Subprograms', true)" style="border-left-color: var(--accent-red-text);"><h3>Subprograms (Hard)</h3></div>
+            <div class="wall-topic-card p1" onclick="startParsonsPuzzle('Reading and writing to a text file', true)" style="border-left-color: var(--accent-red-text);"><h3>Text files (Hard)</h3></div>
         </div>
     </div>
 
@@ -6221,15 +6235,15 @@ function resetPageState() {
 }
 
 // Reduce a page's HTML to searchable plain text.
+// A textarea decodes every HTML entity (&mdash;, &times;, &#8209; ...) without
+// running any markup, so snippets never show raw entity names.
+const entityDecoder = document.createElement('textarea');
+
 function stripHtml(html) {
-  return html
+  entityDecoder.innerHTML = html
     .replace(/<(script|style)[\s\S]*?<\/\1>/gi, ' ')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&larr;/g, '←').replace(/&rarr;/g, '→')
-    .replace(/&lt;/g, '<').replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"').replace(/&#39;/g, "'")
-    .replace(/&amp;/g, '&')
+    .replace(/<[^>]+>/g, ' ');
+  return entityDecoder.value
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -6872,9 +6886,13 @@ function checkWallGroup() {
     selectedTiles = [];
     renderWall();
 
-    // Auto-solve 4th group
+    // Auto-solve 4th group. The delays below outlive a click away from the
+    // page, so each one checks the page is still this wall before touching it.
+    const epoch = pageEpoch;
+    const stillHere = () => epoch === pageEpoch;
     if (solvedGroups === 3) {
       setTimeout(() => {
+        if (!stillHere()) return;
         const remaining = currentWallItems.filter(i => !i.solved);
         remaining.forEach(item => {
           item.solved = true;
@@ -6882,14 +6900,16 @@ function checkWallGroup() {
         });
         solvedGroups++;
         renderWall();
-        setTimeout(startGuessingPhase, 1000);
+        setTimeout(() => { if (stillHere()) startGuessingPhase(); }, 1000);
       }, 800);
     } else if (solvedGroups === 4) {
-      setTimeout(startGuessingPhase, 1000);
+      setTimeout(() => { if (stillHere()) startGuessingPhase(); }, 1000);
     }
   } else {
     document.getElementById('wall-feedback').innerText = "Wrong! Try again.";
+    const epoch = pageEpoch;
     setTimeout(() => {
+      if (epoch !== pageEpoch) return;
       selectedTiles.forEach(t => t.div.classList.remove('selected'));
       selectedTiles = [];
       document.getElementById('wall-feedback').innerText = "";
@@ -6925,7 +6945,7 @@ function showNextConnectionGuess() {
     }
 
     container.innerHTML = `
-            <p style="color: white; margin-bottom: 15px;">What's the connection between these highlighted items?</p>
+            <p style="color: var(--text); margin-bottom: 15px;">What's the connection between these highlighted items?</p>
             <button class="mock-btn p1-btn" style="padding: 10px 20px;" onclick="revealConnection(${currentGuessIndex})">REVEAL CONNECTION</button>
         `;
   } else {
@@ -7582,25 +7602,18 @@ function runRLE() {
 }
 
 function checkFullHuffman() {
-  const sums = {
-    s6: document.getElementById('node-sum-6').value,
-    s4: document.getElementById('node-sum-4').value,
-    s3: document.getElementById('node-sum-3').value,
-    s2: document.getElementById('node-sum-2').value
-  };
-  const letters = {
-    B: document.getElementById('node-letter-B').value.toUpperCase(),
-    A: document.getElementById('node-letter-A').value.toUpperCase(),
-    E: document.getElementById('node-letter-E').value.toUpperCase(),
-    D: document.getElementById('node-letter-D').value.toUpperCase()
-  };
+  const val = id => document.getElementById(id).value.trim();
+  const sumsCorrect = val('node-sum-6') === '6' && val('node-sum-4') === '4' &&
+    val('node-sum-2a') === '2' && val('node-sum-2b') === '2';
 
-  const isCorrect = (sums.s6 == "6" && sums.s4 == "4" && sums.s3 == "3" && sums.s2 == "2") &&
-    (letters.B === "B" && letters.A === "A" && letters.E === "E" && letters.D === "D");
+  // B, A, E and D each appear once, so any arrangement of them across the
+  // four leaves is an equally valid Huffman tree.
+  const leaves = [1, 2, 3, 4].map(i => val('node-leaf-' + i).toUpperCase()).sort().join('');
+  const isCorrect = sumsCorrect && leaves === 'ABDE';
 
   const feedback = document.getElementById('huff-feedback');
   if (isCorrect) {
-    feedback.innerHTML = "<span style='color: var(--accent-green-text)'>Excellent!</span> You correctly built the tree. 'N' now has a 1-bit code, while 'E' and 'D' have 4-bit codes.";
+    feedback.innerHTML = "<span style='color: var(--accent-green-text)'>Excellent!</span> You correctly built the tree. 'N' has a 1-bit code and B, A, E and D have 3-bit codes: 2&times;1 + 4&times;3 = 14 bits, compared with 42 bits in 7-bit ASCII.";
   } else {
     feedback.innerHTML = "<span style='color: var(--accent-red-text)'>Incorrect.</span> Check your sums (add the two branches below) and letter placements.";
   }
@@ -7940,7 +7953,7 @@ const logicGateLabQuestions = [
     {
         q: "Which Boolean expression represents a circuit where A and B pass through an AND gate, and the result is passed through a NOT gate?",
         a: "Q = ¬(A . B)",
-        options: ["Q = ¬(A . B)", "Q = ¬A . ¬B", "Q = ¬A + ¬B", "Q = A . ¬B"],
+        options: ["Q = ¬(A . B)", "Q = ¬A . ¬B", "Q = ¬A . B", "Q = A . ¬B"],
         why: "This is a NAND operation — the NOT (¬) is applied after the AND."
     },
     {
@@ -8400,12 +8413,12 @@ const challengeParsonsBank = {
             code: [
                 "word = 'Algorithms'",
                 "prefix = word[<input type='text' class='parsons-input' data-answer='0'>:<input type='text' class='parsons-input' data-answer='4'>]",
-                "reversed_word = word[<input type='text' class='parsons-input' data-answer=':'>:<input type='text' class='parsons-input' data-answer=':'>:<input type='text' class='parsons-input' data-answer='-1'>]",
+                "reversed_word = word[::<input type='text' class='parsons-input' data-answer='-1'>]",
                 "print(prefix, reversed_word)"
             ],
             distractors: [
                 "prefix = word[<input type='text' class='parsons-input' data-answer='1'>:<input type='text' class='parsons-input' data-answer='4'>]",
-                "reversed_word = word[<input type='text' class='parsons-input' data-answer=':'>:<input type='text' class='parsons-input' data-answer=':'>:<input type='text' class='parsons-input' data-answer='-0'>]",
+                "reversed_word = word[<input type='text' class='parsons-input' data-answer='-1'>::]",
                 "reversed_word = word.<input type='text' class='parsons-input' data-answer='reverse'>()"
             ]
         }
@@ -8454,7 +8467,7 @@ const challengeParsonsBank = {
                 "        print('Too short!')"
             ],
             distractors: [
-                "while valid <input type='text' class='parsons-input' data-answer='=='> False:",
+                "while valid:",
                 "while valid <input type='text' class='parsons-input' data-answer='='> False:",
                 "    if pwd.<input type='text' class='parsons-input' data-answer='len'>() >= 8:"
             ]
@@ -8920,6 +8933,21 @@ document.addEventListener('keydown', ev => {
   document.addEventListener('pointercancel', cleanUp);
 })();
 
+// Treat 'x' and "x" alike, and ignore spacing around a typed answer.
+function parsonsNormalise(text) {
+    return String(text).trim().replace(/"/g, "'");
+}
+
+// A block's code as text, with each blank shown as a placeholder ('blank') so
+// two lines can be compared by shape before their typed answers are checked.
+function parsonsLineText(el, mode) {
+    const copy = el.cloneNode(true);
+    copy.querySelectorAll('.parsons-input').forEach(input => {
+        input.replaceWith(document.createTextNode(mode === 'blank' ? '□' : input.value));
+    });
+    return copy.textContent.replace(/"/g, "'").replace(/\s+$/, '');
+}
+
 function checkParsonsSolution() {
     if (parsonsSolved) return; // already paid out for this puzzle
 
@@ -8932,23 +8960,37 @@ function checkParsonsSolution() {
         feedback.style.color = "var(--accent-red)";
         return;
     }
-    
-    let isOrderCorrect = true;
-    blocks.forEach((block, index) => {
-        if (block.id !== `block-correct-${index}`) {
-            isOrderCorrect = false;
-        }
+
+    // Compare the code the student actually built with the model answer,
+    // rather than which block they used. Some distractors look identical to a
+    // correct line until their blank is filled (e.g. `units = num __ 10`), so
+    // checking block ids marked correct code wrong when the "other" copy of an
+    // identical-looking block was chosen.
+    const expected = currentParsonsPuzzle.code.map(line => {
+        const tmp = document.createElement('div');
+        tmp.innerHTML = line;
+        return tmp;
     });
 
+    let isOrderCorrect = true;
     let areInputsCorrect = true;
     const inputs = solutionZone.querySelectorAll('.parsons-input');
-    inputs.forEach(input => {
-        if (input.value.trim() !== input.dataset.answer) {
-            areInputsCorrect = false;
-            input.style.borderColor = "var(--accent-red)";
-        } else {
-            input.style.borderColor = "var(--accent-green)";
+
+    blocks.forEach((block, index) => {
+        const model = expected[index];
+        if (parsonsLineText(block, 'blank') !== parsonsLineText(model, 'blank')) {
+            isOrderCorrect = false;
+            return;
         }
+        const answers = [...model.querySelectorAll('.parsons-input')].map(i => i.dataset.answer);
+        block.querySelectorAll('.parsons-input').forEach((input, i) => {
+            if (parsonsNormalise(input.value) !== parsonsNormalise(answers[i])) {
+                areInputsCorrect = false;
+                input.style.borderColor = "var(--accent-red)";
+            } else {
+                input.style.borderColor = "var(--accent-green)";
+            }
+        });
     });
     
     if (isOrderCorrect && areInputsCorrect) {
