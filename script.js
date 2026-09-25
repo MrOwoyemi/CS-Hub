@@ -4114,7 +4114,9 @@ const contentData = {
       <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Magnetic</strong></td><td style="padding: 8px; border: 1px solid var(--border);">HDD, magnetic tape</td><td style="padding: 8px; border: 1px solid var(--border);">Cheap per GB, very large capacity</td><td style="padding: 8px; border: 1px solid var(--border);">Slow, fragile (moving parts)</td></tr>
       <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Optical</strong> <span class="spec-badge">Not examined from 2027</span></td><td style="padding: 8px; border: 1px solid var(--border);">CD, DVD, Blu-ray</td><td style="padding: 8px; border: 1px solid var(--border);">Cheap, portable, good for distribution</td><td style="padding: 8px; border: 1px solid var(--border);">Small capacity, easily scratched</td></tr>
       <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Solid State (Flash)</strong></td><td style="padding: 8px; border: 1px solid var(--border);">SSD, USB stick, SD card</td><td style="padding: 8px; border: 1px solid var(--border);">Very fast, silent, robust (no moving parts)</td><td style="padding: 8px; border: 1px solid var(--border);">More expensive per GB; limited write cycles</td></tr>
+      <tr><td style="padding: 8px; border: 1px solid var(--border);"><strong>Cloud</strong></td><td style="padding: 8px; border: 1px solid var(--border);">Google Drive, OneDrive, iCloud, Dropbox</td><td style="padding: 8px; border: 1px solid var(--border);">Access from any device, easy sharing, provider handles backups, scale capacity up or down</td><td style="padding: 8px; border: 1px solid var(--border);">Needs an internet connection; ongoing subscription cost; you rely on the provider for security and privacy</td></tr>
     </table>
+    <p style="margin-top: 10px;">Cloud storage is not a new kind of hardware: your files sit on <strong>magnetic and solid state drives</strong> in a provider's data centre, and you reach them <strong>over the internet</strong>.</p>
 
   `,
 
@@ -4388,7 +4390,32 @@ const contentData = {
     </div>
 
     <button onclick="loadContent('p2_attack_viz')" style="margin-top: 20px; margin-left:15px; padding: 10px 20px; background: var(--brand-surface); color: white; border: none; border-radius: 5px; cursor: pointer;">Visualise</button>
-    
+
+    <h3 style="margin-top: 30px; color: var(--dark-purple);">How AI Changes These Threats</h3>
+    <div class="beyond-spec">
+      <span class="spec-badge spec-badge--beyond">Beyond the spec</span>
+      <p>Attackers now use AI tools to make the threats above more convincing and easier to run at scale. The threats themselves are the same ones you need to know.</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Phishing</h3>
+          <p>AI writes fluent, personalised messages with no spelling mistakes, using details scraped from social media. "Look for bad spelling" is no longer enough: check the <strong>sender's address</strong>, <strong>hover over links</strong>, and be suspicious of <strong>urgency</strong>.</p>
+        </div>
+        <div class="card">
+          <h3>Blagging with Deepfakes</h3>
+          <p>A cloned voice or video of a boss or family member asks for money or a password. Defence: <strong>verify through a separate channel</strong> you already trust, such as calling back on a known number.</p>
+        </div>
+        <div class="card">
+          <h3>Password Guessing</h3>
+          <p>Tools learn from leaked password lists which patterns people use, so predictable choices like <code>Summer2026!</code> fall quickly. Long, unique passwords resist this.</p>
+        </div>
+        <div class="card" style="border-top: 5px solid var(--accent-green);">
+          <h3>AI on Defence</h3>
+          <p>Anti-malware and firewalls also use AI to spot <strong>unusual behaviour</strong>, such as a program suddenly encrypting many files, instead of only matching known threats.</p>
+        </div>
+      </div>
+      <span class="beyond-why">AI is not named in the AQA specification. In an exam, describe these as phishing, blagging or brute force, which are the terms that earn marks. This section is not included in quizzes or mocks.</span>
+    </div>
+
     <h2 class="section-title">3.6.2 Methods of Detecting &amp; Preventing Threats</h2>
     <div class="card-grid" style="display: flex; flex-wrap: wrap; gap: 20px; align-items: stretch;">
       <div class="card" style="flex: 1 1 100%; border-top: 5px solid var(--accent-green);">
@@ -4665,7 +4692,7 @@ const contentData = {
     <p>There are five major laws governing computer use in the UK that you must know:</p>
     <div class="card-grid">
       <div class="card" style="border-top: 5px solid var(--dark-purple);">
-        <h3>Data Protection Act (1998)</h3>
+        <h3>Data Protection Act (2018)</h3>
         <p>Controls how personal data is used by organisations. Data must be used fairly, kept secure, and not kept for longer than necessary.</p>
       </div>
       <div class="card" style="border-top: 5px solid var(--dark-purple);">
@@ -4710,6 +4737,65 @@ const contentData = {
           <li><strong>Environment:</strong> electric autonomous cars cut emissions but more vehicles increase resource use.</li>
         </ul>
       </div>
+    </div>
+
+    <h2 class="section-title">Case Study: Artificial Intelligence</h2>
+    <div class="beyond-spec">
+      <span class="spec-badge spec-badge--beyond">Beyond the spec</span>
+      <p><strong>Artificial intelligence (AI)</strong> describes systems that learn patterns from large amounts of data and use them to make predictions or create content: recommendation feeds, face recognition, chatbots and self-driving cars all work this way. Because AI raises every type of issue on this page, it is good practice for applying them.</p>
+      <div class="card-grid">
+        <div class="card" style="border-top: 5px solid var(--accent-green);">
+          <h3>Positive Impacts</h3>
+          <ul>
+            <li><strong>Health:</strong> spotting signs of disease in scans, helping doctors diagnose earlier.</li>
+            <li><strong>Accessibility:</strong> live captions, speech-to-text and translation for disabled users and language learners.</li>
+            <li><strong>Businesses:</strong> automating repetitive tasks raises productivity.</li>
+          </ul>
+        </div>
+        <div class="card" style="border-top: 5px solid var(--accent-red);">
+          <h3>Ethical Issues</h3>
+          <ul>
+            <li><strong>Bias:</strong> an AI trained on past data repeats its unfairness. A CV-screening tool trained on previous hires can reject applicants who don't match them.</li>
+            <li><strong>Accountability:</strong> when an AI decision is wrong, who is responsible: the developer, the company using it, or the user?</li>
+          </ul>
+        </div>
+        <div class="card" style="border-top: 5px solid var(--accent-blue);">
+          <h3>Legal &amp; Privacy Issues</h3>
+          <ul>
+            <li><strong>Personal data:</strong> AI is trained on huge amounts of data about people. Under the <em>Data Protection Act 2018</em> that data must be used fairly, lawfully and kept secure.</li>
+            <li><strong>Surveillance:</strong> face recognition in public places can track people without their consent.</li>
+            <li><strong>Copyright:</strong> AI trained on artists' and writers' work raises questions under the <em>Copyright, Designs &amp; Patents Act</em> about who owns the work it produces.</li>
+          </ul>
+        </div>
+        <div class="card" style="border-top: 5px solid var(--accent-yellow);">
+          <h3>Cultural &amp; Social Issues</h3>
+          <ul>
+            <li><strong>Jobs:</strong> automation replaces some roles (customer service, data entry) while creating new ones.</li>
+            <li><strong>Deepfakes:</strong> fake but realistic images, audio and video spread misinformation and make people trust what they see less.</li>
+            <li><strong>Digital divide:</strong> people without access to AI tools, or the skills to use them, fall further behind.</li>
+          </ul>
+        </div>
+        <div class="card" style="border-top: 5px solid var(--accent-green);">
+          <h3>Environmental Issues</h3>
+          <ul>
+            <li><strong>Energy:</strong> training and running large AI models uses data centres that need vast amounts of electricity, plus water for cooling.</li>
+            <li><strong>Hardware:</strong> demand for specialist chips uses raw materials and adds to e-waste.</li>
+            <li><strong>But:</strong> AI can also cut energy use, for example by balancing power grids.</li>
+          </ul>
+        </div>
+      </div>
+
+      <details class="card" style="margin-top: 20px;">
+        <summary style="cursor: pointer; font-weight: 700;">Practice: plan an answer using the 3-step structure</summary>
+        <p style="margin-top: 12px;"><em>"A supermarket installs AI face recognition cameras to identify known shoplifters. Discuss the impacts."</em></p>
+        <ol>
+          <li><strong>Issues:</strong> privacy (customers filmed and identified), ethical (bias if the system misidentifies some groups more often), legal (Data Protection Act 2018).</li>
+          <li><strong>Stakeholders:</strong> customers, staff, the supermarket, people wrongly flagged.</li>
+          <li><strong>Balance:</strong> fewer thefts and safer staff, against customers' loss of privacy and the harm of being wrongly accused.</li>
+        </ol>
+      </details>
+
+      <span class="beyond-why">AI is not named in the AQA specification, so you won't be asked about it by name. It's here to practise applying the issues and stakeholders above to a new technology, which is what impact questions ask you to do. It is not included in quizzes or mocks.</span>
     </div>
 
     <h2 class="section-title">Exam Tip: Structuring Impact Answers</h2>

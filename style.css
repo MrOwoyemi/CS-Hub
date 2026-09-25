@@ -6,6 +6,8 @@
   --accent-green: #10b981;
   --accent-red: #ef4444;
   --accent-yellow: #f59e0b;
+  /* #7c3aed keeps white badge text at 5.7:1. */
+  --accent-violet: #7c3aed;
   --bg: #f0f4f8;
   --card-bg: #ffffff;
   --text: #1e293b;
@@ -2407,7 +2409,8 @@ body.dark-mode .exam-card {
   .card,
   .homework-box,
   .topic-section,
-  .spec-removed {
+  .spec-removed,
+  .beyond-spec {
     box-shadow: none !important;
     border: 1px solid #999 !important;
     break-inside: avoid;
@@ -2589,6 +2592,33 @@ body.dark-mode .exam-card {
 
 .spec-removed > .spec-badge {
   margin-bottom: 10px;
+}
+
+/* Beyond the spec: enrichment AQA does not name. Same shape as the removed
+   badge, in violet so the two never read as the same warning. */
+.spec-badge--beyond {
+  background: var(--accent-violet);
+  color: #ffffff;
+}
+
+.beyond-spec {
+  border-left: 4px solid var(--accent-violet);
+  background: rgba(124, 58, 237, 0.07);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  margin: 18px 0;
+}
+
+.beyond-spec > .spec-badge {
+  margin-bottom: 10px;
+}
+
+.beyond-spec .beyond-why {
+  display: block;
+  margin-top: 14px;
+  font-size: var(--step--1);
+  color: var(--text-light);
+  font-style: italic;
 }
 
 /* ------------------------------------------------------------------
